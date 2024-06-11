@@ -12,7 +12,7 @@ export default function Navbar() {
   };
   return (
     <>
-      <nav className="h-[10vh] w-full flex justify-evenly gap-7 mt-10   items-center bg-gray-950">
+      <nav className="h-[10vh] w-full flex justify-evenly gap-7 mt-10   items-center bg-gray-950 text-white">
         <div className=" flex ">
           <h1 className=" font-bold tracking-wider text-3xl">Portfolio</h1>
           <span className=" h-3 w-3 rounded-full bg-orange-600 relative top-[18px] left-[3px]"></span>
@@ -63,7 +63,7 @@ export default function Navbar() {
       <div
         className={`${
           mobilemenu ? "hidden" : "flex"
-        } sm:hidden flex-col h-[40vh] w-[40vw] absolute left-[55vw] bg-gray-900 opacity-90 top-[120px] items-center justify-around   ease-in-out z-20 rounded-lg `}
+        } sm:hidden flex-col text-white h-[40vh] w-[40vw] absolute left-[55vw] bg-gray-900 opacity-90 top-[120px] items-center justify-around   ease-in-out z-20 rounded-lg `}
       >
         <Link
           href={"/"}
