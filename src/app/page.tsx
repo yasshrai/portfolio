@@ -5,12 +5,16 @@ import { Kanit } from "next/font/google";
 const kanit = Kanit({ subsets: ["latin"], weight: "800" });
 export default function Home() {
   return (
-    <main className=" flex flex-col md:flex-row w-full h-[70vh] md:h-full sm:mt-0 mt-10  md:justify-evenly md:pt-[10vh] bg-gray-950 items-center justify-evenly gap-5 ">
+    <main className=" flex flex-col md:flex-row w-screen h-[80vh] sm:h-[85vh]  sm:mt-4 md:mt-0 mt-10  md:justify-evenly md:pt-[10vh] bg-gray-950 items-center justify-evenly gap-5 ">
       <div className=" flex justify-center items-center flex-col gap-2 text-center ">
-        <h1 className={`text-2xl md:text-4xl font-bold ${kanit.className}`}>
+        <h1
+          className={`text-2xl md:text-4xl font-bold text-white ${kanit.className}`}
+        >
           Hi, I&apos;m Yash Rai👋
         </h1>
-        <h2 className={`text-2xl md:text-4xl font-bold ${kanit.className}`}>
+        <h2
+          className={`text-2xl md:text-4xl font-bold text-white ${kanit.className}`}
+        >
           a self-taught programmer
         </h2>
       </div>
