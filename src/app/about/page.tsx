@@ -4,8 +4,8 @@ import aboutpagesecond from "@/app/assets/aboutsecondsection.png";
 
 export default function about() {
   return (
-    <div className=" bg-gray-950 md:h-[160vh] h-[260vh] flex flex-col items-start justify-center gap-20 md:gap-3">
-      <section className=" h-[80vh] w-full flex items-center justify-center gap-5 ">
+    <div className=" bg-gray-950 md:h-[160vh] h-[200vh] flex flex-col items-start justify-center  ">
+      <section className=" h-[80vh]  flex items-center justify-center gap-5  ">
         <div className=" flex flex-col md:flex-row items-center justify-center">
           <div className="w-[50%] flex flex-col gap-5">
             <h1 className=" text-4xl font-bold text-center text-white">
@@ -18,17 +18,18 @@ export default function about() {
               push the boundaries of what&apos;s possible through technology.
             </p>
           </div>
-          <div className="">
+          <div>
             <Image
               src={aboutpageimg}
               height={500}
               width={500}
               alt="image"
+              className=" h-[300px] w-[300px] md:h-[500px] md:w-[500px]"
             ></Image>
           </div>
         </div>
       </section>
-      <section className=" h-[80vh] w-full flex items-center justify-center mx-auto mt-28">
+      <section className=" h-[80vh] w-full flex items-center justify-center mx-auto ">
         <div className=" flex flex-col-reverse md:flex-row items-center justify-center gap-5 ">
           <div className="">
             <Image
@@ -36,7 +37,7 @@ export default function about() {
               height={400}
               width={400}
               alt="image"
-              className=" rounded-full"
+              className=" rounded-full  h-[300px] w-[300px] md:h-[400px] md:w-[400px]"
             ></Image>
           </div>
           <div className="w-[50%] flex flex-col gap-5">
