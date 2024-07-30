@@ -30,7 +30,7 @@ export default function about() {
         </div>
       </section>
       <section className=" h-[80vh] w-full flex items-center justify-center mx-auto ">
-        <div className=" flex flex-col-reverse md:flex-row items-center justify-center gap-5 ">
+        <div className=" flex flex-col-reverse md:flex-row items-center justify-center gap-5 mt-28 ">
           <div className="">
             <Image
               src={aboutpagesecond}
