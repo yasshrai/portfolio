@@ -10,10 +10,7 @@ export default function Navbar() {
   const handleChange = () => {
     setMobilemenu(!mobilemenu);
   };
-  const handleContactClick = () => {
-    window.location.href =
-      "mailto:yash2154rai@gmail.com?subject=Contact%20Request&body=Hello,%20I%20would%20like%20to%20get%20in%20touch%20with%20you.";
-  };
+
   return (
     <>
       <nav className="h-[15vh] w-full sticky top-0 p-5 z-10 flex justify-evenly gap-7 pt-10  items-center bg-gray-950 text-white">
@@ -48,11 +45,18 @@ export default function Navbar() {
           </Link>
         </ul>
         <button
-          onClick={handleContactClick}
-          className=" hidden sm:block h-9 w-24 bg-orange-500 hover:bg-orange-800   rounded-lg  font-semibold transition duration-300 ease-in-out "
+          type="button"
+          className="hidden sm:block h-9 w-24 bg-orange-500 hover:bg-orange-800 rounded-lg font-semibold transition duration-300 ease-in-out"
         >
-          Contact Me
+          <a
+            href="/yashrai_resume.pdf"
+            download
+            className="w-full h-full flex items-center justify-center"
+          >
+            Resume
+          </a>
         </button>
+
         {mobilemenu ? (
           <GiHamburgerMenu
             className=" block sm:hidden text-white text-3xl hover:cursor-pointer"
@@ -102,11 +106,18 @@ export default function Navbar() {
         >
           Projects
         </Link>
+
         <button
-          className=" bg-orange-500 h-full w-full hover:rounded-lg  hover:bg-orange-800  rounded-lg  flex items-center justify-center font-semibold transition duration-300 ease-in-out "
-          onClick={handleContactClick}
+          type="button"
+          className=" bg-orange-500 h-full w-full hover:rounded-lg  hover:bg-orange-800  rounded-lg  flex items-center justify-center font-semibold transition duration-300 ease-in-out"
         >
-          Contact Me
+          <a
+            href="/yashrai_resume.pdf"
+            download
+            className="w-full h-full flex items-center justify-center"
+          >
+            Resume
+          </a>
         </button>
       </div>
     </>

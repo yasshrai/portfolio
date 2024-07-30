@@ -1,6 +1,8 @@
 import Image from "next/image";
 import aboutpageimg from "@/app/assets/aboutpage.png";
 import aboutpagesecond from "@/app/assets/aboutsecondsection.png";
+import Link from "next/link";
+import { Instagram, Linkedin, Twitter, Mail } from "lucide-react";
 
 export default function about() {
   return (
@@ -47,7 +49,7 @@ export default function about() {
             <p className=" text-left text-lg text-white">
               My vision is to leverage my skills in software engineering to
               create impactfull projects that makes a difference in
-              people&apos;s lives. I strive to develop intuitive applications.
+              people&apos;s lives. I strive to develop intuitive applications,
               stay ahead of technological advancements, collaborate with
               like-minded individuals and continuously learn to ensure my skills
               remain sharp.
@@ -55,6 +57,46 @@ export default function about() {
           </div>
         </div>
       </section>
+      <div className="relative w-full h-[15vh] bg-gray-950 bottom-0 flex flex-row items-center justify-evenly ">
+        <div className=" flex flex-row gap-10">
+          <div className="  hover:underline hover:text-blue-500 text-white">
+            <Link
+              href={"https://www.instagram.com/yasshrai"}
+              className="flex flex-row gap-2"
+            >
+              <Instagram></Instagram>{" "}
+              <p className="hidden md:block">Instagram</p>
+            </Link>
+          </div>
+          <div className="hover:underline hover:text-blue-500 text-white">
+            <Link
+              href={"https://linkedin.com/in/yasshrai"}
+              className="flex flex-row gap-2"
+            >
+              <Linkedin></Linkedin>
+              <p className="hidden md:block">LinkedIn</p>
+            </Link>
+          </div>
+          <div className=" hover:underline hover:text-blue-500 text-white">
+            <Link
+              href={"https://x.com/yasshraii"}
+              className="flex flex-row gap-2"
+            >
+              <Twitter></Twitter>
+              <p className="hidden md:block">Twitter</p>
+            </Link>
+          </div>
+          <div className="hover:underline hover:text-blue-500 text-white">
+            <a
+              href="mailto:yash2154rai@gmail.com"
+              className="flex flex-row gap-2"
+            >
+              {" "}
+              <Mail></Mail> <p className="hidden md:block">Mail</p>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
