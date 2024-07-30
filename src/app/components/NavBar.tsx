@@ -43,8 +43,8 @@ export default function Navbar() {
             Projects
           </Link>
         </ul>
-        <button className=" hidden sm:block h-9 w-20 bg-orange-500 hover:bg-orange-800  rounded-lg  font-semibold transition duration-300 ease-in-out ">
-          Hire Me
+        <button className=" hidden sm:block h-9 w-24 bg-orange-500 hover:bg-orange-800   rounded-lg  font-semibold transition duration-300 ease-in-out ">
+          Contact Me
         </button>
         {mobilemenu ? (
           <GiHamburgerMenu
@@ -63,7 +63,7 @@ export default function Navbar() {
       <div
         className={`${
           mobilemenu ? "hidden" : "flex"
-        } sm:hidden flex-col text-white h-[40vh] w-[40vw] absolute left-[55vw] bg-gray-900 opacity-90 top-[120px] items-center justify-around   ease-in-out z-20 rounded-lg `}
+        } sm:hidden flex-col text-white h-[40vh] w-[40vw] absolute left-[55vw] bg-gray-900 opacity-100 top-[120px] items-center justify-around   ease-in-out z-20 rounded-lg `}
       >
         <Link
           href={"/"}
@@ -101,7 +101,7 @@ export default function Navbar() {
           className=" bg-orange-500 h-full w-full hover:rounded-lg  hover:bg-orange-800  rounded-lg  flex items-center justify-center font-semibold transition duration-300 ease-in-out "
           onClick={handleChange}
         >
-          Hire Me
+          Contact Me
         </Link>
       </div>
     </>

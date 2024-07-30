@@ -8,7 +8,7 @@ export default function project() {
   return (
     <div className="bg-gray-950 h-[240vh] md:h-[79vh] w-full ">
       <div className="flex flex-col md:flex-row  justify-center md:gap-5 md:p-5 gap-20 mt-10 items-center ">
-        <div className="card bg-base-100 w-80 md:w-96 h-[30rem] md:h-[28rem] shadow-xl">
+        <div className="card bg-base-100 w-80 md:w-96 h-[30rem] md:h-[28rem] shadow-2xl">
           <figure>
             <Image src={chatappimage} alt="chatapp" />
           </figure>
@@ -28,7 +28,7 @@ export default function project() {
             </div>
           </div>
         </div>
-        <div className="card bg-base-100 w-80 md:w-96  h-[30rem]  md:h-[28rem] shadow-xl">
+        <div className="card bg-base-100 w-80 md:w-96  h-[30rem]  md:h-[28rem] shadow-2xl">
           <figure>
             <Image src={bookstorebg} alt="book" />
           </figure>
@@ -49,7 +49,7 @@ export default function project() {
             </div>
           </div>
         </div>
-        <div className="card bg-base-100 w-80 md:w-96  h-[30rem]  md:h-[28rem] shadow-xl">
+        <div className="card bg-base-100 w-80 md:w-96  h-[30rem]  md:h-[28rem] shadow-2xl">
           <figure>
             <Image src={adminpanelbg} alt="adminpanel" />
           </figure>
