@@ -4,7 +4,7 @@ import aboutpagesecond from "@/app/assets/aboutsecondsection.png";
 
 export default function about() {
   return (
-    <div className=" bg-gray-950 md:h-[160vh] h-[200vh] flex flex-col items-start justify-center  ">
+    <div className=" bg-gray-950 md:h-[160vh] h-[220vh] flex flex-col items-start justify-center  ">
       <section className=" h-[80vh]  flex items-center justify-center gap-5  ">
         <div className=" flex flex-col md:flex-row items-center justify-center">
           <div className="w-[50%] flex flex-col gap-5">
@@ -29,7 +29,7 @@ export default function about() {
           </div>
         </div>
       </section>
-      <section className=" h-[80vh] w-full flex items-center justify-center mx-auto mt-28 md:mt-4">
+      <section className=" h-[80vh] w-full flex items-center justify-center mx-auto mt-36 md:mt-4">
         <div className=" flex flex-col-reverse md:flex-row items-center justify-center gap-5 ">
           <div className="">
             <Image
