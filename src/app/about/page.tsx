@@ -95,7 +95,7 @@ export default function about() {
         </section>
       </div>
 
-      <div className="relative w-full h-[15vh] bg-gray-950 bottom-0 flex flex-row items-center justify-evenly gap-1 ">
+      <div className="relative w-full h-[15vh] bg-gray-950 bottom-0 flex flex-col md:flex-row items-center justify-evenly gap-1 ">
         <h1 className=" text-white font-bold text-xl">Connect with me</h1>
         <div className=" flex flex-row gap-10">
           <div className="  hover:underline hover:text-blue-500 text-white">
