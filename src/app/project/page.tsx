@@ -20,11 +20,13 @@ export default function project() {
               UI updates.
             </p>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">
-                <Link href="https://chatapp-project-57sf.onrender.com">
-                  <p>project link</p>
-                </Link>
-              </button>
+              <a
+                href="https://chatapp-project-57sf.onrender.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="btn btn-primary">Project Link</button>
+              </a>
             </div>
           </div>
         </div>
@@ -41,11 +43,13 @@ export default function project() {
               updates.
             </p>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">
-                <Link href="https://github.com/yash2154/Bookstore">
-                  <p>project link</p>
-                </Link>
-              </button>
+              <a
+                href="https://github.com/yash2154/Bookstore"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="btn btn-primary">Project Link</button>
+              </a>
             </div>
           </div>
         </div>
@@ -62,11 +66,13 @@ export default function project() {
               real-time updates.
             </p>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">
-                <Link href=" https://college-admin-panel.vercel.app/login">
-                  <p>project link</p>
-                </Link>
-              </button>
+              <a
+                href="https://collegeadminpanel.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="btn btn-primary">Project Link</button>
+              </a>
             </div>
           </div>
         </div>
