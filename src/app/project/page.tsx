@@ -44,7 +44,7 @@ export default function project() {
             </p>
             <div className="card-actions justify-end">
               <a
-                href="https://github.com/yash2154/Bookstore"
+                href="https://bookstore-frontend-76df.onrender.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
