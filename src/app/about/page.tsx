@@ -2,7 +2,7 @@ import Image from "next/image";
 import aboutpageimg from "@/app/assets/aboutpage.png";
 import aboutpagesecond from "@/app/assets/aboutsecondsection.png";
 import Link from "next/link";
-import { Instagram, Linkedin, Twitter, Mail } from "lucide-react";
+import { Instagram, Linkedin, Twitter, Mail, Github } from "lucide-react";
 import education from "@/app/assets/education.png";
 
 export default function about() {
@@ -133,6 +133,15 @@ export default function about() {
               {" "}
               <Mail></Mail> <p className="hidden md:block">Mail</p>
             </a>
+          </div>
+          <div className=" hover:underline hover:text-blue-500 text-white">
+            <Link
+              href={"https://github.com/yash2154"}
+              className="flex flex-row gap-2"
+            >
+              <Github></Github>
+              <p className="hidden md:block">GitHub</p>
+            </Link>
           </div>
         </div>
       </div>
