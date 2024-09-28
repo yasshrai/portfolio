@@ -12,7 +12,7 @@ export default function project() {
           <figure>
             <Image src={chatappimage} alt="chatapp" />
           </figure>
-          <div className="card-body">
+          <div className="card-body bg-neutral-900">
             <h2 className="card-title">Chat Application</h2>
             <p>
               A chat app built with the MongoDB, Express.js, React, Node.js
@@ -34,7 +34,7 @@ export default function project() {
           <figure>
             <Image src={bookstorebg} alt="book" />
           </figure>
-          <div className="card-body">
+          <div className="card-body bg-neutral-900">
             <h2 className="card-title">Book Store</h2>
             <p>
               A bookstore inventory management system built with the MERN stack
@@ -57,7 +57,7 @@ export default function project() {
           <figure>
             <Image src={adminpanelbg} alt="adminpanel" />
           </figure>
-          <div className="card-body">
+          <div className="card-body bg-neutral-900">
             <h2 className="card-title">College Admin Panel</h2>
             <p>
               A college admin panel built with Next.js and Express.js provides a

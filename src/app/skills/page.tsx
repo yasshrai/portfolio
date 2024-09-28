@@ -1,7 +1,7 @@
 import Link from "next/link";
-import frontendimg from "@/app/assets/frontend.png";
-import backendimg from "@/app/assets/backend.png";
-import databaseimg from "@/app/assets/database.webp";
+import frontendimg from "@/app/assets/frontendimg.jpg";
+import backendimg from "@/app/assets/backendimg.jpg";
+import databaseimg from "@/app/assets/databaseimg.jpg";
 import Image from "next/image";
 
 export default function Skills() {
@@ -12,16 +12,16 @@ export default function Skills() {
           <figure>
             <Image src={frontendimg} alt="frontend" />
           </figure>
-          <div className="card-body">
+          <div className="card-body bg-neutral-900">
             <h2 className="card-title">Frontend Development</h2>
-            <p>HTML, CSS, JavaScript, ReactJS, NextJS, Redux</p>
+            <p>HTML, CSS, JavaScript, ReactJS, NextJS, Redux, TypeScipt</p>
           </div>
         </div>
         <div className="card bg-base-100 w-80 md:w-96  h-[30rem]  md:h-[28rem] shadow-2xl">
           <figure>
             <Image src={backendimg} alt="backend" />
           </figure>
-          <div className="card-body">
+          <div className="card-body bg-neutral-900">
             <h2 className="card-title">Backend Development</h2>
             <p>Python, NodeJS, FastAPI, ExpressJS, C++</p>
           </div>
@@ -30,9 +30,9 @@ export default function Skills() {
           <figure>
             <Image src={databaseimg} alt="database" />
           </figure>
-          <div className="card-body ">
+          <div className="card-body bg-neutral-900 ">
             <h2 className="card-title">Database and Version control</h2>
-            <p>Git, Github, MongoDB, MySQL</p>
+            <p>Git, Github, MongoDB, MySQL, Docker</p>
           </div>
         </div>
       </div>
