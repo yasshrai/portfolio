@@ -12,7 +12,7 @@ export default function Skills() {
           <figure>
             <Image src={frontendimg} alt="frontend" />
           </figure>
-          <div className="card-body bg-neutral-900">
+          <div className="card-body bg-neutral-900 text-white">
             <h2 className="card-title">Frontend Development</h2>
             <p>HTML, CSS, JavaScript, ReactJS, NextJS, Redux, TypeScipt</p>
           </div>
@@ -21,7 +21,7 @@ export default function Skills() {
           <figure>
             <Image src={backendimg} alt="backend" />
           </figure>
-          <div className="card-body bg-neutral-900">
+          <div className="card-body bg-neutral-900 text-white">
             <h2 className="card-title">Backend Development</h2>
             <p>Python, NodeJS, FastAPI, ExpressJS, C++</p>
           </div>
@@ -30,7 +30,7 @@ export default function Skills() {
           <figure>
             <Image src={databaseimg} alt="database" />
           </figure>
-          <div className="card-body bg-neutral-900 ">
+          <div className="card-body bg-neutral-900 text-white ">
             <h2 className="card-title">Database and Version control</h2>
             <p>Git, Github, MongoDB, MySQL, Docker</p>
           </div>
