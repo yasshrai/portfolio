@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${kanit.className} bg-gray-950 w-full h-full`}>
+      <body className={`${kanit.className} bg-zinc-950 w-full h-full`}>
         <Navbar></Navbar>
         {children}
       </body>

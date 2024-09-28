@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Skills() {
   return (
-    <div className="bg-gray-950 h-[240vh] md:h-[79vh] w-full ">
+    <div className="bg-zinc-950 h-[240vh] md:h-[79vh] w-full ">
       <div className="flex flex-col md:flex-row  justify-center md:gap-5 md:p-5 gap-20 mt-10 items-center ">
         <div className="card bg-base-100 w-80 md:w-96 h-[30rem] md:h-[28rem] shadow-2xl">
           <figure>

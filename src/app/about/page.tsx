@@ -8,7 +8,7 @@ import education from "@/app/assets/education.png";
 export default function about() {
   return (
     <>
-      <div className=" bg-gray-950 md:h-[200vh] h-[430vh] flex flex-col items-start justify-center ">
+      <div className=" bg-zinc-950 md:h-[200vh] h-[430vh] flex flex-col items-start justify-center ">
         <section className=" h-[80vh]  flex items-center justify-center gap-5 relative top-[-30rem] md:static ">
           <div className=" flex flex-col md:flex-row items-center justify-center">
             <div className="w-[50%] flex flex-col gap-5">
@@ -95,7 +95,7 @@ export default function about() {
         </section>
       </div>
 
-      <div className="relative w-full h-[15vh] bg-gray-950 bottom-0 flex flex-col md:flex-row items-center justify-evenly gap-1 ">
+      <div className="relative w-full h-[15vh] bg-zinc-950 bottom-0 flex flex-col md:flex-row items-center justify-evenly gap-1 ">
         <h1 className=" text-white font-bold text-xl">Connect with me</h1>
         <div className=" flex flex-row gap-10">
           <div className="  hover:underline hover:text-blue-500 text-white">
