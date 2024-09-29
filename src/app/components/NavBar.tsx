@@ -18,7 +18,7 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100 }}
-        className="h-[15vh] w-full sticky top-0 p-5 z-10 flex justify-evenly gap-7 pt-10  items-center bg-zinc-950 text-white"
+        className="h-[15vh]  sticky top-0  z-10 flex  pt-10  items-center justify-center gap-[150px] bg-zinc-950 text-white"
       >
         <motion.div
           initial={{ opacity: 0 }}
