@@ -136,7 +136,7 @@ export default function about() {
           </div>
           <div className=" hover:underline hover:text-blue-500 text-white">
             <Link
-              href={"https://github.com/yash2154"}
+              href={"https://github.com/yasshrai"}
               className="flex flex-row gap-2"
             >
               <Github></Github>
