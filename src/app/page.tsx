@@ -72,9 +72,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="py-16 px-4 md:px-8 bg-zinc-950"
+        className="py-16 px-4 md:px-8 bg-zinc-950 w-screen"
       >
-        <div className="max-w-4xl w-screen mx-auto text-center">
+        <div className="max-w-4xl w-[90vw] mx-auto text-center">
           <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${kanit.className}`}>Welcome to My Digital Space</h2>
           <p className="text-lg mb-8 text-zinc-400">
             I&apos;mm passionate about creating innovative solutions and pushing the boundaries of technology. 
@@ -92,9 +92,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.7 }}
-        className="py-16 px-4 md:px-8 bg-zinc-950"
+        className="py-16 px-4 md:px-8 bg-zinc-950 w-screen"
       >
-        <div className="max-w-4xl w-screen mx-auto">
+        <div className=" w-[90vw] mx-auto">
           <h2 className={`text-3xl md:text-4xl font-bold mb-8 text-center ${kanit.className}`}>My Expertise</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-zinc-900 p-6 rounded-lg text-center hover:bg-zinc-800 transition-colors">
@@ -126,9 +126,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.9 }}
-        className="py-16 px-4 md:px-8 bg-zinc-900"
+        className="py-16 px-4 md:px-8 bg-zinc-900 w-screen"
       >
-        <div className="max-w-4xl w-screen mx-auto text-center">
+        <div className=" w-[90vw] mx-auto text-center">
           <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${kanit.className}`}>Let&apos;s Create Something Amazing</h2>
           <p className="text-lg mb-8 text-zinc-400">
             I&apos;m always open to new opportunities, collaborations, and exciting projects. 
@@ -142,4 +142,3 @@ export default function Home() {
     </main>
   );
 }
-
