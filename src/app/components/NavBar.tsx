@@ -105,7 +105,7 @@ export default function Navbar() {
             transition={{ type: "spring", stiffness: 100 }}
             className={`${
               mobilemenu ? "hidden" : "flex"
-            } sm:hidden flex-col text-white h-[40vh] w-[40vw] fixed left-[55vw]  bg-gray-900 opacity-100 top-[120px] items-center justify-around   ease-in-out z-20 rounded-lg `}
+            } sm:hidden flex-col text-white h-[40vh] w-[40vw] fixed left-[55vw]  bg-zinc-900 opacity-100 top-[120px] items-center justify-around   ease-in-out z-20 rounded-lg `}
           >
             <Link
               href={"/"}
