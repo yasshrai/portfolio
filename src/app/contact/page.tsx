@@ -46,7 +46,7 @@ export default function ContactPage() {
       <h1 className="text-3xl font-bold mb-6 text-center">Contact Me</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium mb-1">Name</label>
+          <label htmlFor="name" className="block text-sm font-bold mb-1">Name</label>
           <input
             type="text"
             id="name"
@@ -57,7 +57,7 @@ export default function ContactPage() {
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
+          <label htmlFor="email" className="block text-sm font-bold mb-1">Email</label>
           <input
             type="email"
             id="email"
@@ -68,7 +68,7 @@ export default function ContactPage() {
           />
         </div>
         <div>
-          <label htmlFor="message" className="block text-sm font-medium mb-1">Message</label>
+          <label htmlFor="message" className="block text-sm font-bold mb-1">Message</label>
           <textarea
             id="message"
             value={message}
