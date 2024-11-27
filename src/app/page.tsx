@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="flex flex-col w-screen min-h-screen bg-zinc-950 text-white">
       {/* Hero Section */}
-      <section className="flex flex-col md:flex-row w-screen h-[80vh] sm:h-[85vh] sm:mt-4 md:mt-0 mt-10 md:justify-evenly md:pt-[10vh] items-center justify-evenly gap-5">
+      <section className="flex flex-col md:flex-row w-screen min-h-[90vh] sm:mt-4 md:mt-0 mt-10 md:justify-center items-center justify-evenly gap-8 py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -22,18 +22,29 @@ export default function Home() {
           className="flex justify-center items-center flex-col gap-2 text-center"
         >
           <motion.h1
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className={`text-5xl md:text-7xl font-bold mb-6 ${kanit.className}`}
+          >
+            <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">
+              Welcome
+            </span>
+            <span className="block text-3xl md:text-5xl mt-2 text-zinc-400">to my digital realm</span>
+          </motion.h1>
+          <motion.h2
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className={`text-2xl md:text-4xl font-bold text-white ${kanit.className}`}
           >
             Hi, I&apos;m Yash Rai👋
-          </motion.h1>
+          </motion.h2>
 
           <motion.h2
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
             className={`text-2xl md:text-4xl font-bold text-white ${kanit.className}`}
           >
             <Typewriter
@@ -41,6 +52,9 @@ export default function Home() {
               onInit={(typewriter) => {
                 typewriter
                   .typeString("a self-taught programmer")
+                  .pauseFor(2500)
+                  .deleteAll()
+                  .typeString("a software engineer")
                   .pauseFor(2500)
                   .deleteAll()
                   .typeString("a full-stack developer")
@@ -77,7 +91,7 @@ export default function Home() {
         <div className="max-w-4xl w-[90vw] mx-auto text-center">
           <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${kanit.className}`}>Welcome to My Digital Space</h2>
           <p className="text-lg mb-8 text-zinc-400">
-            I&apos;mm passionate about creating innovative solutions and pushing the boundaries of technology. 
+            I&apos;m passionate about creating innovative solutions and pushing the boundaries of technology. 
             With a strong foundation in full-stack development and a never-ending curiosity, 
             I&apos;m always excited to take on new challenges and learn cutting-edge technologies.
           </p>
@@ -142,3 +156,4 @@ export default function Home() {
     </main>
   );
 }
+
