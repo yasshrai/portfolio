@@ -6,13 +6,14 @@ import { Kanit } from "next/font/google";
 import Typewriter from "typewriter-effect";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Code, Briefcase, User } from 'lucide-react';
+import { ArrowRight, Code, Briefcase, User, Download } from 'lucide-react';
 
 const kanit = Kanit({ subsets: ["latin"], weight: "800" });
 
 export default function Home() {
   return (
     <main className="flex flex-col w-screen min-h-screen bg-zinc-950 text-white">
+
       {/* Hero Section */}
       <section className="flex flex-col md:flex-row w-screen min-h-[90vh] sm:mt-4 md:mt-0 mt-10 md:justify-center items-center justify-evenly gap-8 py-12">
         <motion.div
@@ -54,9 +55,6 @@ export default function Home() {
                   .typeString("a self-taught programmer")
                   .pauseFor(2500)
                   .deleteAll()
-                  .typeString("a software engineer")
-                  .pauseFor(2500)
-                  .deleteAll()
                   .typeString("a full-stack developer")
                   .pauseFor(2500)
                   .deleteAll()
@@ -66,6 +64,15 @@ export default function Home() {
               }}
             />
           </motion.h2>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+          >
+            <Link href="/yashrai_resume.pdf" download={true} className="inline-flex items-center px-6 py-3 mt-6 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-colors">
+              Download CV <Download className="ml-2" size={20} />
+            </Link>
+          </motion.div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -86,7 +93,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="py-16 px-4 md:px-8 bg-zinc-950 w-screen"
+        className="py-16 px-4 md:px-8 w-screen"
       >
         <div className="max-w-4xl w-[90vw] mx-auto text-center">
           <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${kanit.className}`}>Welcome to My Digital Space</h2>
@@ -106,9 +113,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.7 }}
-        className="py-16 px-4 md:px-8 bg-zinc-950 w-screen"
+        className="py-16 px-4 md:px-8 w-screen"
       >
-        <div className=" w-[90vw] mx-auto">
+        <div className="w-[90vw] mx-auto">
           <h2 className={`text-3xl md:text-4xl font-bold mb-8 text-center ${kanit.className}`}>My Expertise</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-zinc-900 p-6 rounded-lg text-center hover:bg-zinc-800 transition-colors">
@@ -142,13 +149,13 @@ export default function Home() {
         transition={{ duration: 0.8, delay: 0.9 }}
         className="py-16 px-4 md:px-8 bg-zinc-900 w-screen"
       >
-        <div className=" w-[90vw] mx-auto text-center">
+        <div className="w-[90vw] mx-auto text-center">
           <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${kanit.className}`}>Let&apos;s Create Something Amazing</h2>
           <p className="text-lg mb-8 text-zinc-400">
             I&apos;m always open to new opportunities, collaborations, and exciting projects. 
             Whether you have a specific idea in mind or just want to connect, I&apos;d love to hear from you!
           </p>
-          <Link href="/contact" className="inline-flex items-center px-8 py-4 bg-zinc-950 text-white rounded-full hover:bg-zinc-900 transition-colors font-bold">
+          <Link href="/contact" className="inline-flex items-center px-8 py-4 bg-zinc-950 text-white rounded-full hover:bg-zinc-800 transition-colors font-bold">
             Get In Touch <ArrowRight className="ml-2" />
           </Link>
         </div>

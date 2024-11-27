@@ -67,13 +67,12 @@ export default function Navbar() {
           type="button"
           className="hidden sm:block h-9 w-24 bg-orange-500 hover:bg-orange-800 rounded-lg font-semibold transition duration-300 ease-in-out"
         >
-          <a
-            href="/yashrai_resume.pdf"
-            download
+          <Link
+            href="/contact"
             className="w-full h-full flex items-center justify-center"
           >
-            Resume
-          </a>
+            contact
+          </Link>
         </motion.button>
 
         <motion.div
@@ -142,13 +141,12 @@ export default function Navbar() {
               type="button"
               className=" bg-orange-500 h-full w-full hover:rounded-lg  hover:bg-orange-800  rounded-lg  flex items-center justify-center font-semibold transition duration-300 ease-in-out"
             >
-              <a
-                href="/yashrai_resume.pdf"
-                download
+              <Link
+                href="/contact"
                 className="w-full h-full flex items-center justify-center"
               >
-                Resume
-              </a>
+                contact
+              </Link>
             </button>
           </motion.div>
         )}
