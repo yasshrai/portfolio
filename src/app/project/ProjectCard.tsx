@@ -1,6 +1,13 @@
-import Image from "next/image";
+import Image ,{StaticImageData}from "next/image";
 
-export default function ProjectCard({ image, title, description, link }:any) {
+interface ProjectCardProps {
+  image: StaticImageData | string; 
+  title: string;
+  description: string; 
+  link: string; 
+}
+
+export default function ProjectCard({ image, title, description, link }:ProjectCardProps) {
   return (
     <div className="card bg-base-100 w-80 md:w-96 h-[30rem] md:h-[28rem] shadow-2xl">
       <figure>
