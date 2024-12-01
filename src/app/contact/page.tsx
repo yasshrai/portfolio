@@ -57,9 +57,9 @@ export default function ContactPage() {
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-bold mb-1 text-white">Email</label>
+          <label htmlFor="email" className="block text-sm font-bold mb-1 text-white">Email/number</label>
           <input
-            type="email"
+            type="number"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

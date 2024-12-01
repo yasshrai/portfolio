@@ -23,12 +23,12 @@ export async function POST(req: Request) {
       subject: `New message from ${name}`, // Subject of the email
       text: `
         Name: ${name}
-        Email: ${email}
+        Email/Number: ${email}
         Message: ${message}
       `,
       html: `
         <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Email/Number:</strong> ${email}</p>
         <p><strong>Message:</strong> ${message}</p>
       `,
     })
