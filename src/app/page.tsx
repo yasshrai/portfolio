@@ -121,17 +121,17 @@ export default function Home() {
         <div className="w-[90vw] mx-auto">
           <h2 className={`text-3xl md:text-4xl font-bold mb-8 text-center ${kanit.className}`}>My Expertise</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-zinc-900 p-6 rounded-lg text-center hover:bg-zinc-800 transition-colors">
+            <div className="bg-zinc-900 p-6 rounded-lg text-center hover:bg-zinc-800 transition-colors  shadow-2xl hover:outline outline-2  outline-indigo-950 hover:shadow-2xl hover:shadow-violet-950">
               <Code className="mx-auto mb-4 text-zinc-400" size={40} />
               <h3 className="text-xl font-semibold mb-2">Full-Stack Development</h3>
               <p className="text-zinc-400">Proficient in both front-end and back-end technologies</p>
             </div>
-            <div className="bg-zinc-900 p-6 rounded-lg text-center hover:bg-zinc-800 transition-colors">
+            <div className="bg-zinc-900 p-6 rounded-lg text-center hover:bg-zinc-800 transition-colors  shadow-2xl hover:outline outline-2  outline-indigo-950 hover:shadow-2xl hover:shadow-violet-950">
               <Briefcase className="mx-auto mb-4 text-zinc-400" size={40} />
               <h3 className="text-xl font-semibold mb-2">Project Management</h3>
               <p className="text-zinc-400">Experienced in leading and delivering complex projects</p>
             </div>
-            <div className="bg-zinc-900 p-6 rounded-lg text-center hover:bg-zinc-800 transition-colors">
+            <div className="bg-zinc-900 p-6 rounded-lg text-center hover:bg-zinc-800 transition-colors  shadow-2xl hover:outline outline-2  outline-indigo-950 hover:shadow-2xl hover:shadow-violet-950">
               <User className="mx-auto mb-4 text-zinc-400" size={40} />
               <h3 className="text-xl font-semibold mb-2">UI/UX Design</h3>
               <p className="text-zinc-400">Creating intuitive and visually appealing user interfaces</p>
