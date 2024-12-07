@@ -50,6 +50,7 @@ export default function ContactPage() {
           <input
             type="text"
             id="name"
+            placeholder='Enter your name'
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
@@ -59,8 +60,9 @@ export default function ContactPage() {
         <div>
           <label htmlFor="email" className="block text-sm font-bold mb-1 text-white">Email/number</label>
           <input
-            type="number"
+            type="text"
             id="email"
+            placeholder='type Na if you do not want to give Email or Number'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -72,6 +74,7 @@ export default function ContactPage() {
           <textarea
             id="message"
             value={message}
+            placeholder='Write a message'
             onChange={(e) => setMessage(e.target.value)}
             required
             rows={4}
