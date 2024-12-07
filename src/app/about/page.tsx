@@ -98,7 +98,7 @@ export default function about() {
       <div className="relative w-full h-[15vh] bg-zinc-950 bottom-0 flex flex-col md:flex-row items-center justify-evenly gap-1 ">
         <h1 className=" text-white font-bold text-xl">Connect with me</h1>
         <div className=" flex flex-row gap-10">
-          <div className="  hover:underline hover:text-blue-500 text-white">
+          <div className="  hover:underline hover:text-indigo-500 text-white">
             <Link
               href={"https://www.instagram.com/yasshrai"}
               className="flex flex-row gap-2"
@@ -107,7 +107,7 @@ export default function about() {
               <p className="hidden md:block">Instagram</p>
             </Link>
           </div>
-          <div className="hover:underline hover:text-blue-500 text-white">
+          <div className="hover:underline hover:text-indigo-500 text-white">
             <Link
               href={"https://linkedin.com/in/yasshrai"}
               className="flex flex-row gap-2"
@@ -116,7 +116,7 @@ export default function about() {
               <p className="hidden md:block">LinkedIn</p>
             </Link>
           </div>
-          <div className=" hover:underline hover:text-blue-500 text-white">
+          <div className=" hover:underline hover:text-indigo-500 text-white">
             <Link
               href={"https://x.com/yasshraii"}
               className="flex flex-row gap-2"
@@ -125,7 +125,7 @@ export default function about() {
               <p className="hidden md:block">Twitter</p>
             </Link>
           </div>
-          <div className="hover:underline hover:text-blue-500 text-white">
+          <div className="hover:underline hover:text-indigo-500 text-white">
             <a
               href="mailto:yash2154rai@gmail.com"
               className="flex flex-row gap-2"
@@ -134,7 +134,7 @@ export default function about() {
               <Mail></Mail> <p className="hidden md:block">Mail</p>
             </a>
           </div>
-          <div className=" hover:underline hover:text-blue-500 text-white">
+          <div className=" hover:underline hover:text-indigo-500 text-white">
             <Link
               href={"https://github.com/yasshrai"}
               className="flex flex-row gap-2"

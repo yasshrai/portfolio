@@ -9,7 +9,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ image, title, description, link }:ProjectCardProps) {
   return (
-    <div className="card bg-base-100 w-80 md:w-96 h-[30rem] md:h-[28rem] shadow-2xl">
+    <div className="card bg-base-100 w-80 md:w-96 h-[30rem] md:h-[28rem] shadow-2xl hover:outline outline-2  outline-indigo-950 hover:shadow-2xl hover:shadow-violet-950">
       <figure>
         <Image src={image} alt={title} />
       </figure>
