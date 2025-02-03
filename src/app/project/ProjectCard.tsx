@@ -22,7 +22,7 @@ export default function ProjectCard({ image, title, description, link }: Project
       whileHover={{ scale: 1.05 }}
       className="w-full sm:w-[350px] md:w-[400px]"
     >
-      <Card className="h-full bg-zinc-900/50 border-zinc-800 hover:bg-zinc-800/50 transition-all duration-300 backdrop-blur-sm overflow-hidden group">
+      <Card className="h-full bg-zinc-950 border-zinc-800 hover:bg-zinc-900 transition-all duration-300 backdrop-blur-sm overflow-hidden group">
         <CardHeader className="p-0">
           <div className="relative h-48 w-full overflow-hidden">
             <Image
