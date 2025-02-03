@@ -3,7 +3,6 @@ import nodemailer from 'nodemailer'
 
 export async function POST(req: Request) {
   const { name, email, message } = await req.json()
-  console.log(process.env.EMAIL_USER);
   // Create transporter using Gmail's SMTP service
   const transporter = nodemailer.createTransport({
     service: 'gmail',        // Gmail service (uses SMTP settings automatically)
@@ -36,8 +35,6 @@ export async function POST(req: Request) {
     // Return success response
     return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 })
   } catch (error) {
-    // Log the error to the console and return error response
-    console.error('Failed to send email:', error)
     return NextResponse.json({ error: `Failed to send email` }, { status: 500 })
   }
 }
