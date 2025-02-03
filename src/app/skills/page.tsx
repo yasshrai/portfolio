@@ -1,41 +1,88 @@
-import Link from "next/link";
-import frontendimg from "@/app/assets/frontendimg.jpg";
-import backendimg from "@/app/assets/backendimg.jpg";
-import databaseimg from "@/app/assets/databaseimg.jpg";
-import Image from "next/image";
+"use client"
+
+import { motion } from "framer-motion"
+import Image from "next/image"
+import frontendimg from "@/app/assets/frontendimg.jpg"
+import backendimg from "@/app/assets/backendimg.jpg"
+import databaseimg from "@/app/assets/databaseimg.jpg"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function Skills() {
+  const skills = [
+    {
+      title: "Frontend Development",
+      image: frontendimg,
+      skills: "HTML, CSS, JavaScript, ReactJS, NextJS, Redux, TypeScript",
+    },
+    {
+      title: "Backend Development",
+      image: backendimg,
+      skills: "Python, NodeJS, FastAPI, ExpressJS, C++",
+    },
+    {
+      title: "Database and Version Control",
+      image: databaseimg,
+      skills: "Git, Github, MongoDB, MySQL, Docker",
+    },
+  ]
+
   return (
-    <div className="bg-zinc-950 h-[240vh] md:h-[90vh] w-full ">
-      <div className="flex flex-col md:flex-row  justify-center md:gap-5 md:p-5 gap-20 mt-10 items-center ">
-        <div className="card bg-base-100 w-80 md:w-96 h-[30rem] md:h-[28rem] shadow-2xl hover:outline outline-2  outline-indigo-950 hover:shadow-2xl hover:shadow-violet-950">
-          <figure>
-            <Image src={frontendimg} alt="frontend" height={300} width={400}/>
-          </figure>
-          <div className="card-body bg-neutral-950 opacity-95 text-white">
-            <h2 className="card-title">Frontend Development</h2>
-            <p>HTML, CSS, JavaScript, ReactJS, NextJS, Redux, TypeScipt</p>
-          </div>
-        </div>
-        <div className="card bg-base-100 w-80 md:w-96  h-[30rem]  md:h-[28rem] shadow-2xl> hover:outline outline-2  outline-indigo-950 hover:shadow-2xl hover:shadow-violet-950">
-          <figure>
-            <Image src={backendimg} alt="backend"  height={300} width={400}/>
-          </figure>
-          <div className="card-body bg-neutral-950 opacity-95 text-white">
-            <h2 className="card-title">Backend Development</h2>
-            <p>Python, NodeJS, FastAPI, ExpressJS, C++</p>
-          </div>
-        </div>
-        <div className="card bg-base-100 w-80 md:w-96  h-[30rem]  md:h-[28rem] shadow-2xl hover:outline outline-2  outline-indigo-950 hover:shadow-2xl hover:shadow-violet-950">
-          <figure>
-            <Image src={databaseimg} alt="database" height={300} width={400} />
-          </figure>
-          <div className="card-body bg-neutral-950 opacity-95 text-white ">
-            <h2 className="card-title">Database and Version control</h2>
-            <p>Git, Github, MongoDB, MySQL, Docker</p>
-          </div>
-        </div>
+    <main className="flex flex-col w-screen min-h-screen bg-gradient-to-b from-black to-zinc-950 text-white overflow-hidden">
+      {/* Background gradients */}
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-zinc-950/90" />
+        <div className="absolute right-0 top-0 h-[500px] w-[500px] bg-blue-500/10 blur-[100px]" />
+        <div className="absolute bottom-0 left-0 h-[500px] w-[500px] bg-purple-500/10 blur-[100px]" />
       </div>
-    </div>
-  );
+
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10 py-16 px-4 md:px-8"
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.h1
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text"
+          >
+            My Skills
+          </motion.h1>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+            {skills.map((skill, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="w-full sm:w-[350px] md:w-[400px]"
+              >
+                <Card className="h-full bg-zinc-900/50 border-zinc-800 hover:bg-zinc-800/50 transition-all duration-300 backdrop-blur-sm overflow-hidden group">
+                  <CardHeader className="p-0">
+                    <div className="relative h-48 w-full overflow-hidden">
+                      <Image
+                        src={skill.image || "/placeholder.svg"}
+                        alt={skill.title}
+                        layout="fill"
+                        objectFit="cover"
+                        className="group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent" />
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-6">
+                    <CardTitle className="text-2xl font-bold mb-4 text-white">{skill.title}</CardTitle>
+                    <p className="text-zinc-400">{skill.skills}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+    </main>
+  )
 }
+

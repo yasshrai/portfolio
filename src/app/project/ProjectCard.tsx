@@ -1,27 +1,53 @@
-import Image ,{StaticImageData}from "next/image";
+"use client"
+
+import Image, { type StaticImageData } from "next/image"
+import { motion } from "framer-motion"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { ExternalLink } from "lucide-react"
 
 interface ProjectCardProps {
-  image: StaticImageData | string; 
-  title: string;
-  description: string; 
-  link: string; 
+  image: StaticImageData | string
+  title: string
+  description: string
+  link: string
 }
 
-export default function ProjectCard({ image, title, description, link }:ProjectCardProps) {
+export default function ProjectCard({ image, title, description, link }: ProjectCardProps) {
   return (
-    <div className="card bg-base-100 w-80 md:w-96 h-[30rem] md:h-[28rem] shadow-2xl hover:outline outline-2  outline-indigo-950 hover:shadow-2xl hover:shadow-violet-950">
-      <figure>
-        <Image src={image} alt={title} />
-      </figure>
-      <div className="card-body bg-neutral-950 opacity-95 text-white">
-        <h2 className="card-title">{title}</h2>
-        <p>{description}</p>
-        <div className="card-actions justify-end">
-          <a href={link} target="_blank" rel="noopener noreferrer">
-            <button className="btn btn-primary">Project Link</button>
-          </a>
-        </div>
-      </div>
-    </div>
-  );
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.05 }}
+      className="w-full sm:w-[350px] md:w-[400px]"
+    >
+      <Card className="h-full bg-zinc-900/50 border-zinc-800 hover:bg-zinc-800/50 transition-all duration-300 backdrop-blur-sm overflow-hidden group">
+        <CardHeader className="p-0">
+          <div className="relative h-48 w-full overflow-hidden">
+            <Image
+              src={image || "/placeholder.svg"}
+              alt={title}
+              layout="fill"
+              objectFit="cover"
+              className="group-hover:scale-110 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent" />
+          </div>
+        </CardHeader>
+        <CardContent className="p-6">
+          <CardTitle className="text-2xl font-bold mb-2 text-white">{title}</CardTitle>
+          <CardDescription className="text-zinc-400">{description}</CardDescription>
+        </CardContent>
+        <CardFooter className="p-6 pt-0">
+          <Button asChild variant="secondary" className="w-full bg-zinc-800 hover:bg-zinc-700 text-white">
+            <a href={link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+              View Project <ExternalLink className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+        </CardFooter>
+      </Card>
+    </motion.div>
+  )
 }
+
