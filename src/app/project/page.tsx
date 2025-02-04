@@ -6,7 +6,7 @@ import chatappimage from "@/app/assets/chatappbg.jpg"
 import bookstorebg from "@/app/assets/bookstorebg.png"
 import portfoliobg from "@/app/assets/portfolioproject.jpg"
 import adminpanelbg from "@/app/assets/adminpanel.jpg"
-
+import dating from "@/app/assets/dating.jpg"
 const projects = [
   {
     image: chatappimage,
@@ -21,6 +21,13 @@ const projects = [
     description:
       "A bookstore inventory management system built with the MERN stack allows for efficient tracking of book stock with a user-friendly interface and real-time updates.",
     link: "https://bookstore-frontend-76df.onrender.com/",
+  },
+  {
+    image: dating,
+    title: "Dating Site",
+    description:
+      "A dating platform built using Next.js, NextAuth, MongoDB, and Firebase for user authentication and real-time messaging. The site offers a seamless matchmaking experience with user profiles, chat functionality, and personalized recommendations.",
+    link: "https://campusconnection.vercel.app/",
   },
   {
     image: adminpanelbg,
