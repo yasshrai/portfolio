@@ -17,10 +17,10 @@ export default function Home() {
     <main className="flex flex-col w-screen min-h-screen bg-gradient-to-b from-black to-zinc-950 text-white overflow-hidden">
       {/* Background gradients */}
       <div className="pointer-events-none fixed inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-zinc-950/90" />
-        <div className="absolute right-0 top-0 h-[500px] w-[500px] bg-blue-500/10 blur-[100px]" />
-        <div className="absolute bottom-0 left-0 h-[500px] w-[500px] bg-purple-500/10 blur-[100px]" />
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/90 to-zinc-950/95" />
+      <div className="absolute right-0 top-0 h-[500px] w-[500px] bg-blue-500/5 blur-[100px]" />
+      <div className="absolute bottom-0 left-0 h-[500px] w-[500px] bg-purple-500/5 blur-[100px]" />
+    </div>
 
       {/* Hero Section */}
       <section className="relative flex flex-col md:flex-row w-screen min-h-[90vh] sm:mt-4 md:mt-0 mt-10 md:justify-center items-center justify-evenly gap-8 py-12 px-4">
