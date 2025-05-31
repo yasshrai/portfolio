@@ -120,9 +120,9 @@ export default function Home() {
             asChild
             variant="outline"
             size="lg"
-            className="bg-zinc-900/50 text-white border-zinc-800 hover:bg-zinc-800/50"
+            className="bg-zinc-900/50 text-white border-zinc-800 hover:bg-zinc-950"
           >
-            <Link href="/about">
+            <Link href="/about" className="hover:text-white">
               Learn More About Me <ArrowRight className="ml-2" />
             </Link>
           </Button>
@@ -172,10 +172,10 @@ export default function Home() {
               asChild
               variant="outline"
               size="lg"
-              className="bg-zinc-900/50 text-white border-zinc-800 hover:bg-zinc-800/50"
+              className="bg-zinc-900/50 text-white border-zinc-800 hover:bg-zinc-950"
             >
-              <Link href="/skills">
-                Explore All Skills <ArrowRight className="ml-2" />
+              <Link href="/skills" className="hover:text-white">
+                Explore All Skills<ArrowRight className="ml-2" />
               </Link>
             </Button>
           </div>
