@@ -67,15 +67,15 @@ export default function Navbar() {
             size="lg"
             className="mt-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:opacity-90"
           >
-            <Link href="/yashrai_resume.pdf"  target="_blank">
+            <Link href="/yashrai_resume.pdf" target="_blank">
               Resume <Download className="ml-2" size={20} />
             </Link>
           </Button>
         </motion.div>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="sm:hidden">
-          <Button variant="ghost" size="icon" onClick={handleChange}>
-            {mobileMenu ? <Menu className="h-6 w-6 text-white" /> : <X className="h-6 w-6 text-white" />}
+          <Button variant="ghost" size="icon" onClick={handleChange} className=" hover:bg-stone-900">
+            {mobileMenu ? <Menu className="h-6 w-6 text-white " /> : <X className="h-6 w-6 text-white" />}
           </Button>
         </motion.div>
       </motion.nav>
@@ -87,7 +87,9 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}
             transition={{ type: "spring", stiffness: 100 }}
-            className="sm:hidden flex flex-col text-white h-auto w-64 fixed right-4 top-[15vh] bg-black/90 backdrop-blur-md z-50 rounded-lg overflow-hidden"
+            className="sm:hidden flex flex-col text-white h-auto w-64 fixed right-4 top-[15vh] bg-black/30 backdrop-blur-lg backdrop-saturate-150 z-50 rounded-lg overflow-hidden border border-zinc-800 shadow-lg shadow-black/40"
+
+
           >
             {[
               { name: "Home", route: "" },
