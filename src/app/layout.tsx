@@ -1,28 +1,29 @@
-import type { Metadata } from "next";
-import { Kanit } from "next/font/google";
-import "./globals.css";
-import Navbar from "./components/NavBar";
+import type React from "react"
+import "./globals.css"
+import Navbar from "./components/NavBar"
 import { Toaster } from "@/components/ui/toaster"
+import { Inter } from "next/font/google"
+import type { Metadata } from "next"
 
-const kanit = Kanit({ subsets: ["latin"], weight: "200" });
+const inter = Inter({ subsets: ["latin"], weight: ["200", "400", "500", "600", "700", "800"] })
 
 export const metadata: Metadata = {
   title: "yash's portfolio",
   description: "yash rai portfolio a full stack developer",
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" className=" bg-zinc-950">
-      <body className={`${kanit.className} bg-zinc-950 w-full h-full`}>
+      <body className={`${inter.className} bg-zinc-950 w-full h-full`}>
         <Navbar></Navbar>
         {children}
         <Toaster />
       </body>
     </html>
-  );
+  )
 }

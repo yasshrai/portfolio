@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Download } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 
 export default function Navbar() {
@@ -60,12 +60,16 @@ export default function Navbar() {
           transition={{ delay: 0.5 }}
           className="hidden sm:block"
         >
+
           <Button
             asChild
             variant="secondary"
-            className="bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:opacity-90"
+            size="lg"
+            className="mt-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:opacity-90"
           >
-            <Link href="/contact">Contact</Link>
+            <Link href="/yashrai_resume.pdf"  target="_blank">
+              Resume <Download className="ml-2" size={20} />
+            </Link>
           </Button>
         </motion.div>
 
@@ -106,8 +110,8 @@ export default function Navbar() {
               variant="secondary"
               className="m-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:opacity-90"
             >
-              <Link href="/contact" onClick={handleChange}>
-                Contact
+              <Link href="/yashrai_resume.pdf" target="_blank" onClick={handleChange}>
+                Resume
               </Link>
             </Button>
           </motion.div>
