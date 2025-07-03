@@ -45,7 +45,7 @@ export default function Skills() {
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text"
+            className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r  from-cyan-400 to-teal-500  text-transparent bg-clip-text"
           >
             My Skills
           </motion.h1>

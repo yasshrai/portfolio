@@ -63,7 +63,7 @@ export default function About() {
             className="mb-24 flex flex-col md:flex-row items-center justify-between gap-8"
           >
             <div className={`w-full md:w-1/2 ${index % 2 === 1 ? "md:order-2" : ""}`}>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r  from-cyan-400 to-teal-500  text-transparent bg-clip-text">
                 {section.title}
               </h2>
               <p className="text-lg text-zinc-300">{section.content}</p>
@@ -93,7 +93,7 @@ export default function About() {
                 key={link.name}
                 variant="outline"
                 size="lg"
-                className="bg-zinc-800/50 hover:bg-zinc-700/50 text-white border-zinc-700"
+                className="bg-gradient-to-r from-cyan-600 to-teal-700 text-white border-none hover:opacity-90"
                 asChild
               >
                 <Link href={link.href} className="flex items-center gap-2">
@@ -101,6 +101,7 @@ export default function About() {
                   <span className="hidden md:inline">{link.name}</span>
                 </Link>
               </Button>
+
             ))}
           </div>
         </motion.footer>

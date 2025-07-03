@@ -26,7 +26,7 @@ export default function Navbar() {
           transition={{ delay: 0.2 }}
           className="flex items-center"
         >
-          <h1 className="font-bold tracking-wider text-3xl bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">
+          <h1 className="font-bold tracking-wider text-3xl bg-gradient-to-r from-cyan-400 to-teal-300 text-transparent bg-clip-text">
             Yash Rai
           </h1>
           <span className="h-3 w-3 rounded-full bg-orange-500 relative top-0 left-1"></span>
@@ -47,7 +47,7 @@ export default function Navbar() {
               key={name}
               href={`/${route}`}
               onClick={handleChange}
-              className="py-3 px-4 hover:bg-zinc-800/50 flex items-center justify-center font-semibold transition duration-300 ease-in-out"
+              className="py-3 px-4 hover:bg-neutral-900 rounded-lg flex items-center justify-center font-semibold transition duration-300 ease-in-out"
             >
               {name}
             </Link>
@@ -65,7 +65,7 @@ export default function Navbar() {
             asChild
             variant="secondary"
             size="lg"
-            className="mt-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:opacity-90"
+            className="mt-6 bg-gradient-to-r from-cyan-500 to-teal-600 text-white hover:opacity-90"
           >
             <Link href="/yashrai_resume.pdf" target="_blank">
               Resume <Download className="ml-2" size={20} />
@@ -110,7 +110,7 @@ export default function Navbar() {
             <Button
               asChild
               variant="secondary"
-              className="m-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:opacity-90"
+              className="m-4 bg-gradient-to-r  from-cyan-400 to-teal-500 text-white hover:opacity-90"
             >
               <Link href="/yashrai_resume.pdf" target="_blank" onClick={handleChange}>
                 Resume

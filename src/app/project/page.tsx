@@ -48,7 +48,7 @@ const projects = [
 export default function Project() {
   return (
     <main className="flex flex-col w-screen min-h-screen bg-gradient-to-b from-black to-zinc-950 text-white overflow-hidden">
-       {/* Background gradients */}
+      {/* Background gradients */}
       <div className="pointer-events-none fixed inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950 to-black" />
         <div className="absolute right-0 top-0 h-[500px] w-[500px] bg-white/2 blur-[120px]" />
@@ -65,7 +65,7 @@ export default function Project() {
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text"
+            className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r  from-cyan-400 to-teal-500 text-transparent bg-clip-text"
           >
             My Projects
           </motion.h1>

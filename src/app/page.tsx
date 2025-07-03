@@ -216,7 +216,7 @@ export default function Home() {
               <Button
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-0"
+                className="bg-gradient-to-r from-cyan-400 to-teal-500 hover:opacity-90 text-white border-0"
               >
                 <Link href="/project" className="hover:text-white">
                   View My Projects <ArrowRight className="ml-2" />
@@ -243,7 +243,7 @@ export default function Home() {
             specific idea in mind or just want to connect, I&apos;d love to hear from you!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            
+
             <div className="flex items-center gap-2 text-zinc-400">
               <Mail size={20} />
               <a href="mailto:yashrai@example.com" className="hover:text-white transition-colors duration-200">
