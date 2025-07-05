@@ -41,7 +41,8 @@ export default function Navbar() {
             { name: "Home", route: "" },
             { name: "About me", route: "about" },
             { name: "Skills", route: "skills" },
-            { name: "Projects", route: "project" }
+            { name: "Projects", route: "project" },
+            { name: "Blogs", route: "blog" }
           ].map(({ name, route }) => (
             <Link
               key={name}
@@ -95,7 +96,8 @@ export default function Navbar() {
               { name: "Home", route: "" },
               { name: "About me", route: "about" },
               { name: "Skills", route: "skills" },
-              { name: "Projects", route: "project" }
+              { name: "Projects", route: "project" },
+              { name: "Blogs", route: "blog" }
             ].map(({ name, route }) => (
               <Link
                 key={name}
