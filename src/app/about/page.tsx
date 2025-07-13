@@ -144,10 +144,10 @@ export default function About() {
 
           <div className="relative bg-gradient-to-br from-zinc-900/80 to-zinc-800/50 backdrop-blur-2xl border border-zinc-700/60 rounded-3xl p-16 shadow-2xl shadow-zinc-900/60 hover:shadow-zinc-800/70 transition-all duration-500">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-cyan-400 to-teal-500 text-transparent bg-clip-text group-hover:from-cyan-300 group-hover:to-teal-400 transition-all duration-300">
-              Let's Connect
+              Let&apos;s Connect
             </h2>
             <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto group-hover:text-zinc-300 transition-colors duration-300">
-              I'm always excited to connect with fellow developers, potential collaborators, and anyone passionate about
+              I&apos;m always excited to connect with fellow developers, potential collaborators, and anyone passionate about
               technology.
             </p>
 

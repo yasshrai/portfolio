@@ -147,7 +147,7 @@ export default function Project() {
                 More Projects Coming Soon
               </h2>
               <p className="text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">
-                I'm constantly working on new projects and exploring innovative technologies. Stay tuned for more
+                I&apos;m constantly working on new projects and exploring innovative technologies. Stay tuned for more
                 exciting developments and creative solutions.
               </p>
             </div>

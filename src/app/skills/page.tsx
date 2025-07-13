@@ -217,7 +217,7 @@ export default function Skills() {
                 Always Learning
               </h2>
               <p className="text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">
-                Technology evolves rapidly, and I'm committed to continuous learning. I regularly explore new
+                Technology evolves rapidly, and I&apos;m committed to continuous learning. I regularly explore new
                 frameworks, tools, and best practices to stay at the forefront of web development.
               </p>
             </div>

@@ -84,7 +84,7 @@ export default function Home() {
             className="mb-8"
           >
             <h2 className={`text-2xl lg:text-3xl font-semibold text-white mb-4 ${inter.className}`}>
-              Hi, I'm Yash Rai
+              Hi, I&apos;m Yash Rai
             </h2>
             <div className={`text-xl lg:text-2xl font-medium text-zinc-300 ${inter.className} h-16`}>
               <Typewriter
@@ -202,7 +202,7 @@ export default function Home() {
             </h2>
             <p className={`text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed ${inter.className}`}>
               I specialize in creating robust, scalable applications that solve real-world problems. With expertise
-              spanning the full development stack, I'm passionate about writing clean code, implementing best practices,
+              spanning the full development stack, I&apos;m passionate about writing clean code, implementing best practices,
               and delivering exceptional user experiences.
             </p>
           </motion.div>
@@ -354,15 +354,15 @@ export default function Home() {
         <div className="max-w-4xl mx-auto text-center">
           <motion.div variants={itemVariants}>
             <h2 className={`text-4xl lg:text-5xl font-bold mb-8 ${inter.className} tracking-tight`}>
-              Let's Create Something
+              Let&apos;s Create Something
               <span className="block bg-gradient-to-r from-zinc-200 to-zinc-400 text-transparent bg-clip-text">
                 Amazing Together
               </span>
             </h2>
 
             <p className={`text-xl text-zinc-400 mb-12 leading-relaxed max-w-2xl mx-auto ${inter.className}`}>
-              I'm always open to new opportunities, collaborations, and exciting projects. Whether you have a specific
-              idea in mind or just want to connect, I'd love to hear from you!
+              I&apos;m always open to new opportunities, collaborations, and exciting projects. Whether you have a specific
+              idea in mind or just want to connect, I&apos;d love to hear from you!
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
