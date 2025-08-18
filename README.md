@@ -13,8 +13,6 @@ Welcome to my personal portfolio website built with Next.js! This project showca
 - **Dark/Light Mode** - Toggle between different color themes
 - **Project Showcase** - Detailed view of my projects with case studies
 - **Blog Section** - Technical articles and tutorials (coming soon)
-- **Contact Form** - Easy way to get in touch
-
 ## 🛠️ Tech Stack
 
 - **Frontend Framework**: Next.js 14
