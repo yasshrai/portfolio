@@ -9,7 +9,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 const inter = Inter({ subsets: ["latin"], weight: ["200", "400", "500", "600", "700", "800"] })
 
 export const metadata: Metadata = {
-  title: "Yash Rai | Full Stack Developer",
+  title: "Yash Rai | Software Engineer | Full Stack Developer",
   description: "The portfolio of Yash Rai, a full-stack developer specializing in building scalable web applications and creating seamless user experiences. Explore projects that turn innovative ideas into digital reality.",
   keywords: ["Yash Rai", "full stack developer", "web developer", "portfolio", "Next.js", "React", "TypeScript", "Node.js", "web applications"],
   authors: [{ name: "Yash Rai" }],
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://yashrai.vercel.app/",
-    title: "Yash Rai | Full Stack Developer",
+    title: "Yash Rai | Software Engineer | Full Stack Developer",
     description: "The portfolio of Yash Rai, a full-stack developer specializing in building scalable web applications and creating seamless user experiences. Explore projects that turn innovative ideas into digital reality.",
     images: [
       {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yash Rai | Full Stack Developer",
+    title: "Yash Rai | Software Engineer | Full Stack Developer",
     description: "The portfolio of Yash Rai, a full-stack developer specializing in building scalable web applications and creating seamless user experiences. Explore projects that turn innovative ideas into digital reality.",
     images: ["/og-image.png"], 
     creator: "@yasshraii",
