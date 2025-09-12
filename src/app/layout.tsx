@@ -7,36 +7,53 @@ import type { Metadata } from "next"
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ subsets: ["latin"], weight: ["200", "400", "500", "600", "700", "800"] })
-
 export const metadata: Metadata = {
-  title: "Yash Rai | Software Engineer | Full Stack Developer",
-  description: "The portfolio of Yash Rai, a full-stack developer specializing in building scalable web applications and creating seamless user experiences. Explore projects that turn innovative ideas into digital reality.",
-  keywords: ["Yash Rai", "full stack developer", "web developer", "portfolio", "Next.js", "React", "TypeScript", "Node.js", "web applications"],
+  title: "Software Engineer Portfolio | Yash Rai - Full Stack Developer",
+  description:
+    "Discover the portfolio of Yash Rai, a software engineer building scalable web applications and seamless user experiences with Next.js, React, and Node.js.",
+  keywords: [
+    "Yash Rai",
+    "software engineer",
+    "full stack developer",
+    "web developer",
+    "portfolio",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Node.js",
+    "web applications",
+    "frontend",
+    "backend",
+  ],
   authors: [{ name: "Yash Rai" }],
   creator: "Yash Rai",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://yashrai.vercel.app/",
-    title: "Yash Rai | Software Engineer | Full Stack Developer",
-    description: "The portfolio of Yash Rai, a full-stack developer specializing in building scalable web applications and creating seamless user experiences. Explore projects that turn innovative ideas into digital reality.",
+    siteName: "Yash Rai Portfolio",
+    title: "Software Engineer Portfolio | Yash Rai - Full Stack Developer",
+    description:
+      "Discover the portfolio of Yash Rai, a software engineer building scalable web applications and seamless user experiences with Next.js, React, and Node.js.",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://yashrai.vercel.app/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Yash Rai's Portfolio",
+        alt: "Portfolio preview of Yash Rai - Software Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yash Rai | Software Engineer | Full Stack Developer",
-    description: "The portfolio of Yash Rai, a full-stack developer specializing in building scalable web applications and creating seamless user experiences. Explore projects that turn innovative ideas into digital reality.",
-    images: ["/og-image.png"], 
+    title: "Software Engineer Portfolio | Yash Rai - Full Stack Developer",
+    description:
+      "Discover the portfolio of Yash Rai, a software engineer building scalable web applications and seamless user experiences with Next.js, React, and Node.js.",
+    images: ["https://yashrai.vercel.app/og-image.png"],
     creator: "@yasshraii",
   },
 }
+
 
 export default function RootLayout({
   children,
