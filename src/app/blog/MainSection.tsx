@@ -51,7 +51,29 @@ const MainSection = () => {
           <h1 className={`mb-8 text-3xl font-bold ${inter.className}`}>Blog</h1>
 
           {loading && (
-            <p className="text-zinc-400">Loading posts…</p>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {Array.from({ length: 3 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/40 shadow"
+                >
+                  <div className="relative aspect-video w-full overflow-hidden bg-zinc-800">
+                    <div className="h-full w-full animate-pulse bg-zinc-700/50" />
+                  </div>
+                  <div className="p-4">
+                    <div className="h-5 w-3/4 animate-pulse rounded bg-zinc-700/50" />
+                    <div className="mt-2 space-y-2">
+                      <div className="h-4 w-full animate-pulse rounded bg-zinc-700/40" />
+                      <div className="h-4 w-5/6 animate-pulse rounded bg-zinc-700/40" />
+                    </div>
+                    <div className="mt-3 flex items-center gap-2">
+                      <div className="h-5 w-16 animate-pulse rounded-full border border-zinc-800 bg-zinc-900/60" />
+                      <div className="h-3 w-20 animate-pulse rounded bg-zinc-700/40" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           )}
 
           {!loading && error && (
