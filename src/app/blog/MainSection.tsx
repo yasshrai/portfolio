@@ -48,8 +48,6 @@ const MainSection = () => {
         className="relative z-10 py-16 px-4 md:px-8"
       >
         <div className="mx-auto w-full max-w-6xl">
-          <h1 className={`mb-8 text-3xl font-bold ${inter.className}`}>Blog</h1>
-
           {loading && (
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {Array.from({ length: 3 }).map((_, i) => (
