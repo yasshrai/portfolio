@@ -1,0 +1,148 @@
+"use client"
+
+import { useEffect, useMemo, useState } from "react"
+import { Inter } from "next/font/google"
+import {
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+  User,
+} from "firebase/auth"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { toast } from "@/hooks/use-toast"
+import { app } from "../../firebase/config"
+
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] })
+
+export default function AdminPage() {
+  const auth = useMemo(() => getAuth(app), [])
+  const router = useRouter()
+  const [user, setUser] = useState<User | null>(null)
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [success, setSuccess] = useState<string | null>(null)
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (u) => setUser(u))
+    return () => unsub()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+    setError(null)
+    setSuccess(null)
+    try {
+      await signInWithEmailAndPassword(auth, email, password)
+      toast({ title: "Signed in", description: "Redirecting to Add Blog..." })
+      setEmail("")
+      setPassword("")
+      router.push("/blog/admin/add")
+    } catch (err: any) {
+      const code = err?.code || "auth/error"
+      const message =
+        code === "auth/invalid-credential"
+          ? "Invalid email or password"
+          : code === "auth/user-disabled"
+          ? "This account has been disabled"
+          : code === "auth/too-many-requests"
+          ? "Too many attempts. Try again later"
+          : "Login failed. Please try again"
+      setError(message)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleLogout = async () => {
+    setLoading(true)
+    setError(null)
+    setSuccess(null)
+    try {
+      await signOut(auth)
+      setSuccess("Logged out")
+    } catch {
+      setError("Logout failed. Please try again")
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <main className="flex min-h-screen w-screen flex-col bg-gradient-to-b from-black to-zinc-950 px-4 text-white md:px-8">
+      {/* Background gradients */}
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950 to-black" />
+        <div className="absolute right-0 top-0 h-[500px] w-[500px] bg-white/2 blur-[120px]" />
+        <div className="absolute bottom-0 left-0 h-[500px] w-[500px] bg-zinc-500/3 blur-[120px]" />
+      </div>
+
+      <div className="z-10 mx-auto mt-24 w-full max-w-md rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-xl backdrop-blur">
+        <h1 className={`mb-4 text-center text-3xl font-bold ${inter.className}`}>Blog Admin</h1>
+        <p className="mb-6 text-center text-sm text-zinc-400">Sign in with email and password (existing accounts only)</p>
+
+        {user ? (
+          <div className="space-y-4">
+            <div className="rounded-md bg-emerald-500/10 p-3 text-emerald-300">
+              Logged in as <span className="font-medium">{user.email}</span>
+            </div>
+            <Link
+              href="/blog/admin/add"
+              className="block w-full rounded-md bg-cyan-500 px-4 py-2 text-center font-medium text-zinc-900 transition hover:bg-cyan-400"
+            >
+              Add Blog Post
+            </Link>
+            <button
+              onClick={handleLogout}
+              disabled={loading}
+              className="w-full rounded-md bg-zinc-200 px-4 py-2 font-medium text-zinc-900 transition hover:bg-white disabled:opacity-60"
+            >
+              {loading ? "Logging out..." : "Log out"}
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={handleLogin} className="space-y-4">
+            <div>
+              <label className="mb-1 block text-sm text-zinc-300">Email</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-white outline-none placeholder:text-zinc-400 focus:border-zinc-500"
+                placeholder="you@example.com"
+              />
+            </div>
+            <div>
+              <label className="mb-1 block text-sm text-zinc-300">Password</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-white outline-none placeholder:text-zinc-400 focus:border-zinc-500"
+                placeholder="••••••••"
+              />
+            </div>
+
+            {error && <div className="rounded-md bg-red-500/10 p-3 text-sm text-red-300">{error}</div>}
+            {/* Removed inline success message in favor of toast */}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full rounded-md bg-zinc-200 px-4 py-2 font-medium text-zinc-900 transition hover:bg-white disabled:opacity-60"
+            >
+              {loading ? "Signing in..." : "Sign in"}
+            </button>
+          </form>
+        )}
+      </div>
+    </main>
+  )
+}
