@@ -121,26 +121,58 @@ export default function AddBlogPage() {
           </div>
 
           <div>
-            <label className="mb-1 block text-sm text-zinc-300">Slug</label>
+            <div className="mb-1 flex items-center justify-between">
+              <label className="block text-sm text-zinc-300">Slug</label>
+              <button
+                type="button"
+                onClick={() => {
+                  const v = (title || "")
+                    .toLowerCase()
+                    .normalize("NFKD").replace(/[\u0300-\u036f]/g, "")
+                    .replace(/[^a-z0-9\s-]/g, "")
+                    .trim()
+                    .replace(/\s+/g, "-")
+                    .replace(/-+/g, "-")
+                    .replace(/^-+|-+$/g, "")
+                    .slice(0, 80)
+                  setSlug(v)
+                }}
+                className="text-xs text-zinc-400 hover:text-zinc-200"
+              >
+                Generate from title
+              </button>
+            </div>
             <input
               type="text"
               value={slug}
               onChange={(e) => {
                 const v = e.target.value
                   .toLowerCase()
-                  .replace(/\s+/g, "-")
-                  .replace(/[^a-z0-9-]+/g, "")
-                  .replace(/^-+|-+$/g, "")
+                  .normalize("NFKD").replace(/[\u0300-\u036f]/g, "") // remove accents
+                  .replace(/[\u2012-\u2015\u2212]/g, "-")           // normalize unicode dashes to hyphen
+                  .replace(/[^a-z0-9\s-]/g, "")                     // allow letters, numbers, spaces, hyphens
+                  .replace(/\s+/g, "-")                             // spaces -> hyphen
+                  .replace(/-+/g, "-")                              // collapse multiple hyphens
                   .slice(0, 80)
                 setSlug(v)
               }}
+              onBlur={() => setSlug((s) => s.replace(/^-+|-+$/g, ""))}
+              autoCapitalize="none"
+              autoCorrect="off"
+              spellCheck={false}
+              inputMode="text"
               required
               pattern="[a-z0-9-]{1,80}"
               title="Use lowercase letters, numbers, and hyphens only (max 80 characters)"
               className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-white outline-none placeholder:text-zinc-400 focus:border-zinc-500"
               placeholder="custom-url-slug"
             />
-            <p className="mt-1 text-xs text-zinc-400">Required. Lowercase letters, numbers and hyphens only. Example: my-first-post</p>
+            <div className="mt-1 flex items-center justify-between">
+              <p className="text-xs text-zinc-400">Required. Lowercase letters, numbers and hyphens only. Example: my-first-post</p>
+              {slug && (
+                <p className="text-xs text-zinc-500">Preview: /blog/{slug}</p>
+              )}
+            </div>
           </div>
 
           <div>

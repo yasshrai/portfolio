@@ -8,6 +8,7 @@ import Link from "next/link"
 import { ArrowRight, Code, Briefcase, User, Folder, Mail, Github, Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import hero from "@/app/assets/hero.png"
+import { useState, useEffect } from "react"
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] })
 
@@ -35,8 +36,38 @@ const itemVariants = {
 }
 
 export default function Home() {
+  type PostItem = {
+    _id: string
+    title: string
+    summary: string
+    imageUrl?: string
+    slug: string
+    createdAt: string
+    author?: string
+  }
+
+  const [posts, setPosts] = useState<PostItem[]>([])
+  const [loadingPosts, setLoadingPosts] = useState(true)
+  const [postsError, setPostsError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const res = await fetch("/api/posts", { cache: "no-store" })
+        if (!res.ok) throw new Error("Failed to fetch posts")
+        const data = await res.json()
+        setPosts((data.posts || []).slice(0, 3))
+      } catch (e: any) {
+        setPostsError(e?.message || "Failed to load posts")
+      } finally {
+        setLoadingPosts(false)
+      }
+    }
+    load()
+  }, [])
+
   return (
-    <main className="flex flex-col w-screen min-h-screen bg-black text-white overflow-hidden">
+    <main className="flex flex-col w-screen min-h-screen bg-black text-white overflow-x-hidden">
       {/* Enhanced Background */}
       <div className="pointer-events-none fixed inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-950 to-black" />
@@ -190,7 +221,7 @@ export default function Home() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="relative py-24 px-6"
+        className="relative pt-24 pb-0 px-6"
       >
         <div className="max-w-6xl mx-auto">
           <motion.div variants={itemVariants} className="text-center mb-16">
@@ -293,7 +324,7 @@ export default function Home() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="relative py-24 px-6"
+        className="relative pt-24 pb-0 px-6"
       >
         <div className="max-w-4xl mx-auto text-center">
           <motion.div variants={itemVariants}>
@@ -343,13 +374,129 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Contact Section */}
+      {/* Blog Section */}
       <motion.section
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="relative py-24 px-6"
+        className="relative pt-24 pb-0 px-6"
+      >
+        <div className="max-w-6xl mx-auto">
+          <motion.div variants={itemVariants} className="text-center mb-14">
+            <h2 className={`text-4xl lg:text-5xl font-bold mb-4 ${inter.className} tracking-tight`}>
+              Latest from the
+              <span className="block bg-gradient-to-r from-zinc-200 to-zinc-400 text-transparent bg-clip-text">
+                Blog
+              </span>
+            </h2>
+            <p className={`text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed ${inter.className}`}>
+              Insights, tutorials, and updates on what I&apos;m building and learning.
+            </p>
+          </motion.div>
+
+          {/* Posts Grid */}
+          <motion.div variants={itemVariants}>
+            {loadingPosts && (
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {Array.from({ length: 3 }).map((_, i) => (
+                  <div key={i} className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/40 shadow">
+                    <div className="relative aspect-video w-full overflow-hidden bg-zinc-800">
+                      <div className="h-full w-full animate-pulse bg-zinc-700/50" />
+                    </div>
+                    <div className="p-4">
+                      <div className="h-5 w-3/4 animate-pulse rounded bg-zinc-700/50" />
+                      <div className="mt-2 space-y-2">
+                        <div className="h-4 w-full animate-pulse rounded bg-zinc-700/40" />
+                        <div className="h-4 w-5/6 animate-pulse rounded bg-zinc-700/40" />
+                      </div>
+                      <div className="mt-3 flex items-center gap-2">
+                        <div className="h-5 w-16 animate-pulse rounded-full border border-zinc-800 bg-zinc-900/60" />
+                        <div className="h-3 w-20 animate-pulse rounded bg-zinc-700/40" />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {!loadingPosts && postsError && (
+              <p className="text-red-300 text-center">{postsError}</p>
+            )}
+
+            {!loadingPosts && !postsError && posts.length === 0 && (
+              <p className="text-zinc-400 text-center">No posts yet.</p>
+            )}
+
+            {!loadingPosts && !postsError && posts.length > 0 && (
+              <div
+                className={`grid gap-6 ${posts.length === 1
+                    ? "grid-cols-1 place-content-center"
+                    : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                  }`}
+              >
+                {posts.map((p) => (
+                  <Link key={p._id} href={`/blog/${p.slug}`} className="group">
+                    <article
+                      className={`overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/40 shadow transition hover:border-zinc-700 ${posts.length === 1 ? "max-w-md md:max-w-2xl lg:max-w-3xl w-full mx-auto" : ""
+                        }`}
+                    >
+                      <div className="relative aspect-video w-full overflow-hidden bg-zinc-800">
+                        {p.imageUrl ? (
+                          <Image
+                            src={p.imageUrl}
+                            alt={p.title}
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                          />
+                        ) : (
+                          <div className="flex h-full w-full items-center justify-center text-zinc-500">
+                            No cover image
+                          </div>
+                        )}
+                      </div>
+                      <div className="p-4">
+                        <h3 className="line-clamp-2 text-lg font-semibold text-white">{p.title}</h3>
+                        <p className="mt-2 line-clamp-3 text-sm text-zinc-400">{p.summary}</p>
+                        <div className="mt-3 flex items-center gap-2">
+                          {p.author && (
+                            <span className="inline-flex items-center rounded-full border border-zinc-800 bg-zinc-900/60 px-2.5 py-0.5 text-xs font-medium text-zinc-300 shadow-sm backdrop-blur">
+                              {p.author}
+                            </span>
+                          )}
+                          <p className="text-xs text-zinc-500">{new Date(p.createdAt).toLocaleDateString()}</p>
+                        </div>
+                      </div>
+                    </article>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </motion.div>
+
+          {/* View all */}
+          <motion.div variants={itemVariants} className="text-center mt-10">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-zinc-600 text-white hover:bg-zinc-800 bg-transparent"
+            >
+              <Link href="/blog">
+                View all posts <ArrowRight className="ml-2" />
+              </Link>
+            </Button>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="relative pt-24 pb-0 px-6"
       >
         <div className="max-w-4xl mx-auto text-center">
           <motion.div variants={itemVariants}>
@@ -385,6 +532,103 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
+
+        <footer className=" bg-zinc-950 mt-12">
+          <div className="max-w-8xl mx-auto px-6 py-10">
+            {/* Top: Brand + brief */}
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pb-10">
+              <div>
+                <Link href="/" className={`text-2xl font-semibold text-white ${inter.className}`}>
+                  Yash Rai
+                </Link>
+                <p className="mt-2 text-zinc-400 max-w-xl">
+                  Full‑stack developer crafting performant products with delightful UX.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://github.com/yasshrai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full border border-zinc-800 bg-zinc-900/40 text-zinc-300 hover:text-white hover:border-zinc-700 transition-colors"
+                  aria-label="GitHub"
+                >
+                  <Github size={18} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/yasshrai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full border border-zinc-800 bg-zinc-900/40 text-zinc-300 hover:text-white hover:border-zinc-700 transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={18} />
+                </a>
+                <a
+                  href="mailto:yash2154rai@gmail.com"
+                  className="p-2 rounded-full border border-zinc-800 bg-zinc-900/40 text-zinc-300 hover:text-white hover:border-zinc-700 transition-colors"
+                  aria-label="Email"
+                >
+                  <Mail size={18} />
+                </a>
+              </div>
+            </div>
+
+            {/* Links grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 pb-6">
+              <div>
+                <h4 className="text-sm font-semibold text-white mb-4 tracking-wide">Company</h4>
+                <ul className="space-y-2 text-zinc-300">
+                  <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
+                  <li><Link href="/skills" className="hover:text-white transition-colors">Skills</Link></li>
+                  <li><a href="/yashrai_resume.pdf" target="_blank" className="hover:text-white transition-colors">Resume</a></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-semibold text-white mb-4 tracking-wide">Work</h4>
+                <ul className="space-y-2 text-zinc-300">
+                  <li><Link href="/project" className="hover:text-white transition-colors">Projects</Link></li>
+                  <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-semibold text-white mb-4 tracking-wide">Resources</h4>
+                <ul className="space-y-2 text-zinc-300">
+                  <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
+                  <li><a href="https://github.com/yasshrai" target="_blank" className="hover:text-white transition-colors">GitHub</a></li>
+                  <li><a href="https://www.linkedin.com/in/yasshrai/" target="_blank" className="hover:text-white transition-colors">LinkedIn</a></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-semibold text-white mb-4 tracking-wide">Contact</h4>
+                <ul className="space-y-2 text-zinc-300">
+                  <li><a href="mailto:yash2154rai@gmail.com" className="hover:text-white transition-colors">yash2154rai@gmail.com</a></li>
+                  <li><a href="/yashrai_resume.pdf" target="_blank" className="hover:text-white transition-colors">Download CV</a></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-semibold text-white mb-4 tracking-wide">Legal</h4>
+                <ul className="space-y-2 text-zinc-400">
+                  <li><Link href="#" className="text-zinc-400 cursor-not-allowed opacity-70">Privacy</Link></li>
+                  <li><Link href="#" className="cursor-not-allowed opacity-70">Terms</Link></li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Bottom bar */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-zinc-800">
+              <p className="text-sm text-zinc-500"> &copy; {new Date().getFullYear()} Yash Rai. All rights reserved.</p>
+              <div className="text-sm text-zinc-500">
+                Built with <span className="text-zinc-300">Next.js</span> • Deployed on <span className="text-zinc-300">Vercel</span>
+              </div>
+            </div>
+          </div>
+        </footer>
       </motion.section>
     </main>
   )
