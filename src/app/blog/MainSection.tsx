@@ -15,6 +15,7 @@ type PostItem = {
   imageUrl?: string
   slug: string
   createdAt: string
+  author?: string
 }
 
 const MainSection = () => {
@@ -85,7 +86,14 @@ const MainSection = () => {
                     <div className="p-4">
                       <h2 className="line-clamp-2 text-lg font-semibold text-white">{p.title}</h2>
                       <p className="mt-2 line-clamp-3 text-sm text-zinc-400">{p.summary}</p>
-                      <p className="mt-3 text-xs text-zinc-500">{new Date(p.createdAt).toLocaleDateString()}</p>
+                      <div className="mt-3 flex items-center gap-2">
+                        {p.author && (
+                          <span className="inline-flex items-center rounded-full border border-zinc-800 bg-zinc-900/60 px-2.5 py-0.5 text-xs font-medium text-zinc-300 shadow-sm backdrop-blur">
+                            {p.author}
+                          </span>
+                        )}
+                        <p className="text-xs text-zinc-500">{new Date(p.createdAt).toLocaleDateString()}</p>
+                      </div>
                     </div>
                   </article>
                 </Link>

@@ -7,6 +7,7 @@ export interface PostDocument {
   imageKey?: string
   imageUrl?: string
   uid?: string
+  author: string
   slug: string
   createdAt: Date
   updatedAt: Date
@@ -20,6 +21,7 @@ const PostSchema = new Schema<PostDocument>(
     imageKey: { type: String },
     imageUrl: { type: String },
     uid: { type: String },
+    author: { type: String, required: true },
     slug: { type: String, required: true, unique: true, index: true },
   },
   { timestamps: true }

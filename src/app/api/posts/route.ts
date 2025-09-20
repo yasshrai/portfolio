@@ -5,9 +5,9 @@ import { Post } from "@/models/Post"
 export async function POST(req: Request) {
   try {
     const body = await req.json()
-    const { title, summary, content, imageKey, imageUrl, uid, slug: rawSlug } = body || {}
+    const { title, summary, content, imageKey, imageUrl, uid, slug: rawSlug, author } = body || {}
 
-    if (!title || !summary || !content || !rawSlug) {
+    if (!title || !summary || !content || !rawSlug || !author) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
     }
 
@@ -31,7 +31,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "A post with the same slug already exists" }, { status: 409 })
     }
 
-    const doc = await Post.create({ title, summary, content, imageKey, imageUrl, uid, slug })
+    const doc = await Post.create({ title, summary, content, imageKey, imageUrl, uid, author, slug })
 
     return NextResponse.json({ id: doc._id, post: doc }, { status: 201 })
   } catch (err: any) {
@@ -51,6 +51,7 @@ export async function GET() {
       summary: 1,
       imageUrl: 1,
       slug: 1,
+      author: 1,
       createdAt: 1,
     })
       .sort({ createdAt: -1 })

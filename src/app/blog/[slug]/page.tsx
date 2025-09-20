@@ -26,7 +26,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   await dbConnect()
   const post = await Post.findOne(
     { slug: params.slug },
-    { title: 1, summary: 1, content: 1, imageUrl: 1, createdAt: 1 }
+    { title: 1, summary: 1, content: 1, imageUrl: 1, createdAt: 1, author: 1 }
   ).lean()
 
   if (!post) return notFound()
@@ -59,7 +59,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         <h1 className="text-3xl font-bold md:text-4xl">{post.title as string}</h1>
         <p className="mt-2 text-sm text-zinc-400">{new Date(post.createdAt as Date).toLocaleDateString()}</p>
         <div className="mt-3 flex items-center gap-2">
-          <span className="inline-flex items-center rounded-full border border-zinc-800 bg-zinc-900/60 px-2.5 py-0.5 text-xs font-medium text-zinc-300 shadow-sm backdrop-blur">yash rai</span>
+          <span className="inline-flex items-center rounded-full border border-zinc-800 bg-zinc-900/60 px-2.5 py-0.5 text-xs font-medium text-zinc-300 shadow-sm backdrop-blur">{post.author as string}</span>
         </div>
 
         <article className="prose prose-invert mt-6 max-w-none">

@@ -20,6 +20,7 @@ export default function AddBlogPage() {
   const [summary, setSummary] = useState("")
   const [content, setContent] = useState("")
   const [slug, setSlug] = useState("")
+  const [author, setAuthor] = useState("")
   const [imageKey, setImageKey] = useState<string | undefined>()
   const [imageUrl, setImageUrl] = useState<string | undefined>()
   const [submitting, setSubmitting] = useState(false)
@@ -56,6 +57,7 @@ export default function AddBlogPage() {
           imageKey,
           imageUrl,
           uid: user?.uid,
+          author,
         }),
       })
       if (!res.ok) {
@@ -67,6 +69,7 @@ export default function AddBlogPage() {
       setSummary("")
       setContent("")
       setSlug("")
+      setAuthor("")
       setImageKey(undefined)
       setImageUrl(undefined)
     } catch (err: any) {
@@ -149,6 +152,18 @@ export default function AddBlogPage() {
               required
               className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-white outline-none placeholder:text-zinc-400 focus:border-zinc-500"
               placeholder="A short summary"
+            />
+          </div>
+
+          <div>
+            <label className="mb-1 block text-sm text-zinc-300">Author</label>
+            <input
+              type="text"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              required
+              className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-white outline-none placeholder:text-zinc-400 focus:border-zinc-500"
+              placeholder="Author name"
             />
           </div>
 
