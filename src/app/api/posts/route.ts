@@ -42,3 +42,23 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Failed to create post" }, { status: 500 })
   }
 }
+
+export async function GET() {
+  try {
+    await dbConnect()
+    const posts = await Post.find({}, {
+      title: 1,
+      summary: 1,
+      imageUrl: 1,
+      slug: 1,
+      createdAt: 1,
+    })
+      .sort({ createdAt: -1 })
+      .lean()
+
+    return NextResponse.json({ posts })
+  } catch (err) {
+    console.error("GET /api/posts error", err)
+    return NextResponse.json({ error: "Failed to fetch posts" }, { status: 500 })
+  }
+}
