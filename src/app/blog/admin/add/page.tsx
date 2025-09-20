@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { Inter } from "next/font/google"
 import { app } from "../../../firebase/config"
 import { getAuth, onAuthStateChanged, User } from "firebase/auth"
+import { UploadDropzone } from "@/utils/uploadthing"
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] })
 
@@ -18,6 +19,9 @@ export default function AddBlogPage() {
   const [title, setTitle] = useState("")
   const [summary, setSummary] = useState("")
   const [content, setContent] = useState("")
+  const [slug, setSlug] = useState("")
+  const [imageKey, setImageKey] = useState<string | undefined>()
+  const [imageUrl, setImageUrl] = useState<string | undefined>()
   const [submitting, setSubmitting] = useState(false)
   const [success, setSuccess] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -41,15 +45,32 @@ export default function AddBlogPage() {
     setError(null)
     setSuccess(null)
     try {
-      // TODO: Integrate with your backend/Firestore to persist the blog post.
-      // For now, we just simulate a submission delay.
-      await new Promise((res) => setTimeout(res, 800))
-      setSuccess("Blog draft saved (stub). Replace with actual save logic.")
+      const res = await fetch("/api/posts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title,
+          summary,
+          content,
+          slug,
+          imageKey,
+          imageUrl,
+          uid: user?.uid,
+        }),
+      })
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data?.error || "Failed to save post")
+      }
+      setSuccess("Post saved successfully")
       setTitle("")
       setSummary("")
       setContent("")
-    } catch (err) {
-      setError("Failed to save blog. Please try again.")
+      setSlug("")
+      setImageKey(undefined)
+      setImageUrl(undefined)
+    } catch (err: any) {
+      setError(err?.message || "Failed to save blog. Please try again.")
     } finally {
       setSubmitting(false)
     }
@@ -83,7 +104,7 @@ export default function AddBlogPage() {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label className="mb-1 block text-sm text-zinc-300">Title</label>
             <input
@@ -94,6 +115,29 @@ export default function AddBlogPage() {
               className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-white outline-none placeholder:text-zinc-400 focus:border-zinc-500"
               placeholder="Your blog title"
             />
+          </div>
+
+          <div>
+            <label className="mb-1 block text-sm text-zinc-300">Slug</label>
+            <input
+              type="text"
+              value={slug}
+              onChange={(e) => {
+                const v = e.target.value
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")
+                  .replace(/[^a-z0-9-]+/g, "")
+                  .replace(/^-+|-+$/g, "")
+                  .slice(0, 80)
+                setSlug(v)
+              }}
+              required
+              pattern="[a-z0-9-]{1,80}"
+              title="Use lowercase letters, numbers, and hyphens only (max 80 characters)"
+              className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-white outline-none placeholder:text-zinc-400 focus:border-zinc-500"
+              placeholder="custom-url-slug"
+            />
+            <p className="mt-1 text-xs text-zinc-400">Required. Lowercase letters, numbers and hyphens only. Example: my-first-post</p>
           </div>
 
           <div>
@@ -118,6 +162,33 @@ export default function AddBlogPage() {
               className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-white outline-none placeholder:text-zinc-400 focus:border-zinc-500"
               placeholder="Write your content here..."
             />
+          </div>
+
+          <div>
+            <label className="mb-2 block text-sm text-zinc-300">Cover Image</label>
+            <UploadDropzone
+              endpoint="imageUploader"
+              onClientUploadComplete={(res) => {
+                const f = res?.[0]
+                setImageKey(f?.key)
+                // prefer url returned from server (ufsUrl) if present
+                // uploadthing client also has .url
+                setImageUrl((f as any)?.url || (f as any)?.ufsUrl)
+              }}
+              onUploadError={(err: Error) => {
+                setError(err.message)
+              }}
+              content={{
+                label: "Drop an image here (max 4MB)",
+              }}
+              appearance={{
+                button: "bg-zinc-200 text-zinc-900 hover:bg-white",
+                container: "border border-zinc-700 bg-zinc-900/40 rounded-md h-[300px] p-3",
+              }}
+            />
+            {imageKey && (
+              <p className="mt-2 text-xs text-zinc-400">Image selected. Key: {imageKey}</p>
+            )}
           </div>
 
           {error && <div className="rounded-md bg-red-500/10 p-3 text-sm text-red-300">{error}</div>}
