@@ -5,10 +5,17 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { usePathname } from "next/navigation"
 
 export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false)
   const handleChange = () => setMobileMenu(!mobileMenu)
+
+  const pathname = usePathname()
+  // Hide Navbar on blog slug pages like /blog/my-post (but keep it on /blog)
+  if (pathname?.startsWith("/blog/") && pathname !== "/blog") {
+    return null
+  }
 
   return (
     <>
