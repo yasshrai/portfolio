@@ -57,6 +57,7 @@ export default function Navbar() {
             { name: "Skills", route: "skills" },
             { name: "Projects", route: "project" },
             { name: "Blogs", route: "blog" },
+            { name: "Contact", route: "contact" },
           ].map(({ name, route }) => (
             <Link
               key={name}
@@ -128,6 +129,7 @@ export default function Navbar() {
               { name: "Skills", route: "skills" },
               { name: "Projects", route: "project" },
               { name: "Blogs", route: "blog" },
+              { name: "Contact", route: "contact" },
             ].map(({ name, route }) => (
               <Link
                 key={name}

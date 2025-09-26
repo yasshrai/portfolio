@@ -514,7 +514,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Button asChild size="lg" className="bg-white text-black hover:bg-zinc-200 font-semibold">
-                <a href="mailto:yash2154rai@gmail.com">
+                <a href="/contact">
                   <Mail className="mr-2" size={20} />
                   Get In Touch
                 </a>
@@ -606,18 +606,13 @@ export default function Home() {
               <div>
                 <h4 className="text-sm font-semibold text-white mb-4 tracking-wide">Contact</h4>
                 <ul className="space-y-2 text-zinc-300">
+                <li><a href="/contact"  className="hover:text-white transition-colors">message me</a></li>
                   <li><a href="mailto:yash2154rai@gmail.com" className="hover:text-white transition-colors">yash2154rai@gmail.com</a></li>
                   <li><a href="/yashrai_resume.pdf" target="_blank" className="hover:text-white transition-colors">Download CV</a></li>
                 </ul>
               </div>
 
-              <div>
-                <h4 className="text-sm font-semibold text-white mb-4 tracking-wide">Legal</h4>
-                <ul className="space-y-2 text-zinc-400">
-                  <li><Link href="#" className="text-zinc-400 cursor-not-allowed opacity-70">Privacy</Link></li>
-                  <li><Link href="#" className="cursor-not-allowed opacity-70">Terms</Link></li>
-                </ul>
-              </div>
+             
             </div>
 
             {/* Bottom bar */}
