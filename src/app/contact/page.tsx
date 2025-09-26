@@ -9,7 +9,7 @@ export default function ContactPage() {
             Get In Touch
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Have a question or want to work together? I'd love to hear from you!
+            Have a question or want to work together? I&apos;d love to hear from you!
           </p>
         </div>
         
@@ -35,7 +35,7 @@ export default function ContactPage() {
                 Send me a message
               </h2>
               <p className="text-gray-400">
-                I'll get back to you as soon as possible
+                I&apos;ll get back to you as soon as possible
               </p>
             </div>
             <ContactForm />

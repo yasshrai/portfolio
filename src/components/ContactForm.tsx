@@ -52,7 +52,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       {status === 'success' && (
         <div className="rounded-md bg-emerald-500/10 p-3 text-emerald-300 text-sm" role="alert">
-          <span className="block sm:inline">Message sent successfully! I'll get back to you soon.</span>
+          <span className="block sm:inline">Message sent successfully! I&apos;ll get back to you soon.</span>
         </div>
       )}
       
