@@ -1,179 +1,291 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
 import { motion } from "framer-motion"
-import { Instagram, Linkedin, Twitter, Mail, Github } from "lucide-react"
+import { Github, Linkedin, Mail, Twitter, Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import aboutpageimg from "@/app/assets/aboutpage.png"
 import aboutpagesecond from "@/app/assets/aboutsecondsection.png"
 import education from "@/app/assets/education.png"
 
-const containerVariants = {
+const container = {
   hidden: { opacity: 0 },
-  visible: {
+  show: {
     opacity: 1,
     transition: {
       staggerChildren: 0.2,
-      delayChildren: 0.1,
     },
   },
 }
 
-const itemVariants = {
+const item = {
   hidden: { opacity: 0, y: 30 },
-  visible: {
+  show: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.6,
       ease: "easeOut",
     },
   },
 }
 
+const socialLinks = [
+  { name: "GitHub", icon: Github, href: "https://github.com/yasshrai" },
+  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/in/yasshrai" },
+  { name: "Twitter", icon: Twitter, href: "https://x.com/yasshraii" },
+  { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/yasshrai" },
+  { name: "Email", icon: Mail, href: "mailto:yash2154rai@gmail.com" },
+]
+
+const skills = [
+  
+  { name: "Backend", level: 90 },
+  { name: "DevOps", level: 85 },
+  { name: "Frontend", level: 80 },
+  { name: "UI/UX", level: 80 },
+]
+
 export default function About() {
-  const sections = [
-    {
-      title: "Introduction",
-      content:
-        "Hi, I'm Yash Rai, a passionate software engineer dedicated to crafting innovative solutions that drive positive change. With a keen eye for detail and a passion for problem-solving, I strive to push the boundaries of what's possible through technology.",
-      image: aboutpageimg,
-    },
-    {
-      title: "My Vision",
-      content:
-        "My vision is to leverage my skills in software engineering to create impactful projects that make a difference in people's lives. I strive to develop intuitive applications, stay ahead of technological advancements, collaborate with like-minded individuals, and continuously learn to ensure my skills remain sharp.",
-      image: aboutpagesecond,
-    },
-    {
-      title: "Education and Coursework",
-      content:
-        "I hold a degree in Computer Science, where I honed my technical skills and developed a solid foundation in software engineering principles. Throughout my academic journey, I engaged in rigorous coursework that covered a broad spectrum of topics, including data structures and algorithms, software design and architecture, web development, and database management. I also participated in various projects and internships that allowed me to apply theoretical knowledge to practical scenarios, enhancing my problem-solving abilities and teamwork skills. My education has equipped me with the tools and knowledge necessary to tackle complex challenges and contribute effectively to the tech industry.",
-      image: education,
-    },
-  ]
-
-  const socialLinks = [
-    { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/yasshrai" },
-    { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/in/yasshrai" },
-    { name: "Twitter", icon: Twitter, href: "https://x.com/yasshraii" },
-    { name: "Mail", icon: Mail, href: "mailto:yash2154rai@gmail.com" },
-    { name: "GitHub", icon: Github, href: "https://github.com/yasshrai" },
-  ]
-
   return (
-    <main className="flex flex-col w-screen min-h-screen bg-black text-white overflow-hidden">
-      {/* Enhanced Background */}
-      <div className="pointer-events-none fixed inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-950 to-black" />
-        <div className="absolute right-0 top-0 h-[800px] w-[800px] bg-gradient-to-l from-zinc-800/5 to-transparent rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 h-[600px] w-[600px] bg-gradient-to-r from-zinc-700/5 to-transparent rounded-full blur-[100px]" />
-        <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] bg-gradient-to-r from-zinc-600/3 to-zinc-500/3 rounded-full blur-[80px]" />
-        <div className="absolute bottom-1/3 right-1/4 h-[300px] w-[300px] bg-gradient-to-l from-cyan-500/2 to-teal-500/2 rounded-full blur-[100px]" />
+    <main className="min-h-screen bg-zinc-950 text-white overflow-hidden">
+      {/* Background Elements */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-950 to-black" />
+        <div className="absolute right-0 top-0 h-96 w-96 bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 h-96 w-96 bg-purple-500/10 rounded-full blur-3xl" />
       </div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 container mx-auto px-6 py-20 mt-10"
-      >
-        {/* Page Header */}
-        <motion.div variants={itemVariants} className="text-center mb-20">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-zinc-200 to-zinc-400 text-transparent bg-clip-text">
+      <div className="container mx-auto px-4 py-20">
+        {/* Hero Section */}
+        <motion.section
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="text-center mb-24"
+        >
+          <motion.h1
+            variants={item}
+            className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-teal-500"
+          >
             About Me
-          </h1>
-          <p className="text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Discover my journey, vision, and the passion that drives me to create meaningful digital experiences.
-          </p>
-        </motion.div>
+          </motion.h1>
+          <motion.p variants={item} className="text-xl text-zinc-400 max-w-3xl mx-auto mb-12">
+            Software Engineer passionate about creating elegant solutions to complex problems
+          </motion.p>
 
-        {sections.map((section, index) => (
-          <motion.section key={index} variants={itemVariants} className="mb-32 group">
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-              {/* Content Section */}
-              <div className={`w-full lg:w-1/2 ${index % 2 === 1 ? "lg:order-2" : ""} relative`}>
-                {/* Background effects for text content */}
-                <div className="absolute inset-0 bg-gradient-to-br from-zinc-900/20 via-zinc-800/10 to-zinc-900/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-                <div className="relative z-10">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-cyan-400 to-teal-500 text-transparent bg-clip-text group-hover:from-cyan-300 group-hover:to-teal-400 transition-all duration-300">
-                    {section.title}
-                  </h2>
-                  <div className="relative">
-                    {/* Subtle background for text */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-zinc-900/30 to-zinc-800/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
-                    <p className="relative text-lg md:text-xl text-zinc-300 leading-relaxed group-hover:text-zinc-200 transition-colors duration-300 p-6 rounded-2xl">
-                      {section.content}
-                    </p>
-                  </div>
-                </div>
+          <motion.div variants={item} className="relative w-48 h-48 md:w-64 md:h-64 mx-auto mb-12">
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-full p-1 animate-spin-slow">
+              <div className="h-full w-full rounded-full bg-zinc-900 p-1">
+                <Image
+                  src={aboutpageimg}
+                  alt="Yash Rai"
+                  width={256}
+                  height={256}
+                  className="rounded-full h-full w-full object-cover"
+                />
               </div>
+            </div>
+          </motion.div>
+        </motion.section>
 
-              {/* Image Section */}
-              <div className={`w-full lg:w-1/2 ${index % 2 === 1 ? "lg:order-1" : ""} relative group/image`}>
-                {/* Multiple layered background effects */}
-                <div className="absolute inset-0 bg-gradient-to-r from-zinc-800/30 via-zinc-600/20 to-zinc-800/30 rounded-3xl blur-3xl group-hover:blur-2xl transition-all duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-br from-zinc-700/20 to-zinc-900/30 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-transparent to-teal-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-[-1px] bg-gradient-to-br from-zinc-600/20 via-zinc-500/10 to-zinc-700/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {/* About Section */}
+        <motion.section className="grid md:grid-cols-2 gap-12 mb-24">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
+            <h2 className="text-3xl font-bold">Who Am I?</h2>
+            <p className="text-zinc-300 leading-relaxed">
+              I&apos;m Yash Rai, a passionate Software Engineer with a love for creating beautiful, functional, and 
+              user-centric digital experiences. With a strong foundation in both frontend and backend technologies, 
+              I bring ideas to life through clean, efficient code.
+            </p>
+            <p className="text-zinc-300 leading-relaxed">
+              My journey in tech started with a curiosity about how things work, which evolved into a career 
+              where I get to build solutions that make a difference. I believe in continuous learning and 
+              staying updated with the latest industry trends.
+            </p>
+            <div className="p-4 bg-gradient-to-r from-cyan-900/20 to-teal-900/20 rounded-xl border border-cyan-800/30 my-6">
+              <h4 className="font-semibold text-cyan-400 mb-2">My Vision</h4>
+              <p className="text-cyan-100">
+                I aim to leverage my skills in software engineering to create impactful projects that make a difference in people&apos;s lives. I strive to develop intuitive applications, stay ahead of technological advancements, collaborate with like-minded individuals, and continuously learn to ensure my skills remain sharp.
+              </p>
+            </div>
+            <div className="pt-4">
+              <h3 className="text-xl font-semibold mb-4">My Skills</h3>
+              <div className="space-y-4">
+                {skills.map((skill) => (
+                  <div key={skill.name}>
+                    <div className="flex justify-between mb-1">
+                      <span className="text-sm text-zinc-300">{skill.name}</span>
+                      <span className="text-sm text-zinc-400">{skill.level}%</span>
+                    </div>
+                    <div className="w-full bg-zinc-800 rounded-full h-2">
+                      <motion.div
+                        className="h-full bg-gradient-to-r from-cyan-500 to-teal-500 rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: 0.3 }}
+                      />
+                    </div>
+                  </div>
+                ))}
+                <motion.a
+                  href="/skills"
+                  className="mt-6 inline-block px-6 py-2 text-sm font-medium text-cyan-400 border border-cyan-500/30 rounded-lg hover:bg-cyan-500/10 transition-colors duration-300"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  View All Skills →
+                </motion.a>
+              </div>
+            </div>
+          </motion.div>
 
-                <div className="relative backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl shadow-zinc-900/50 hover:shadow-zinc-800/60 transition-all duration-500">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative"
+          >
+            <div className="relative h-full min-h-[400px] rounded-2xl overflow-hidden">
+              <Image
+                src={aboutpagesecond}
+                alt="Coding setup"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-6 text-white">
+                <h3 className="text-2xl font-bold">Always Learning</h3>
+                <p className="text-zinc-300">
+                  Committed to continuous growth and mastering new technologies
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </motion.section>
+
+        {/* Education Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-24"
+        >
+          <h2 className="text-3xl font-bold text-center mb-12">Education & Experience</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-zinc-900/50 backdrop-blur-sm rounded-2xl p-8 border border-zinc-800">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 bg-cyan-500/10 rounded-xl">
                   <Image
-                    src={section.image || "/placeholder.svg"}
-                    alt={section.title}
-                    width={500}
-                    height={500}
-                    className="w-full h-auto relative z-10 rounded-2xl group-hover/image:scale-105 transition-transform duration-700"
+                    src={education}
+                    alt="Education"
+                    width={40}
+                    height={40}
+                    className="w-10 h-10"
                   />
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/20 via-transparent to-zinc-800/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                </div>
+                <h3 className="text-2xl font-bold">Education</h3>
+              </div>
+              <div className="space-y-6">
+                <div className="border-l-2 border-cyan-500 pl-4">
+                  <h4 className="font-semibold text-lg">masters in Computer Science </h4>
+                  <p className="text-cyan-400">2025 - 2027</p>
+                  <p className="text-zinc-400 mt-1">
+                    Comprehensive study of algorithms, data structures, and software engineering principles
+                  </p>
+                </div>
+                <div className="border-l-2 border-purple-500 pl-4">
+                  <h4 className="font-semibold text-lg">Bachelor in Computer Science </h4>
+                  <p className="text-purple-400">2022-2025</p>
+                  <p className="text-zinc-400 mt-1">
+                  Focused on foundational computer science concepts, programming, and system design
+                  </p>
                 </div>
               </div>
             </div>
-          </motion.section>
-        ))}
 
-        {/* Enhanced Footer/Social Section */}
-        <motion.footer variants={itemVariants} className="mt-32 text-center relative group">
-          {/* Background effects for footer */}
-          <div className="absolute inset-0 bg-gradient-to-r from-zinc-900/40 via-zinc-800/20 to-zinc-900/40 rounded-3xl blur-2xl opacity-70 group-hover:opacity-90 transition-opacity duration-700" />
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-teal-500/3 to-cyan-600/5 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          <div className="absolute inset-[-2px] bg-gradient-to-br from-zinc-600/30 via-zinc-500/20 to-zinc-700/30 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-          <div className="relative bg-gradient-to-br from-zinc-900/80 to-zinc-800/50 backdrop-blur-2xl border border-zinc-700/60 rounded-3xl p-16 shadow-2xl shadow-zinc-900/60 hover:shadow-zinc-800/70 transition-all duration-500">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-cyan-400 to-teal-500 text-transparent bg-clip-text group-hover:from-cyan-300 group-hover:to-teal-400 transition-all duration-300">
-              Let&apos;s Connect
-            </h2>
-            <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto group-hover:text-zinc-300 transition-colors duration-300">
-              I&apos;m always excited to connect with fellow developers, potential collaborators, and anyone passionate about
-              technology.
-            </p>
-
-            <div className="flex flex-wrap justify-center gap-4">
-              {socialLinks.map((link, index) => (
-                <div key={link.name} className="relative group/button">
-                  {/* Button background effects */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-teal-500/20 rounded-lg blur-lg opacity-0 group-hover/button:opacity-100 transition-opacity duration-300" />
-
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="relative bg-gradient-to-r from-cyan-600/80 to-teal-700/80 backdrop-blur-sm text-white border border-cyan-500/30 hover:border-cyan-400/50 hover:from-cyan-500 hover:to-teal-600 transition-all duration-300 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/30"
-                    asChild
+            <div className="bg-zinc-900/50 backdrop-blur-sm rounded-2xl p-8 border border-zinc-800">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 bg-purple-500/10 rounded-xl">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-10 h-10 text-purple-400"
                   >
-                    <Link href={link.href} className="flex items-center gap-2">
-                      <link.icon className="h-5 w-5" />
-                      <span className="hidden md:inline">{link.name}</span>
-                    </Link>
-                  </Button>
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
                 </div>
-              ))}
+                <h3 className="text-2xl font-bold">Experience</h3>
+              </div>
+              <div className="space-y-6">
+                <div className="border-l-2 border-teal-500 pl-4">
+                  <h4 className="font-semibold text-lg">SDE intern</h4>
+                  <p className="text-teal-400">Jan 2025 - may 2025</p>
+                  <p className="text-zinc-400 mt-1">
+                    Build scalable web applications with modern technologies
+                  </p>
+                </div>
+                <div className="border-l-2 border-amber-500 pl-4">
+                  <h4 className="font-semibold text-lg">Freelance Developer</h4>
+                  <p className="text-amber-400">2024 - 2025</p>
+                  <p className="text-zinc-400 mt-1">
+                    Delivered custom solutions for various clients across different industries
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </motion.footer>
-      </motion.div>
+        </motion.section>
+
+        {/* Contact Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
+          <p className="text-zinc-400 max-w-2xl mx-auto mb-12">
+            Have a project in mind or want to collaborate? I&apos;d love to hear from you!
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            {socialLinks.map((link, index) => (
+              <motion.a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -5, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-2 px-6 py-3 bg-zinc-900/50 hover:bg-zinc-800/50 backdrop-blur-sm border border-zinc-800 rounded-lg text-zinc-200 hover:text-white transition-all duration-300"
+                style={{
+                  background: `linear-gradient(135deg, rgba(39, 39, 42, 0.5) 0%, rgba(24, 24, 27, 0.5) 100%)`,
+                }}
+              >
+                <link.icon className="w-5 h-5" />
+                <span>{link.name}</span>
+              </motion.a>
+            ))}
+          </div>
+        </motion.section>
+      </div>
     </main>
   )
 }
