@@ -11,6 +11,22 @@ export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [error, setError] = useState('');
 
+  const generateFakeEmail = (): string => {
+    const randomString = Math.random().toString(36).substring(2, 8);
+    const domains = ['example.com', 'mail.com', 'test.org', 'demo.net'];
+    const randomDomain = domains[Math.floor(Math.random() * domains.length)];
+    return `user-${randomString}@${randomDomain}`;
+  };
+
+  const handleFakeEmailClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const fakeEmail = generateFakeEmail();
+    setFormData(prev => ({
+      ...prev,
+      email: fakeEmail
+    }));
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -79,9 +95,19 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="mb-1 block text-sm text-zinc-300">
-          Email
-        </label>
+        <div className="flex justify-between items-center mb-1">
+          <label htmlFor="email" className="block text-sm text-zinc-300">
+            Email
+          </label>
+          <button
+            type="button"
+            onClick={handleFakeEmailClick}
+            className="text-xs text-blue-400 hover:text-blue-300 transition-colors focus:outline-none"
+            title="Use a temporary email"
+          >
+            Use Fake Email
+          </button>
+        </div>
         <input
           type="email"
           id="email"
@@ -101,11 +127,11 @@ export default function ContactForm() {
         <textarea
           id="message"
           name="message"
-          rows={5}
+          rows={4}
           value={formData.message}
           onChange={handleChange}
           required
-          className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-white outline-none placeholder:text-zinc-400 focus:border-zinc-500 resize-none"
+          className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-white outline-none placeholder:text-zinc-400 focus:border-zinc-500"
           placeholder="Your message..."
         />
       </div>
