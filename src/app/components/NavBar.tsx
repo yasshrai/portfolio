@@ -143,7 +143,7 @@ export default function Navbar() {
             <Button
               asChild
               variant="secondary"
-              className="m-4 bg-gradient-to-r from-cyan-400 to-teal-500 text-white hover:opacity-90"
+              className="m-4 bg-gradient-to-r from-indigo-500 to-indigo-700 text-white hover:opacity-90"
             >
               <Link href="/yashrai_resume.pdf" target="_blank" onClick={handleChange}>
                 Resume
