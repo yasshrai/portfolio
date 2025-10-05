@@ -102,7 +102,7 @@ export default function Project() {
           {/* Enhanced Header */}
           <motion.div variants={itemVariants} className="text-center mb-20">
             <motion.h1
-              className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-teal-500 text-transparent bg-clip-text"
+              className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-600 to-blue-600 text-transparent bg-clip-text"
               whileHover={{
                 scale: 1.05,
                 transition: { duration: 0.2 },
@@ -139,11 +139,11 @@ export default function Project() {
           <motion.div variants={itemVariants} className="mt-24 text-center relative group">
             {/* Background effects */}
             <div className="absolute inset-0 bg-gradient-to-r from-zinc-900/40 via-zinc-800/20 to-zinc-900/40 rounded-3xl blur-2xl opacity-70 group-hover:opacity-90 transition-opacity duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-teal-500/3 to-cyan-600/5 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-blue-500/3 to-indigo-600/5 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="absolute inset-[-2px] bg-gradient-to-br from-zinc-600/30 via-zinc-500/20 to-zinc-700/30 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
             <div className="relative bg-gradient-to-br from-zinc-900/80 to-zinc-800/50 backdrop-blur-2xl border border-zinc-700/60 rounded-3xl p-12 shadow-2xl shadow-zinc-900/60 hover:shadow-zinc-800/70 transition-all duration-500">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-teal-500 text-transparent bg-clip-text group-hover:from-cyan-300 group-hover:to-teal-400 transition-all duration-300">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-indigo-600 to-blue-600 text-transparent bg-clip-text group-hover:from-indigo-300 group-hover:to-blue-400 transition-all duration-300">
                 More Projects Coming Soon
               </h2>
               <p className="text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">

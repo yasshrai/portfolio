@@ -337,9 +337,9 @@ export default function Home() {
               <div className="relative bg-gradient-to-br from-zinc-900/80 to-zinc-800/50 backdrop-blur-2xl border border-zinc-700/60 rounded-3xl p-16 shadow-2xl shadow-zinc-900/60 hover:shadow-zinc-800/70 transition-all duration-500">
                 {/* Icon container with enhanced effects */}
                 <div className="relative mb-8">
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-teal-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative bg-gradient-to-br from-emerald-500/15 to-teal-500/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-400/30 transition-all duration-300">
-                    <Folder className="text-emerald-400 group-hover:text-emerald-300 transition-colors" size={40} />
+                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-400/20 to-blue-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="relative bg-gradient-to-br from-indigo-500/15 to-blue-500/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-400/30 transition-all duration-300">
+                    <Folder className="text-blue-400 group-hover:text-blue-300 transition-colors" size={40} />
                   </div>
                 </div>
 
@@ -347,7 +347,7 @@ export default function Home() {
                   className={`text-4xl lg:text-5xl font-bold mb-8 ${inter.className} tracking-tight group-hover:text-zinc-100 transition-colors duration-300`}
                 >
                   Crafting Digital
-                  <span className="block bg-gradient-to-r from-emerald-400 to-teal-400 text-transparent bg-clip-text group-hover:from-emerald-300 group-hover:to-teal-300 transition-all duration-300">
+                  <span className="block bg-gradient-to-r from-indigo-600 to-blue-600 text-transparent bg-clip-text group-hover:from-indigo-500 group-hover:to-blue-500 transition-all duration-300">
                     Experiences
                   </span>
                 </h2>
@@ -362,7 +362,7 @@ export default function Home() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white border-0 font-semibold px-8 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-400/40 transition-all duration-300"
+                  className="bg-gradient-to-r from-indigo-800 to-blue-800 hover:from-indigo-600 hover:to-blue-600 text-white border-0 font-semibold px-8 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-400/40 transition-all duration-300"
                 >
                   <Link href="/project">
                     View My Projects <ArrowRight className="ml-2" />

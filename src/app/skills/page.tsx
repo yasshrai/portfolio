@@ -117,7 +117,7 @@ export default function Skills() {
             transition={{ duration: 0.5 }}
           >
             <motion.h1 
-              className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-teal-500 text-transparent bg-clip-text"
+              className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-600 to-blue-600 text-transparent bg-clip-text"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -216,7 +216,7 @@ export default function Skills() {
               whileHover={{ y: -3 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-teal-500 text-transparent bg-clip-text">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-blue-600 text-transparent bg-clip-text">
                 Always Learning
               </h2>
               <p className="text-zinc-400 max-w-2xl mx-auto leading-relaxed">

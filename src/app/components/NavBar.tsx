@@ -34,9 +34,10 @@ export default function Navbar() {
           transition={{ delay: 0.2 }}
           className="flex items-center"
         >
-          <h1 className="font-bold tracking-wider text-3xl bg-gradient-to-r from-cyan-400 to-teal-300 text-transparent bg-clip-text">
+          <h1 className="font-bold tracking-wider text-3xl bg-gradient-to-r from-blue-500 via-indigo-500 to-indigo-700 text-transparent bg-clip-text">
             Yash Rai
           </h1>
+
           <span className="h-3 w-3 rounded-full bg-orange-500 relative top-0 left-1"></span>
         </motion.div>
 
@@ -78,7 +79,7 @@ export default function Navbar() {
             asChild
             variant="secondary"
             size="lg"
-            className="bg-gradient-to-r from-cyan-500 to-teal-600 text-white hover:opacity-90"
+            className="bg-gradient-to-r from-indigo-500 to-indigo-700 text-white hover:opacity-90"
           >
             <Link href="/yashrai_resume.pdf" target="_blank">
               Resume <Download className="ml-2" size={20} />

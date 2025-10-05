@@ -66,7 +66,7 @@ export default function About() {
         >
           <motion.h1
             variants={item}
-            className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-teal-500"
+            className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-blue-600"
           >
             About Me
           </motion.h1>
@@ -75,7 +75,7 @@ export default function About() {
           </motion.p>
 
           <motion.div variants={item} className="relative w-48 h-48 md:w-64 md:h-64 mx-auto mb-12">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-full p-1 animate-spin-slow">
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-full p-1 animate-spin-slow">
               <div className="h-full w-full rounded-full bg-zinc-900 p-1">
                 <Image
                   src={aboutpageimg}
@@ -109,9 +109,9 @@ export default function About() {
               where I get to build solutions that make a difference. I believe in continuous learning and 
               staying updated with the latest industry trends.
             </p>
-            <div className="p-4 bg-gradient-to-r from-cyan-900/20 to-teal-900/20 rounded-xl border border-cyan-800/30 my-6">
-              <h4 className="font-semibold text-cyan-400 mb-2">My Vision</h4>
-              <p className="text-cyan-100">
+            <div className="p-4 bg-gradient-to-r from-indigo-900/20 to-blue-900/20 rounded-xl border border-indigo-800/30 my-6">
+              <h4 className="font-semibold text-indigo-400 mb-2">My Vision</h4>
+              <p className="text-indigo-100">
                 I aim to leverage my skills in software engineering to create impactful projects that make a difference in people&apos;s lives. I strive to develop intuitive applications, stay ahead of technological advancements, collaborate with like-minded individuals, and continuously learn to ensure my skills remain sharp.
               </p>
             </div>
@@ -126,7 +126,7 @@ export default function About() {
                     </div>
                     <div className="w-full bg-zinc-800 rounded-full h-2">
                       <motion.div
-                        className="h-full bg-gradient-to-r from-cyan-500 to-teal-500 rounded-full"
+                        className="h-full bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full"
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
                         viewport={{ once: true }}
@@ -137,7 +137,7 @@ export default function About() {
                 ))}
                 <motion.a
                   href="/skills"
-                  className="mt-6 inline-block px-6 py-2 text-sm font-medium text-cyan-400 border border-cyan-500/30 rounded-lg hover:bg-cyan-500/10 transition-colors duration-300"
+                  className="mt-6 inline-block px-6 py-2 text-sm font-medium text-indigo-400 border border-indigo-500/30 rounded-lg hover:bg-indigo-500/10 transition-colors duration-300"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -196,9 +196,9 @@ export default function About() {
                 <h3 className="text-2xl font-bold">Education</h3>
               </div>
               <div className="space-y-6">
-                <div className="border-l-2 border-cyan-500 pl-4">
+                <div className="border-l-2 border-indigo-500 pl-4">
                   <h4 className="font-semibold text-lg">masters in Computer Science </h4>
-                  <p className="text-cyan-400">2025 - 2027</p>
+                  <p className="text-indigo-400">2025 - 2027</p>
                   <p className="text-zinc-400 mt-1">
                     Comprehensive study of algorithms, data structures, and software engineering principles
                   </p>
@@ -234,9 +234,9 @@ export default function About() {
                 <h3 className="text-2xl font-bold">Experience</h3>
               </div>
               <div className="space-y-6">
-                <div className="border-l-2 border-teal-500 pl-4">
+                <div className="border-l-2 border-indigo-500 pl-4">
                   <h4 className="font-semibold text-lg">SDE intern</h4>
-                  <p className="text-teal-400">Jan 2025 - may 2025</p>
+                  <p className="text-indigo-400">Jan 2025 - may 2025</p>
                   <p className="text-zinc-400 mt-1">
                     Build scalable web applications with modern technologies
                   </p>
