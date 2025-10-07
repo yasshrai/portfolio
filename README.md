@@ -10,9 +10,8 @@ Welcome to my personal portfolio website built with Next.js! This project showca
 
 - **Modern UI/UX** - Clean, responsive design built with modern web technologies
 - **Performance Optimized** - Fast loading times and smooth animations
-- **Dark/Light Mode** - Toggle between different color themes
 - **Project Showcase** - Detailed view of my projects with case studies
-- **Blog Section** - Technical articles and tutorials (coming soon)
+- **Blog Section** - Technical articles and tutorials
 ## 🛠️ Tech Stack
 
 - **Frontend Framework**: Next.js 14
@@ -28,8 +27,9 @@ Welcome to my personal portfolio website built with Next.js! This project showca
 ### Prerequisites
 
 - bun
+- docker (locally)
 
-### Installation
+## Installation
 
 1. Clone the repository
    ```bash
@@ -49,6 +49,39 @@ Welcome to my personal portfolio website built with Next.js! This project showca
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
+## Docker Deployment
+
+To build and run the application using Docker:
+
+1. Build the Docker image:
+   ```bash
+   docker build -t portfolio .
+   ```
+
+2. Run the Docker container:
+   ```bash
+   docker run --env-file .env.local -p 3000:3000 portfolio
+   ```
+
+## Required Environment Variables
+
+The following environment variables must be set in your `.env.local` file for the application to function properly:
+
+- `NEXT_PUBLIC_FIREBASE_API_KEY`
+- `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN`
+- `NEXT_PUBLIC_FIREBASE_PROJECT_ID`
+- `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET`
+- `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID`
+- `NEXT_PUBLIC_FIREBASE_APP_ID`
+- `NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID`
+- `NEXT_PUBLIC_ADMIN_UID`
+- `RESEND_API_KEY`
+- `CONTACT_EMAIL`
+- `NEXT_PUBLIC_BASE_URL`
+- `UPLOADTHING_TOKEN`
+- `MONGODB_URI`
+
+These keys are required for Firebase, Resend, MongoDB, and other integrations. Obtain the values from your respective service providers and add them to `.env.local`.
 
 ## 🤝 Connect with Me
 
