@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react"
 import { useRouter } from "next/navigation"
 import { Inter } from "next/font/google"
-import { app } from "../../../firebase/config"
+import { app } from "../../firebase/config"
 import { getAuth, onAuthStateChanged, User } from "firebase/auth"
 import { UploadDropzone } from "@/utils/uploadthing"
 
@@ -33,7 +33,7 @@ export default function AddBlogPage() {
       setChecking(false)
       if (!u) {
         // Not authenticated -> go to admin sign-in
-        router.replace("/blog/admin")
+        router.replace("/admin")
       }
     })
     return () => unsub()
@@ -100,7 +100,7 @@ export default function AddBlogPage() {
         <div className="mb-6 flex items-center justify-between">
           <h1 className={`text-2xl font-bold ${inter.className}`}>Add Blog Post</h1>
           <button
-            onClick={() => router.push("/blog/admin")}
+            onClick={() => router.push("/admin")}
             className="rounded-md border border-zinc-700 px-3 py-1 text-sm text-zinc-300 hover:bg-zinc-800"
           >
             Back to Admin

@@ -12,7 +12,7 @@ import {
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { toast } from "@/hooks/use-toast"
-import { app } from "../../firebase/config"
+import { app } from "../firebase/config"
 import { Eye, EyeOff } from "lucide-react"
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] })
@@ -44,7 +44,7 @@ export default function AdminPage() {
       toast({ title: "Signed in", description: "Redirecting to Add Blog..." })
       setEmail("")
       setPassword("")
-      router.push("/blog/admin/add")
+      router.push("/admin/addblog")
     } catch (err: any) {
       const code = err?.code || "auth/error"
       const message =
@@ -94,7 +94,7 @@ export default function AdminPage() {
               Logged in as <span className="font-medium">{user.email}</span>
             </div>
             <Link
-              href="/blog/admin/add"
+              href="/admin/addblog"
               className="block w-full rounded-md bg-cyan-500 px-4 py-2 text-center font-medium text-zinc-900 transition hover:bg-cyan-400"
             >
               Add Blog Post
