@@ -11,7 +11,6 @@ import {
 } from "firebase/auth"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { toast } from "@/hooks/use-toast"
 import { app } from "../firebase/config"
 import { Eye, EyeOff } from "lucide-react"
 
@@ -41,10 +40,9 @@ export default function AdminPage() {
     setSuccess(null)
     try {
       await signInWithEmailAndPassword(auth, email, password)
-      toast({ title: "Signed in", description: "Redirecting to Add Blog..." })
       setEmail("")
       setPassword("")
-      router.push("/admin/addblog")
+      
     } catch (err: any) {
       const code = err?.code || "auth/error"
       const message =
@@ -95,9 +93,15 @@ export default function AdminPage() {
             </div>
             <Link
               href="/admin/addblog"
-              className="block w-full rounded-md bg-cyan-500 px-4 py-2 text-center font-medium text-zinc-900 transition hover:bg-cyan-400"
+              className="block w-full rounded-md  bg-gradient-to-r from-indigo-500 to-indigo-700 hover:opacity-90 px-4 py-2 text-center font-medium text-white transition "
             >
               Add Blog Post
+            </Link>
+            <Link
+              href="/admin/addurl"
+              className="block w-full rounded-md  bg-gradient-to-r from-indigo-500 to-indigo-700 hover:opacity-90 px-4 py-2 text-center font-medium text-white transition "
+            >
+              Add URL
             </Link>
             <button
               onClick={handleLogout}
