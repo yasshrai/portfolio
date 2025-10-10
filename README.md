@@ -11,7 +11,12 @@ Welcome to my personal portfolio website built with Next.js! This project showca
 - **Modern UI/UX** - Clean, responsive design built with modern web technologies
 - **Performance Optimized** - Fast loading times and smooth animations
 - **Project Showcase** - Detailed view of my projects with case studies
+- **Contact Form** - Send messages to my email
+- **Resume Download** - Download my resume in PDF format
 - **Blog Section** - Technical articles and tutorials
+- **URL Shortener** - Shorten long URLs with a custom domain
+- **Admin Panel** - Manage blog posts and URLs
+
 ## 🛠️ Tech Stack
 
 - **Frontend Framework**: Next.js 14
