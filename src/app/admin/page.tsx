@@ -83,7 +83,7 @@ export default function AdminPage() {
       </div>
 
       <div className="z-10 mx-auto mt-24 w-full max-w-md rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-xl backdrop-blur">
-        <h1 className={`mb-4 text-center text-3xl font-bold ${inter.className}`}>Blog Admin</h1>
+        <h1 className={`mb-4 text-center text-3xl font-bold ${inter.className}`}>Admin</h1>
         <p className="mb-6 text-center text-sm text-zinc-400">Sign in with email and password (existing accounts only)</p>
 
         {user ? (
