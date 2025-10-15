@@ -46,8 +46,8 @@ export default function Navbar() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="hidden lg:flex justify-evenly gap-8
-          bg-zinc-950
+          className="hidden lg:flex justify-evenly gap-6
+          bg-black
           text-zinc-100 h-10 items-center px-4"
         >
           {[
