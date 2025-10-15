@@ -34,7 +34,7 @@ export default function Navbar() {
           transition={{ delay: 0.2 }}
           className="flex items-center"
         >
-          <h1 className="font-bold tracking-wider text-3xl bg-gradient-to-r from-blue-500 via-indigo-500 to-indigo-700 text-transparent bg-clip-text">
+          <h1 className="font-bold tracking-wider text-3xl bg-gradient-to-r  text-indigo-500 text-transparent bg-clip-text">
             Yash Rai
           </h1>
 
