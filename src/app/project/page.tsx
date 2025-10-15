@@ -82,16 +82,6 @@ const projects = [
 export default function Project() {
   return (
     <main className="flex flex-col w-screen min-h-screen bg-black text-white overflow-hidden">
-      {/* Enhanced Background */}
-      <div className="pointer-events-none fixed inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-950 to-black" />
-        <div className="absolute right-0 top-0 h-[800px] w-[800px] bg-gradient-to-l from-zinc-800/5 to-transparent rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 h-[600px] w-[600px] bg-gradient-to-r from-zinc-700/5 to-transparent rounded-full blur-[100px]" />
-        <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] bg-gradient-to-r from-zinc-600/3 to-zinc-500/3 rounded-full blur-[80px]" />
-        <div className="absolute bottom-1/4 right-1/3 h-[300px] w-[300px] bg-gradient-to-l from-cyan-500/2 to-teal-500/2 rounded-full blur-[100px]" />
-        <div className="absolute top-1/4 left-1/4 h-[250px] w-[250px] bg-gradient-to-r from-blue-500/2 to-purple-500/2 rounded-full blur-[80px]" />
-      </div>
-
       <motion.section
         variants={containerVariants}
         initial="hidden"

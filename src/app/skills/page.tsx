@@ -86,26 +86,7 @@ export default function Skills() {
   return (
     <main className="flex flex-col w-screen min-h-screen bg-black text-white overflow-hidden">
       {/* Background */}
-      <div className="pointer-events-none fixed inset-0">
-        <motion.div 
-          className="absolute inset-0 bg-gradient-to-br from-black via-zinc-950 to-black"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        />
-        <motion.div 
-          className="absolute right-0 top-0 h-[800px] w-[800px] bg-gradient-to-l from-zinc-800/5 to-transparent rounded-full blur-[120px]"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        />
-        <motion.div 
-          className="absolute bottom-0 left-0 h-[600px] w-[600px] bg-gradient-to-r from-zinc-700/5 to-transparent rounded-full blur-[100px]"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        />
-      </div>
+      
 
       <section className="relative z-10 py-24 px-6 mt-16">
         <div className="max-w-7xl mx-auto">

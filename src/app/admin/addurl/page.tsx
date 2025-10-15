@@ -124,14 +124,7 @@ export default function AddUrlPage() {
   }
 
   return (
-    <main className="flex min-h-screen w-screen flex-col bg-gradient-to-b from-black to-zinc-950 px-4 text-white md:px-8">
-      {/* Background gradients */}
-      <div className="pointer-events-none fixed inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950 to-black" />
-        <div className="absolute right-0 top-0 h-[500px] w-[500px] bg-white/2 blur-[120px]" />
-        <div className="absolute bottom-0 left-0 h-[500px] w-[500px] bg-zinc-500/3 blur-[120px]" />
-      </div>
-
+    <main className="flex min-h-screen w-screen flex-col bg-black  px-4 text-white md:px-8">
       <div className="z-10 mx-auto mt-16 w-full max-w-2xl rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-xl backdrop-blur">
         <div className="mb-6 flex items-center justify-between">
           <h1 className={`text-2xl font-bold ${inter.className}`}>Add URL Shortener</h1>

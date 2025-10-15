@@ -25,7 +25,7 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100 }}
         className="h-[15vh] sticky top-0 w-full z-50 flex items-center justify-between px-4 md:px-8 
-        bg-gradient-to-br from-black via-zinc-950 to-black backdrop-blur-md text-white"
+        bg-black  text-white"
       >
         {/* ===== Logo ===== */}
         <motion.div

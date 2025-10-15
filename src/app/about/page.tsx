@@ -48,14 +48,8 @@ const skills = [
 
 export default function About() {
   return (
-    <main className="min-h-screen bg-zinc-950 text-white overflow-hidden">
-      {/* Background Elements */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-950 to-black" />
-        <div className="absolute right-0 top-0 h-96 w-96 bg-cyan-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-96 w-96 bg-purple-500/10 rounded-full blur-3xl" />
-      </div>
-
+    <main className="min-h-screen bg-black  text-white overflow-hidden">
+      
       <div className="container mx-auto px-4 py-20">
         {/* Hero Section */}
         <motion.section

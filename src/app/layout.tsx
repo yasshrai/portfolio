@@ -61,8 +61,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className=" bg-zinc-950">
-      <body className={`${inter.className} bg-zinc-950 w-full h-full`}>
+    <html lang="en" className="  bg-black">
+      <body className={`${inter.className} bg-black w-full h-full`}>
         <Navbar></Navbar>
         {children}
         <SpeedInsights />
