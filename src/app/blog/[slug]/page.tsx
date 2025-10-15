@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import Image from "next/image"
 import dbConnect from "@/lib/mongodb"
 import { Post } from "@/models/Post"
+import MainSection from "../MainSection"
 
 interface PageProps {
   params: { slug: string }
@@ -32,14 +33,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   if (!post) return notFound()
 
   return (
-    <main className="flex min-h-screen w-screen flex-col bg-gradient-to-b from-black to-zinc-950 px-4 text-white md:px-8">
-      {/* Background gradients */}
-      <div className="pointer-events-none fixed inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950 to-black" />
-        <div className="absolute right-0 top-0 h-[500px] w-[500px] bg-white/2 blur-[120px]" />
-        <div className="absolute bottom-0 left-0 h-[500px] w-[500px] bg-zinc-500/3 blur-[120px]" />
-      </div>
-
+    <main className="flex min-h-screen w-screen flex-col gap-4 bg-black px-4 text-white md:px-8">
       <div className="z-10 mx-auto mt-16 w-full max-w-3xl">
         {post.imageUrl && (
           <div className="relative mb-6 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/40">
@@ -65,6 +59,13 @@ export default async function BlogPostPage({ params }: PageProps) {
         <article className="prose prose-invert mt-6 max-w-none">
           <p className="text-zinc-300 whitespace-pre-wrap">{post.content as string}</p>
         </article>
+      </div>
+
+      <div className="mt-16 flex flex-col items-center justify-center">
+        <h2 className="mb-8 text-center text-3xl font-semibold text-zinc-200">Check out other posts</h2>
+        <div className="w-full max-w-6xl">
+          <MainSection />
+        </div>
       </div>
     </main>
   )
