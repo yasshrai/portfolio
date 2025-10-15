@@ -77,7 +77,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative flex flex-col lg:flex-row w-screen min-h-[calc(100vh-80px)] items-center justify-center gap-12 py-20 px-6 ">
+      <section className="relative flex flex-col lg:flex-row w-screen min-h-[calc(100vh-80px)] items-center justify-center gap-8 py-16 px-6">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -90,8 +90,8 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-6"
           >
-            <span className="inline-block px-4 py-2 bg-zinc-800/50 border border-zinc-700/50 rounded-full text-sm text-zinc-300 mb-6">
-              👋 Welcome to my digital space
+            <span className="inline-block px-4 py-2 bg-zinc-800/50 border border-zinc-700/50 rounded-full text-sm text-zinc-300">
+              Software Engineer • Web Platforms
             </span>
           </motion.div>
 
@@ -99,66 +99,61 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className={`text-5xl lg:text-7xl font-bold mb-8 ${inter.className} tracking-tight leading-tight`}
+            className="text-4xl lg:text-6xl font-bold mb-4 tracking-tight leading-tight"
           >
             <span className="bg-gradient-to-r from-white via-zinc-100 to-zinc-300 text-transparent bg-clip-text">
-              Code. Create.
+              Engineering performant, reliable software.
             </span>
-            <br />
-            <span className="text-4xl lg:text-6xl text-zinc-400 font-medium">Innovate.</span>
           </motion.h1>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mb-8"
+            className="mb-8 space-y-3"
           >
-            <h2 className={`text-2xl lg:text-3xl font-semibold text-white mb-4 ${inter.className}`}>
-              Hi, I&apos;m Yash Rai
-            </h2>
-            <div className={`text-xl lg:text-2xl font-medium text-zinc-300 ${inter.className} h-16`}>
-              <Typewriter
-                options={{ loop: true }}
-                onInit={(typewriter) => {
-                  typewriter
-                    .typeString("building scalable web applications")
-                    .pauseFor(2500)
-                    .deleteAll()
-                    .typeString("crafting seamless user experiences")
-                    .pauseFor(2500)
-                    .deleteAll()
-                    .typeString("solving complex problems with code")
-                    .pauseFor(2500)
-                    .deleteAll()
-                    .typeString("turning ideas into digital reality")
-                    .pauseFor(2500)
-                    .start()
-                }}
-              />
-            </div>
+            <h2 className="text-lg lg:text-xl font-semibold text-white">Yash Rai</h2>
+            <p className="text-base text-zinc-300 leading-relaxed">
+              I build scalable, accessible software with clear architecture and measurable impact.
+            </p>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 mb-8"
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="flex flex-col sm:flex-row gap-4 mb-6"
           >
-            <Button asChild size="lg" className="bg-white text-black hover:bg-zinc-200 font-semibold">
+            <Button asChild className="bg-white text-black hover:bg-zinc-200 font-semibold">
               <Link href="/project">
-                View My Work <ArrowRight className="ml-2" />
+                Projects <ArrowRight className="ml-2" />
               </Link>
             </Button>
             <Button
               asChild
               variant="outline"
-              size="lg"
-              className="border-zinc-600 text-white hover:bg-stone-950  hover:text-gray-200 bg-transparent"
+              className="border-zinc-600 text-white hover:bg-stone-950 hover:text-gray-200 bg-transparent"
             >
-              <Link href="/about">About Me</Link>
+              <Link href="/about">About</Link>
             </Button>
           </motion.div>
+
+          <motion.ul
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.65 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6"
+            aria-label="Professional highlights"
+          >
+            <li className="rounded-xl border border-zinc-700/50 bg-zinc-800/40 px-4 py-3 text-zinc-200">
+              <p className="text-sm text-zinc-400">Focus</p>
+              <p className="font-medium">Scalable Systems</p>
+            </li>
+            <li className="rounded-xl border border-zinc-700/50 bg-zinc-800/40 px-4 py-3 text-zinc-200">
+              <p className="text-sm text-zinc-400">Approach</p>
+              <p className="font-medium">Quality & Maintainability</p>
+            </li>
+          </motion.ul>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -170,6 +165,7 @@ export default function Home() {
               href="https://github.com/yasshrai"
               target="blank"
               className="p-3 bg-zinc-800/50 border border-zinc-700/50 rounded-full hover:bg-zinc-700/50 transition-colors"
+              aria-label="GitHub"
             >
               <Github size={20} />
             </a>
@@ -177,25 +173,28 @@ export default function Home() {
               href="https://www.linkedin.com/in/yasshrai/"
               target="blank"
               className="p-3 bg-zinc-800/50 border border-zinc-700/50 rounded-full hover:bg-zinc-700/50 transition-colors"
+              aria-label="LinkedIn"
             >
               <Linkedin size={20} />
             </a>
             <a
               href="mailto:yash2154rai@gmail.com"
               className="p-3 bg-zinc-800/50 border border-zinc-700/50 rounded-full hover:bg-zinc-700/50 transition-colors"
+              aria-label="Email"
             >
               <Mail size={20} />
             </a>
           </motion.div>
         </motion.div>
 
+        {/* RIGHT: Image card — preserved background layers and colors exactly */}
         <motion.div
           initial={{ opacity: 0, x: 50, scale: 0.9 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           className="flex-1 max-w-lg relative group"
         >
-          {/* Multiple layered background effects */}
+          {/* Multiple layered background effects (unchanged) */}
           <div className="absolute inset-0 bg-gradient-to-r from-zinc-800/30 via-zinc-600/20 to-zinc-800/30 rounded-3xl blur-3xl group-hover:blur-2xl transition-all duration-700" />
           <div className="absolute inset-0 bg-gradient-to-br from-zinc-700/20 to-zinc-900/30 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
           <div className="absolute inset-[-1px] bg-gradient-to-br from-zinc-600/20 via-zinc-500/10 to-zinc-700/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -203,17 +202,18 @@ export default function Home() {
           <div className="relative backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl shadow-zinc-900/50 hover:shadow-zinc-800/60 transition-all duration-500">
             <Image
               src={hero || "/placeholder.svg"}
-              alt="Yash Rai - Full Stack Developer"
+              alt="Yash Rai - Software Engineer"
               width={500}
               height={500}
               className="w-full h-auto relative z-10 rounded-2xl group-hover:scale-105 transition-transform duration-700"
               priority
             />
-            {/* Overlay gradient */}
+            {/* Overlay gradient (unchanged) */}
             <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/20 via-transparent to-zinc-800/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
           </div>
         </motion.div>
       </section>
+
 
       {/* About Section */}
       <motion.section
@@ -431,8 +431,8 @@ export default function Home() {
             {!loadingPosts && !postsError && posts.length > 0 && (
               <div
                 className={`grid gap-6 ${posts.length === 1
-                    ? "grid-cols-1 place-content-center"
-                    : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                  ? "grid-cols-1 place-content-center"
+                  : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
                   }`}
               >
                 {posts.map((p) => (
@@ -606,13 +606,13 @@ export default function Home() {
               <div>
                 <h4 className="text-sm font-semibold text-white mb-4 tracking-wide">Contact</h4>
                 <ul className="space-y-2 text-zinc-300">
-                <li><a href="/contact"  className="hover:text-white transition-colors">message me</a></li>
+                  <li><a href="/contact" className="hover:text-white transition-colors">message me</a></li>
                   <li><a href="mailto:yash2154rai@gmail.com" className="hover:text-white transition-colors">yash2154rai@gmail.com</a></li>
                   <li><a href="/yashrai_resume.pdf" target="_blank" className="hover:text-white transition-colors">Download CV</a></li>
                 </ul>
               </div>
 
-             
+
             </div>
 
             {/* Bottom bar */}

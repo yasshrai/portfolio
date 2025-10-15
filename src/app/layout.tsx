@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"], weight: ["200", "400", "500", "600", "
 export const metadata: Metadata = {
   title: "Software Engineer Portfolio | Yash Rai - Full Stack Developer",
   description:
-    "Discover the portfolio of Yash Rai, a software engineer building scalable web applications and seamless user experiences with Next.js, React, and Node.js.",
+    "Explore the work of Yash Rai, a software engineer specializing in scalable web applications and intuitive user experiences using Next.js, React, and Node.js.",
   keywords: [
     "Yash Rai",
     "software engineer",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "Yash Rai Portfolio",
     title: "Software Engineer Portfolio | Yash Rai - Full Stack Developer",
     description:
-      "Discover the portfolio of Yash Rai, a software engineer building scalable web applications and seamless user experiences with Next.js, React, and Node.js.",
+      "Explore the work of Yash Rai, a software engineer specializing in scalable web applications and intuitive user experiences using Next.js, React, and Node.js.",
     images: [
       {
         url: "https://yashrai.vercel.app/og-image.png",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Software Engineer Portfolio | Yash Rai - Full Stack Developer",
     description:
-      "Discover the portfolio of Yash Rai, a software engineer building scalable web applications and seamless user experiences with Next.js, React, and Node.js.",
+      "Explore the work of Yash Rai, a software engineer specializing in scalable web applications and intuitive user experiences using Next.js, React, and Node.js.",
     images: ["https://yashrai.vercel.app/og-image.png"],
     creator: "@yasshraii",
   },
