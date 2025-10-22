@@ -50,7 +50,7 @@ const skills = [
   {
     title: "Database & DevOps",
     image: databaseimg,
-    skills: ["Git", "Github", "MongoDB", "MySQL", "Docker"],
+    skills: ["Git", "Github", "MongoDB", "MySQL", "Linux","Docker"],
     color: "emerald",
     icon: Database,
     description: "Managing data and deployment workflows",
