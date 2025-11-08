@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
+import { useRouter } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
@@ -22,21 +23,50 @@ const MainSection = () => {
   const [posts, setPosts] = useState<PostItem[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const router = useRouter()
 
+  // Prefetch blog post when hovering over the link
+  const handleHoverStart = useCallback((slug: string) => {
+    router.prefetch(`/blog/${slug}`)
+  }, [router])
+
+  // Optimized data fetching with stale-while-revalidate pattern
   useEffect(() => {
-    const load = async () => {
+    let isMounted = true
+    
+    const fetchPosts = async () => {
       try {
-        const res = await fetch("/api/posts", { cache: "no-store" })
-        if (!res.ok) throw new Error("Failed to fetch posts")
+        const controller = new AbortController()
+        const timeoutId = setTimeout(() => controller.abort(), 5000) // 5s timeout
+        
+        const res = await fetch("/api/posts", { 
+          next: { revalidate: 60 }, // Revalidate every 60 seconds
+          signal: controller.signal
+        })
+        
+        clearTimeout(timeoutId)
+        
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`)
+        
         const data = await res.json()
-        setPosts(data.posts || [])
+        if (isMounted) {
+          setPosts(data.posts || [])
+          setLoading(false)
+        }
       } catch (e: any) {
-        setError(e?.message || "Failed to load posts")
-      } finally {
-        setLoading(false)
+        if (isMounted) {
+          setError(e?.message || "Failed to load posts. Please try again.")
+          setLoading(false)
+        }
       }
     }
-    load()
+
+    fetchPosts()
+    
+    // Cleanup function
+    return () => {
+      isMounted = false
+    }
   }, [])
 
   return (
@@ -85,7 +115,13 @@ const MainSection = () => {
           {!loading && !error && posts.length > 0 && (
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {posts.map((p) => (
-                <Link key={p._id} href={`/blog/${p.slug}`} className="group">
+                <Link 
+                  key={p._id} 
+                  href={`/blog/${p.slug}`}
+                  className="group"
+                  onMouseEnter={() => handleHoverStart(p.slug)}
+                  prefetch={true}
+                >
                   <article className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/40 shadow transition hover:border-zinc-700">
                     <div className="relative aspect-video w-full overflow-hidden bg-zinc-800">
                       {p.imageUrl ? (
