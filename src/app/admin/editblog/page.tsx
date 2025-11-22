@@ -6,14 +6,33 @@ import { Inter } from "next/font/google"
 import { app } from "../../firebase/config"
 import { getAuth, onAuthStateChanged, User } from "firebase/auth"
 import { UploadDropzone } from "@/utils/uploadthing"
+import Image from "next/image"
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] })
 
-export default function AddBlogPage() {
+type Post = {
+  _id: string
+  title: string
+  summary: string
+  content: string
+  slug: string
+  author: string
+  imageKey?: string
+  imageUrl?: string
+  createdAt: string
+}
+
+export default function EditBlogPage() {
   const auth = useMemo(() => getAuth(app), [])
   const router = useRouter()
   const [user, setUser] = useState<User | null>(null)
   const [checking, setChecking] = useState(true)
+
+  // Post selection state
+  const [posts, setPosts] = useState<Post[]>([])
+  const [selectedPostId, setSelectedPostId] = useState<string>("")
+  const [loadingPosts, setLoadingPosts] = useState(false)
+  const [selectingPost, setSelectingPost] = useState(true)
 
   // Form state
   const [title, setTitle] = useState("")
@@ -32,7 +51,6 @@ export default function AddBlogPage() {
       setUser(u)
       setChecking(false)
       if (!u) {
-        // Not authenticated -> go to admin sign-in
         router.replace("/admin")
       }
     })
@@ -40,14 +58,61 @@ export default function AddBlogPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  useEffect(() => {
+    if (user) {
+      fetchPosts()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user])
+
+  const fetchPosts = async () => {
+    setLoadingPosts(true)
+    try {
+      const res = await fetch("/api/posts")
+      if (!res.ok) throw new Error("Failed to fetch posts")
+      const data = await res.json()
+      setPosts(data.posts || [])
+    } catch (err) {
+      setError("Failed to load posts")
+    } finally {
+      setLoadingPosts(false)
+    }
+  }
+
+  const handleSelectPost = async (postId: string) => {
+    setError(null)
+    setSuccess(null)
+    setLoadingPosts(true)
+    try {
+      const res = await fetch(`/api/posts/${postId}`)
+      if (!res.ok) throw new Error("Failed to fetch post")
+      const data = await res.json()
+      const post = data.post
+
+      setSelectedPostId(postId)
+      setTitle(post.title || "")
+      setSummary(post.summary || "")
+      setContent(post.content || "")
+      setSlug(post.slug || "")
+      setAuthor(post.author || "")
+      setImageKey(post.imageKey)
+      setImageUrl(post.imageUrl)
+      setSelectingPost(false)
+    } catch (err: any) {
+      setError(err?.message || "Failed to load post")
+    } finally {
+      setLoadingPosts(false)
+    }
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitting(true)
     setError(null)
     setSuccess(null)
     try {
-      const res = await fetch("/api/posts", {
-        method: "POST",
+      const res = await fetch(`/api/posts/${selectedPostId}`, {
+        method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           title,
@@ -56,24 +121,18 @@ export default function AddBlogPage() {
           slug,
           imageKey,
           imageUrl,
-          uid: user?.uid,
           author,
         }),
       })
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
-        throw new Error(data?.error || "Failed to save post")
+        throw new Error(data?.error || "Failed to update post")
       }
-      setSuccess("Post saved successfully")
-      setTitle("")
-      setSummary("")
-      setContent("")
-      setSlug("")
-      setAuthor("")
-      setImageKey(undefined)
-      setImageUrl(undefined)
+      setSuccess("Post updated successfully")
+      // Refresh posts list
+      await fetchPosts()
     } catch (err: any) {
-      setError(err?.message || "Failed to save blog. Please try again.")
+      setError(err?.message || "Failed to update blog. Please try again.")
     } finally {
       setSubmitting(false)
     }
@@ -87,19 +146,89 @@ export default function AddBlogPage() {
     )
   }
 
-  return (
-    <main className="flex min-h-screen w-screen flex-col bg-black  px-4 text-white md:px-8">
-    
+  if (selectingPost) {
+    return (
+      <main className="flex min-h-screen w-screen flex-col bg-black px-4 text-white md:px-8">
+        <div className="z-10 mx-auto mt-16 w-full max-w-4xl rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-xl backdrop-blur">
+          <div className="mb-6 flex items-center justify-between">
+            <h1 className={`text-2xl font-bold ${inter.className}`}>Edit Blog Post</h1>
+            <button
+              onClick={() => router.push("/admin")}
+              className="rounded-md border border-zinc-700 px-3 py-1 text-sm text-zinc-300 hover:bg-zinc-800"
+            >
+              Back to Admin
+            </button>
+          </div>
 
+          {loadingPosts ? (
+            <div className="py-8 text-center text-zinc-400">Loading posts...</div>
+          ) : posts.length === 0 ? (
+            <div className="py-8 text-center text-zinc-400">No posts found</div>
+          ) : (
+            <div className="space-y-3">
+              <p className="mb-4 text-sm text-zinc-400">Select a post to edit:</p>
+              {posts.map((post) => (
+                <button
+                  key={post._id}
+                  onClick={() => handleSelectPost(post._id)}
+                  className="w-full rounded-md border border-zinc-700 bg-zinc-800/50 p-4 text-left transition hover:bg-zinc-800 hover:border-zinc-600"
+                >
+                  <div className="flex items-start gap-4">
+                    {post.imageUrl && (
+                      <div className="relative h-20 w-32 flex-shrink-0 overflow-hidden rounded border border-zinc-700">
+                        <Image
+                          src={post.imageUrl}
+                          alt={post.title}
+                          fill
+                          sizes="128px"
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-medium text-white truncate">{post.title}</h3>
+                      <p className="mt-1 text-sm text-zinc-400 line-clamp-2">{post.summary}</p>
+                      <div className="mt-2 flex items-center gap-3 text-xs text-zinc-500">
+                        <span>Slug: {post.slug}</span>
+                        <span>•</span>
+                        <span>{new Date(post.createdAt).toLocaleDateString()}</span>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          )}
+
+          {error && <div className="mt-4 rounded-md bg-red-500/10 p-3 text-sm text-red-300">{error}</div>}
+        </div>
+      </main>
+    )
+  }
+
+  return (
+    <main className="flex min-h-screen w-screen flex-col bg-black px-4 text-white md:px-8">
       <div className="z-10 mx-auto mt-16 w-full max-w-2xl rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-xl backdrop-blur">
         <div className="mb-6 flex items-center justify-between">
-          <h1 className={`text-2xl font-bold ${inter.className}`}>Add Blog Post</h1>
-          <button
-            onClick={() => router.push("/admin")}
-            className="rounded-md border border-zinc-700 px-3 py-1 text-sm text-zinc-300 hover:bg-zinc-800"
-          >
-            Back to Admin
-          </button>
+          <h1 className={`text-2xl font-bold ${inter.className}`}>Edit Blog Post</h1>
+          <div className="flex gap-2">
+            <button
+              onClick={() => {
+                setSelectingPost(true)
+                setError(null)
+                setSuccess(null)
+              }}
+              className="rounded-md border border-zinc-700 px-3 py-1 text-sm text-zinc-300 hover:bg-zinc-800"
+            >
+              Select Different Post
+            </button>
+            <button
+              onClick={() => router.push("/admin")}
+              className="rounded-md border border-zinc-700 px-3 py-1 text-sm text-zinc-300 hover:bg-zinc-800"
+            >
+              Back to Admin
+            </button>
+          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -143,11 +272,11 @@ export default function AddBlogPage() {
               onChange={(e) => {
                 const v = e.target.value
                   .toLowerCase()
-                  .normalize("NFKD").replace(/[\u0300-\u036f]/g, "") // remove accents
-                  .replace(/[\u2012-\u2015\u2212]/g, "-")           // normalize unicode dashes to hyphen
-                  .replace(/[^a-z0-9\s-]/g, "")                     // allow letters, numbers, spaces, hyphens
-                  .replace(/\s+/g, "-")                             // spaces -> hyphen
-                  .replace(/-+/g, "-")                              // collapse multiple hyphens
+                  .normalize("NFKD").replace(/[\u0300-\u036f]/g, "")
+                  .replace(/[\u2012-\u2015\u2212]/g, "-")
+                  .replace(/[^a-z0-9\s-]/g, "")
+                  .replace(/\s+/g, "-")
+                  .replace(/-+/g, "-")
                   .slice(0, 80)
                 setSlug(v)
               }}
@@ -208,20 +337,39 @@ export default function AddBlogPage() {
 
           <div>
             <label className="mb-2 block text-sm text-zinc-300">Cover Image</label>
+            {imageUrl && (
+              <div className="mb-3 relative w-full max-w-md aspect-video rounded-md overflow-hidden border border-zinc-700">
+                <Image
+                  src={imageUrl}
+                  alt="Current cover image"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 512px"
+                  className="object-cover"
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    setImageUrl(undefined)
+                    setImageKey(undefined)
+                  }}
+                  className="absolute top-2 right-2 rounded-md bg-red-500/80 hover:bg-red-500 px-2 py-1 text-xs text-white"
+                >
+                  Remove
+                </button>
+              </div>
+            )}
             <UploadDropzone
               endpoint="imageUploader"
               onClientUploadComplete={(res) => {
                 const f = res?.[0]
                 setImageKey(f?.key)
-                // prefer url returned from server (ufsUrl) if present
-                // uploadthing client also has .url
                 setImageUrl((f as any)?.url || (f as any)?.ufsUrl)
               }}
               onUploadError={(err: Error) => {
                 setError(err.message)
               }}
               content={{
-                label: "Drop an image here (max 16MB)",
+                label: imageUrl ? "Replace image (max 16MB)" : "Drop an image here (max 16MB)",
               }}
               appearance={{
                 button: "bg-zinc-200 text-zinc-900 hover:bg-white",
@@ -241,10 +389,11 @@ export default function AddBlogPage() {
             disabled={submitting}
             className="w-full rounded-md bg-zinc-200 px-4 py-2 font-medium text-zinc-900 transition hover:bg-white disabled:opacity-60"
           >
-            {submitting ? "Saving..." : "Save Draft"}
+            {submitting ? "Updating..." : "Update Post"}
           </button>
         </form>
       </div>
     </main>
   )
 }
+

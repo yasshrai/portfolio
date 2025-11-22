@@ -93,6 +93,12 @@ export default function AdminPage() {
               Add Blog Post
             </Link>
             <Link
+              href="/admin/editblog"
+              className="block w-full rounded-md  bg-gradient-to-r from-indigo-500 to-indigo-700 hover:opacity-90 px-4 py-2 text-center font-medium text-white transition "
+            >
+              Edit Blog Post
+            </Link>
+            <Link
               href="/admin/addurl"
               className="block w-full rounded-md  bg-gradient-to-r from-indigo-500 to-indigo-700 hover:opacity-90 px-4 py-2 text-center font-medium text-white transition "
             >
