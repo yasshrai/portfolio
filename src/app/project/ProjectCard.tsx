@@ -80,6 +80,14 @@ export default function ProjectCard({
           border: "group-hover:border-cyan-500/30",
           button: "from-cyan-600 to-cyan-700 hover:from-cyan-500 hover:to-cyan-600",
         }
+      case "orange":
+        return {
+          gradient: "from-orange-500/5 via-transparent to-orange-400/5",
+          shadow: "shadow-orange-500/10",
+          hoverShadow: "group-hover:shadow-orange-400/20",
+          border: "group-hover:border-orange-500/30",
+          button: "from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600",
+        }
       default:
         return {
           gradient: "from-zinc-500/5 via-transparent to-zinc-400/5",

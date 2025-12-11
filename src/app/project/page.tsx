@@ -7,6 +7,7 @@ import bookstorebg from "@/app/assets/bookstorebg.png"
 import portfoliobg from "@/app/assets/portfolioproject.jpg"
 import adminpanelbg from "@/app/assets/adminpanel.jpg"
 import dating from "@/app/assets/dating.jpg"
+import devorabg from "@/app/assets/devora.png"
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -76,6 +77,15 @@ const projects = [
     link: "https://yashrai.vercel.app",
     color: "cyan",
     tech: ["Modern Web Tech", "Responsive Design", "Smooth Navigation"],
+  },
+  {
+    image: devorabg,
+    title: "Devora",
+    description:
+      "A Fedora-based Linux distribution that provides a preconfigured GNOME desktop environment with carefully curated extensions and optimizations. Devora offers users a polished, out-of-the-box experience with enhanced productivity tools, beautiful themes, and seamless integration of essential GNOME extensions for an improved workflow.",
+    link: "https://devoralinux.vercel.app",
+    color: "orange",
+    tech: ["Linux", "Fedora", "GNOME", "Linux Distribution", "System Configuration"],
   },
 ]
 
