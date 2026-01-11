@@ -55,24 +55,37 @@ export async function POST(req: Request) {
   }
 }
 
-// GET - Check if custom slug is available
+// GET - Fetch all URLs or check if custom slug is available
 export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url)
     const customSlug = searchParams.get("slug")
 
-    if (!customSlug) {
-      return NextResponse.json({ error: "Slug parameter is required" }, { status: 400 })
-    }
-
     await dbConnect()
 
-    const existingUrl = await Url.findOne({ customSlug })
-    const isAvailable = !existingUrl
+    // If slug parameter is provided, check availability
+    if (customSlug) {
+      const existingUrl = await Url.findOne({ customSlug })
+      const isAvailable = !existingUrl
+      return NextResponse.json({ available: isAvailable })
+    }
 
-    return NextResponse.json({ available: isAvailable })
+    // Otherwise, fetch all URLs
+    const urls = await Url.find({}).sort({ createdAt: -1 }).lean()
+
+    return NextResponse.json({
+      urls: urls.map((url) => ({
+        id: url._id.toString(),
+        longUrl: url.longUrl,
+        shortUrl: url.shortUrl,
+        customSlug: url.customSlug,
+        clickCount: url.clickCount,
+        createdAt: url.createdAt,
+        updatedAt: url.updatedAt,
+      })),
+    })
   } catch (err) {
     console.error("GET /api/urls error", err)
-    return NextResponse.json({ error: "Failed to check slug availability" }, { status: 500 })
+    return NextResponse.json({ error: "Failed to fetch URLs" }, { status: 500 })
   }
 }
