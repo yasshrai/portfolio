@@ -24,21 +24,19 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100 }}
-        className="h-[15vh] sticky top-0 w-full z-50 flex items-center justify-between px-4 md:px-8 
-        bg-black  text-white"
+        className="h-20 sticky top-0 w-full z-50 flex items-center justify-between px-6 md:px-12 
+        bg-black/50 backdrop-blur-md border-b border-white/5"
       >
         {/* ===== Logo ===== */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="flex items-center"
+          className="flex items-center gap-2"
         >
-          <h1 className="font-bold tracking-normal  text-3xl text-indigo-500 ">
+          <h1 className="font-bold tracking-tight text-2xl text-white">
             Yash Rai
           </h1>
-
-          <span className="h-3 w-3 rounded-full bg-orange-500 relative top-0 left-1"></span>
         </motion.div>
 
         {/* ===== Desktop Menu (lg+) ===== */}
@@ -46,22 +44,19 @@ export default function Navbar() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="hidden lg:flex justify-evenly gap-6
-          bg-black
-          text-zinc-100 h-10 items-center px-4"
+          className="hidden lg:flex gap-8 items-center"
         >
           {[
             { name: "Home", route: "" },
-            { name: "About me", route: "about" },
+            { name: "About", route: "about" },
             { name: "Skills", route: "skills" },
             { name: "Projects", route: "project" },
-            { name: "Blogs", route: "blog" },
-            { name: "Contact", route: "contact" },
+            { name: "Blog", route: "blog" },
           ].map(({ name, route }) => (
             <Link
               key={name}
               href={`/${route}`}
-              className="py-2 px-4 hover:bg-neutral-800/50 rounded-lg flex items-center justify-center font-semibold transition duration-300 ease-in-out"
+              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200"
             >
               {name}
             </Link>
@@ -70,19 +65,22 @@ export default function Navbar() {
 
         {/* ===== Desktop Resume Button (lg+) ===== */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5 }}
-          className="hidden lg:block"
+          className="hidden lg:flex items-center gap-6"
         >
+          <Link href="/contact" className="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200">
+            Contact
+          </Link>
           <Button
             asChild
-            variant="secondary"
-            size="lg"
-            className="bg-gradient-to-r from-indigo-500 to-indigo-700 text-white hover:opacity-90"
+            variant="outline"
+            size="sm"
+            className="border-zinc-700 bg-zinc-900/50 text-zinc-300 hover:bg-zinc-800 hover:text-white text-xs h-9 px-4 rounded-full backdrop-blur-sm transition-all"
           >
             <Link href="/yashrai_resume.pdf" target="_blank">
-              Resume <Download className="ml-2" size={20} />
+              Resume <Download className="ml-2 w-3 h-3" />
             </Link>
           </Button>
         </motion.div>
@@ -97,12 +95,12 @@ export default function Navbar() {
           <Button
             variant="ghost"
             onClick={handleChange}
-            className="hover:bg-neutral-900/60 h-16 w-16 rounded-full flex items-center justify-center transition duration-200 ease-in-out"
+            className="hover:bg-zinc-800/50 h-10 w-10 p-0 rounded-full flex items-center justify-center transition duration-200"
           >
             {mobileMenu ? (
-              <X size={50} className="text-white" />
+              <X size={24} className="text-zinc-100" />
             ) : (
-              <Menu size={50} className="text-white" />
+              <Menu size={24} className="text-zinc-100" />
             )}
           </Button>
 
@@ -117,10 +115,9 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}
             transition={{ type: "spring", stiffness: 100 }}
-            className="lg:hidden flex flex-col text-white w-64 fixed right-4 top-[15vh] 
-            bg-neutral-950/70 backdrop-blur-xl backdrop-saturate-150 
-            rounded-xl overflow-hidden border border-neutral-700/50 
-            shadow-lg shadow-black/40 z-50"
+            className="lg:hidden flex flex-col text-white w-full fixed left-0 top-20 bottom-0
+            bg-black/95 backdrop-blur-2xl
+            z-40 pt-8 px-8 border-t border-zinc-800"
           >
             {[
               { name: "Home", route: "" },
@@ -134,7 +131,7 @@ export default function Navbar() {
                 key={name}
                 href={`/${route}`}
                 onClick={handleChange}
-                className="py-3 px-4 hover:bg-neutral-800/60 flex items-center justify-center font-semibold transition duration-300 ease-in-out"
+                className="py-4 text-2xl font-bold text-zinc-400 hover:text-white border-b border-zinc-900 transition-colors"
               >
                 {name}
               </Link>
@@ -143,7 +140,7 @@ export default function Navbar() {
             <Button
               asChild
               variant="secondary"
-              className="m-4 bg-gradient-to-r from-indigo-500 to-indigo-700 text-white hover:opacity-90"
+              className="m-4 bg-zinc-100 text-zinc-900 hover:bg-white"
             >
               <Link href="/yashrai_resume.pdf" target="_blank" onClick={handleChange}>
                 Resume

@@ -2,12 +2,10 @@
 
 import Image from "next/image"
 import { Inter } from "next/font/google"
-import Typewriter from "typewriter-effect"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, Code, Briefcase, User, Folder, Mail, Github, Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import hero from "@/app/assets/hero.png"
 import { useState, useEffect } from "react"
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] })
@@ -69,141 +67,75 @@ export default function Home() {
   return (
     <main className="flex flex-col w-screen min-h-screen bg-black text-white overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative flex flex-col lg:flex-row w-screen min-h-[calc(100vh-80px)] items-center justify-center gap-8 py-16 px-6">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex-1 max-w-2xl z-10"
-        >
+      <section className="relative flex flex-col w-full min-h-screen items-center justify-center py-20 px-6 overflow-hidden">
+        {/* Simplified Background Gradient */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-800/20 via-black to-black pointer-events-none" />
+
+        <div className="z-10 w-full max-w-4xl mx-auto text-center flex flex-col items-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-6"
+            transition={{ duration: 0.5 }}
+            className="mb-8"
           >
-            <span className="inline-block px-4 py-2 bg-zinc-800/50 border border-zinc-700/50 rounded-full text-sm text-zinc-300">
+            <span className="inline-block px-4 py-1.5 bg-zinc-900/50 border border-zinc-800 rounded-full text-sm font-medium text-zinc-300 backdrop-blur-sm">
               Software Engineer • Web Platforms
             </span>
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-4xl lg:text-6xl font-bold mb-4 tracking-tight leading-tight"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-5xl md:text-7xl font-bold mb-6 tracking-tight"
           >
-            <span className="bg-gradient-to-r from-white via-zinc-100 to-zinc-300 text-transparent bg-clip-text">
-              Engineering performant, reliable software.
+            Engineering <span className="text-zinc-400">performant</span>, <br className="hidden md:block" />
+            <span className="bg-gradient-to-r from-white to-zinc-400 text-transparent bg-clip-text">
+              reliable software.
             </span>
           </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mb-8 space-y-3"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            <h2 className="text-lg lg:text-xl font-semibold text-white">Yash Rai</h2>
-            <p className="text-base text-zinc-300 leading-relaxed">
-              I build scalable, accessible software with clear architecture and measurable impact.
-            </p>
-          </motion.div>
+            I build scalable, accessible software with clear architecture and measurable impact.
+          </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.55 }}
-            className="flex flex-col sm:flex-row gap-4 mb-6"
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full"
           >
-            <Button asChild className="bg-white text-black hover:bg-zinc-200 font-semibold">
+            <Button asChild size="lg" className="bg-white text-black hover:bg-zinc-200 font-semibold min-w-[160px]">
               <Link href="/project">
-                Projects <ArrowRight className="ml-2" />
+                View Work <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
             <Button
               asChild
               variant="outline"
-              className="border-zinc-600 text-white hover:bg-stone-950 hover:text-gray-200 bg-transparent"
+              size="lg"
+              className="border-zinc-800 text-zinc-300 hover:bg-zinc-900 hover:text-white bg-transparent min-w-[160px]"
             >
-              <Link href="/about">About</Link>
+              <Link href="/about">About Me</Link>
             </Button>
           </motion.div>
 
-          <motion.ul
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.65 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6"
-            aria-label="Professional highlights"
-          >
-            <li className="rounded-xl border border-zinc-700/50 bg-zinc-800/40 px-4 py-3 text-zinc-200">
-              <p className="text-sm text-zinc-400">Focus</p>
-              <p className="font-medium">Scalable Systems</p>
-            </li>
-            <li className="rounded-xl border border-zinc-700/50 bg-zinc-800/40 px-4 py-3 text-zinc-200">
-              <p className="text-sm text-zinc-400">Approach</p>
-              <p className="font-medium">Quality & Maintainability</p>
-            </li>
-          </motion.ul>
-
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="flex gap-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+            className="mt-16 flex items-center justify-center gap-6"
           >
-            <a
-              href="https://github.com/yasshrai"
-              target="blank"
-              className="p-3 bg-zinc-800/50 border border-zinc-700/50 rounded-full hover:bg-zinc-700/50 transition-colors"
-              aria-label="GitHub"
-            >
-              <Github size={20} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/yasshrai/"
-              target="blank"
-              className="p-3 bg-zinc-800/50 border border-zinc-700/50 rounded-full hover:bg-zinc-700/50 transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a
-              href="mailto:yash2154rai@gmail.com"
-              className="p-3 bg-zinc-800/50 border border-zinc-700/50 rounded-full hover:bg-zinc-700/50 transition-colors"
-              aria-label="Email"
-            >
-              <Mail size={20} />
-            </a>
+            <a href="https://github.com/yasshrai" target="_blank" className="text-zinc-500 hover:text-white transition-colors"><Github size={24} /></a>
+            <a href="https://www.linkedin.com/in/yasshrai/" target="_blank" className="text-zinc-500 hover:text-white transition-colors"><Linkedin size={24} /></a>
+            <a href="mailto:yash2154rai@gmail.com" className="text-zinc-500 hover:text-white transition-colors"><Mail size={24} /></a>
           </motion.div>
-        </motion.div>
-
-        {/* RIGHT: Image card — preserved background layers and colors exactly */}
-        <motion.div
-          initial={{ opacity: 0, x: 50, scale: 0.9 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="flex-1 max-w-lg relative group"
-        >
-          {/* Multiple layered background effects (unchanged) */}
-          <div className="absolute inset-0 bg-gradient-to-r from-zinc-800/30 via-zinc-600/20 to-zinc-800/30 rounded-3xl blur-3xl group-hover:blur-2xl transition-all duration-700" />
-          <div className="absolute inset-0 bg-gradient-to-br from-zinc-700/20 to-zinc-900/30 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-          <div className="absolute inset-[-1px] bg-gradient-to-br from-zinc-600/20 via-zinc-500/10 to-zinc-700/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-          <div className="relative backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl shadow-zinc-900/50 hover:shadow-zinc-800/60 transition-all duration-500">
-            <Image
-              src={hero || "/placeholder.svg"}
-              alt="Yash Rai - Software Engineer"
-              width={500}
-              height={500}
-              className="w-full h-auto relative z-10 rounded-2xl group-hover:scale-105 transition-transform duration-700"
-              priority
-            />
-            {/* Overlay gradient (unchanged) */}
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/20 via-transparent to-zinc-800/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
-          </div>
-        </motion.div>
+        </div>
       </section>
 
 
@@ -230,68 +162,41 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="group relative">
-              {/* Enhanced background layers */}
-              <div className="absolute inset-0 bg-gradient-to-br from-zinc-800/30 via-zinc-700/20 to-zinc-900/40 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-blue-400/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute inset-[-1px] bg-gradient-to-br from-zinc-600/20 via-zinc-700/10 to-zinc-800/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-              <div className="relative bg-gradient-to-br from-zinc-900/90 to-zinc-800/60 backdrop-blur-xl border border-zinc-700/50 rounded-2xl p-8 hover:border-zinc-600/70 transition-all duration-500 h-full shadow-2xl shadow-zinc-900/50 hover:shadow-zinc-800/60">
-                <div className="bg-gradient-to-br from-blue-500/15 to-blue-600/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:from-blue-500/25 group-hover:to-blue-600/15 transition-all duration-300 shadow-lg shadow-blue-500/10">
-                  <Code className="text-blue-400 group-hover:text-blue-300 transition-colors" size={32} />
-                </div>
-                <h3
-                  className={`text-xl font-semibold mb-4 ${inter.className} group-hover:text-zinc-100 transition-colors`}
-                >
-                  Full-Stack Development
-                </h3>
-                <p className="text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors">
-                  Proficient in modern web technologies, from React and Next.js to Node.js and databases.
-                </p>
+          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="group relative p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/60 transition-all duration-300">
+              <div className="w-12 h-12 rounded-lg bg-zinc-800/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Code className="text-white" size={24} />
               </div>
+              <h3 className={`text-lg font-semibold mb-2 ${inter.className} text-zinc-100`}>
+                Full-Stack Development
+              </h3>
+              <p className="text-sm text-zinc-400 leading-relaxed">
+                Proficient in modern web technologies, from React and Next.js to Node.js and databases.
+              </p>
             </div>
 
-            <div className="group relative">
-              {/* Enhanced background layers */}
-              <div className="absolute inset-0 bg-gradient-to-br from-zinc-800/30 via-zinc-700/20 to-zinc-900/40 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-transparent to-purple-400/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute inset-[-1px] bg-gradient-to-br from-zinc-600/20 via-zinc-700/10 to-zinc-800/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-              <div className="relative bg-gradient-to-br from-zinc-900/90 to-zinc-800/60 backdrop-blur-xl border border-zinc-700/50 rounded-2xl p-8 hover:border-zinc-600/70 transition-all duration-500 h-full shadow-2xl shadow-zinc-900/50 hover:shadow-zinc-800/60">
-                <div className="bg-gradient-to-br from-purple-500/15 to-purple-600/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:from-purple-500/25 group-hover:to-purple-600/15 transition-all duration-300 shadow-lg shadow-purple-500/10">
-                  <Briefcase className="text-purple-400 group-hover:text-purple-300 transition-colors" size={32} />
-                </div>
-                <h3
-                  className={`text-xl font-semibold mb-4 ${inter.className} group-hover:text-zinc-100 transition-colors`}
-                >
-                  Project Leadership
-                </h3>
-                <p className="text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors">
-                  Experienced in leading teams and delivering complex projects from conception to deployment.
-                </p>
+            <div className="group relative p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/60 transition-all duration-300">
+              <div className="w-12 h-12 rounded-lg bg-zinc-800/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Briefcase className="text-white" size={24} />
               </div>
+              <h3 className={`text-lg font-semibold mb-2 ${inter.className} text-zinc-100`}>
+                Project Leadership
+              </h3>
+              <p className="text-sm text-zinc-400 leading-relaxed">
+                Experienced in leading teams and delivering complex projects from conception to deployment.
+              </p>
             </div>
 
-            <div className="group relative">
-              {/* Enhanced background layers */}
-              <div className="absolute inset-0 bg-gradient-to-br from-zinc-800/30 via-zinc-700/20 to-zinc-900/40 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 via-transparent to-pink-400/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute inset-[-1px] bg-gradient-to-br from-zinc-600/20 via-zinc-700/10 to-zinc-800/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-              <div className="relative bg-gradient-to-br from-zinc-900/90 to-zinc-800/60 backdrop-blur-xl border border-zinc-700/50 rounded-2xl p-8 hover:border-zinc-600/70 transition-all duration-500 h-full shadow-2xl shadow-zinc-900/50 hover:shadow-zinc-800/60">
-                <div className="bg-gradient-to-br from-pink-500/15 to-pink-600/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:from-pink-500/25 group-hover:to-pink-600/15 transition-all duration-300 shadow-lg shadow-pink-500/10">
-                  <User className="text-pink-400 group-hover:text-pink-300 transition-colors" size={32} />
-                </div>
-                <h3
-                  className={`text-xl font-semibold mb-4 ${inter.className} group-hover:text-zinc-100 transition-colors`}
-                >
-                  UI/UX Design
-                </h3>
-                <p className="text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors">
-                  Creating intuitive and visually appealing interfaces that prioritize user experience.
-                </p>
+            <div className="group relative p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/60 transition-all duration-300">
+              <div className="w-12 h-12 rounded-lg bg-zinc-800/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <User className="text-white" size={24} />
               </div>
+              <h3 className={`text-lg font-semibold mb-2 ${inter.className} text-zinc-100`}>
+                UI/UX Design
+              </h3>
+              <p className="text-sm text-zinc-400 leading-relaxed">
+                Creating intuitive and visually appealing interfaces that prioritize user experience.
+              </p>
             </div>
           </motion.div>
 
@@ -320,48 +225,38 @@ export default function Home() {
       >
         <div className="max-w-4xl mx-auto text-center">
           <motion.div variants={itemVariants}>
-            <div className="relative group">
-              {/* Multiple background layers for depth */}
-              <div className="absolute inset-0 bg-gradient-to-r from-zinc-900/60 via-zinc-800/40 to-zinc-900/60 rounded-3xl blur-2xl opacity-70 group-hover:opacity-90 transition-opacity duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-teal-500/3 to-emerald-600/5 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute inset-[-2px] bg-gradient-to-br from-zinc-600/30 via-zinc-500/20 to-zinc-700/30 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <motion.div variants={itemVariants}>
+              <div className="relative group overflow-hidden rounded-3xl bg-zinc-900/40 border border-zinc-800 hover:border-zinc-700 transition-all duration-500 p-8 md:p-12 text-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-zinc-500/5 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="relative bg-gradient-to-br from-zinc-900/80 to-zinc-800/50 backdrop-blur-2xl border border-zinc-700/60 rounded-3xl p-16 shadow-2xl shadow-zinc-900/60 hover:shadow-zinc-800/70 transition-all duration-500">
-                {/* Icon container with enhanced effects */}
-                <div className="relative mb-8">
-                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-400/20 to-blue-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative bg-gradient-to-br from-indigo-500/15 to-blue-500/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-400/30 transition-all duration-300">
-                    <Folder className="text-blue-400 group-hover:text-blue-300 transition-colors" size={40} />
+                <div className="relative z-10 font-medium">
+                  <div className="w-16 h-16 mx-auto bg-zinc-800 rounded-2xl flex items-center justify-center mb-6 text-zinc-300">
+                    <Folder size={32} />
                   </div>
+
+                  <h2
+                    className={`text-3xl lg:text-4xl font-bold mb-6 ${inter.className} text-white tracking-tight`}
+                  >
+                    Crafting Digital Experiences
+                  </h2>
+
+                  <p className="text-lg text-zinc-400 max-w-xl mx-auto mb-8 leading-relaxed">
+                    From concept to deployment, I bring ideas to life through code. Each project is a journey of
+                    innovation, problem-solving, and continuous learning.
+                  </p>
+
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-white text-black hover:bg-zinc-200 border-0 font-semibold px-8"
+                  >
+                    <Link href="/project">
+                      View My Projects <ArrowRight className="ml-2 w-4 h-4" />
+                    </Link>
+                  </Button>
                 </div>
-
-                <h2
-                  className={`text-4xl lg:text-5xl font-bold mb-8 ${inter.className} tracking-tight group-hover:text-zinc-100 transition-colors duration-300`}
-                >
-                  Crafting Digital
-                  <span className="block bg-gradient-to-r from-indigo-600 to-blue-600 text-transparent bg-clip-text group-hover:from-indigo-500 group-hover:to-blue-500 transition-all duration-300">
-                    Experiences
-                  </span>
-                </h2>
-
-                <p
-                  className={`text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed ${inter.className} group-hover:text-zinc-300 transition-colors duration-300`}
-                >
-                  From concept to deployment, I bring ideas to life through code. Each project is a journey of
-                  innovation, problem-solving, and continuous learning.
-                </p>
-
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-gradient-to-r from-indigo-800 to-blue-800 hover:from-indigo-600 hover:to-blue-600 text-white border-0 font-semibold px-8 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-400/40 transition-all duration-300"
-                >
-                  <Link href="/project">
-                    View My Projects <ArrowRight className="ml-2" />
-                  </Link>
-                </Button>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </motion.section>
@@ -392,7 +287,7 @@ export default function Home() {
             {loadingPosts && (
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {Array.from({ length: 3 }).map((_, i) => (
-                  <div key={i} className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/40 shadow">
+                  <div key={i} className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 shadow">
                     <div className="relative aspect-video w-full overflow-hidden bg-zinc-800">
                       <div className="h-full w-full animate-pulse bg-zinc-700/50" />
                     </div>
@@ -430,7 +325,7 @@ export default function Home() {
                 {posts.map((p) => (
                   <Link key={p._id} href={`/blog/${p.slug}`} className="group">
                     <article
-                      className={`overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/40 shadow transition hover:border-zinc-700 ${posts.length === 1 ? "max-w-md md:max-w-2xl lg:max-w-3xl w-full mx-auto" : ""
+                      className={`overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 shadow transition hover:border-zinc-700 ${posts.length === 1 ? "max-w-md md:max-w-2xl lg:max-w-3xl w-full mx-auto" : ""
                         }`}
                     >
                       <div className="relative aspect-video w-full overflow-hidden bg-zinc-800">

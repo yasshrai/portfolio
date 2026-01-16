@@ -39,7 +39,7 @@ const socialLinks = [
 ]
 
 const skills = [
-  
+
   { name: "Backend", level: 90 },
   { name: "DevOps", level: 85 },
   { name: "Frontend", level: 80 },
@@ -49,7 +49,7 @@ const skills = [
 export default function About() {
   return (
     <main className="min-h-screen bg-black  text-white overflow-hidden">
-      
+
       <div className="container mx-auto px-4 py-20">
         {/* Hero Section */}
         <motion.section
@@ -60,7 +60,7 @@ export default function About() {
         >
           <motion.h1
             variants={item}
-            className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-blue-600"
+            className="text-5xl md:text-7xl font-bold mb-6 text-white"
           >
             About Me
           </motion.h1>
@@ -68,17 +68,15 @@ export default function About() {
             Software Engineer passionate about creating elegant solutions to complex problems
           </motion.p>
 
-          <motion.div variants={item} className="relative w-48 h-48 md:w-64 md:h-64 mx-auto mb-12">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-full p-1 animate-spin-slow">
-              <div className="h-full w-full rounded-full bg-zinc-900 p-1">
-                <Image
-                  src={aboutpageimg}
-                  alt="Yash Rai"
-                  width={256}
-                  height={256}
-                  className="rounded-full h-full w-full object-cover"
-                />
-              </div>
+          <motion.div variants={item} className="relative w-48 h-48 md:w-56 md:h-56 mx-auto mb-12">
+            <div className="h-full w-full rounded-full border-2 border-zinc-800 overflow-hidden">
+              <Image
+                src={aboutpageimg}
+                alt="Yash Rai"
+                width={256}
+                height={256}
+                className="h-full w-full object-cover"
+              />
             </div>
           </motion.div>
         </motion.section>
@@ -94,18 +92,18 @@ export default function About() {
           >
             <h2 className="text-3xl font-bold">Who Am I?</h2>
             <p className="text-zinc-300 leading-relaxed">
-              I&apos;m Yash Rai, a passionate Software Engineer with a love for creating beautiful, functional, and 
-              user-centric digital experiences. With a strong foundation in both frontend and backend technologies, 
+              I&apos;m Yash Rai, a passionate Software Engineer with a love for creating beautiful, functional, and
+              user-centric digital experiences. With a strong foundation in both frontend and backend technologies,
               I bring ideas to life through clean, efficient code.
             </p>
             <p className="text-zinc-300 leading-relaxed">
-              My journey in tech started with a curiosity about how things work, which evolved into a career 
-              where I get to build solutions that make a difference. I believe in continuous learning and 
+              My journey in tech started with a curiosity about how things work, which evolved into a career
+              where I get to build solutions that make a difference. I believe in continuous learning and
               staying updated with the latest industry trends.
             </p>
-            <div className="p-4 bg-gradient-to-r from-indigo-900/20 to-blue-900/20 rounded-xl border border-indigo-800/30 my-6">
-              <h4 className="font-semibold text-indigo-400 mb-2">My Vision</h4>
-              <p className="text-indigo-100">
+            <div className="p-4 bg-zinc-900/40 rounded-xl border border-zinc-800 my-6">
+              <h4 className="font-semibold text-zinc-200 mb-2">My Vision</h4>
+              <p className="text-zinc-400">
                 I aim to leverage my skills in software engineering to create impactful projects that make a difference in people&apos;s lives. I strive to develop intuitive applications, stay ahead of technological advancements, collaborate with like-minded individuals, and continuously learn to ensure my skills remain sharp.
               </p>
             </div>
@@ -120,7 +118,7 @@ export default function About() {
                     </div>
                     <div className="w-full bg-zinc-800 rounded-full h-2">
                       <motion.div
-                        className="h-full bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full"
+                        className="h-full bg-zinc-600 rounded-full"
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
                         viewport={{ once: true }}
@@ -131,7 +129,7 @@ export default function About() {
                 ))}
                 <motion.a
                   href="/skills"
-                  className="mt-6 inline-block px-6 py-2 text-sm font-medium text-indigo-400 border border-indigo-500/30 rounded-lg hover:bg-indigo-500/10 transition-colors duration-300"
+                  className="mt-6 inline-block px-6 py-2 text-sm font-medium text-zinc-400 border border-zinc-800 rounded-lg hover:bg-zinc-800 transition-colors duration-300"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -176,40 +174,42 @@ export default function About() {
         >
           <h2 className="text-3xl font-bold text-center mb-12">Education & Experience</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-zinc-900/50 backdrop-blur-sm rounded-2xl p-8 border border-zinc-800">
+            <div className="bg-zinc-900/40 rounded-2xl p-8 border border-zinc-800 hover:border-zinc-700 transition-colors">
               <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 bg-cyan-500/10 rounded-xl">
+                <div className="p-3 bg-zinc-800/50 rounded-xl text-zinc-300">
                   <Image
                     src={education}
                     alt="Education"
-                    width={40}
-                    height={40}
-                    className="w-10 h-10"
+                    width={24}
+                    height={24}
+                    className="w-6 h-6 invert opacity-75"
                   />
                 </div>
-                <h3 className="text-2xl font-bold">Education</h3>
+                <h3 className="text-xl font-bold flex-1">Education</h3>
               </div>
-              <div className="space-y-6">
-                <div className="border-l-2 border-indigo-500 pl-4">
-                  <h4 className="font-semibold text-lg">masters in Computer Science </h4>
-                  <p className="text-indigo-400">2025 - 2027</p>
-                  <p className="text-zinc-400 mt-1">
+              <div className="space-y-8">
+                <div className="relative pl-6 border-l border-zinc-800">
+                  <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 border-2 border-black" />
+                  <h4 className="font-medium text-lg text-zinc-100">Masters in Computer Science</h4>
+                  <p className="text-sm text-zinc-500 mb-2">2025 - 2027</p>
+                  <p className="text-zinc-400 text-sm leading-relaxed">
                     Comprehensive study of algorithms, data structures, and software engineering principles
                   </p>
                 </div>
-                <div className="border-l-2 border-purple-500 pl-4">
-                  <h4 className="font-semibold text-lg">Bachelor in Computer Science </h4>
-                  <p className="text-purple-400">2022-2025</p>
-                  <p className="text-zinc-400 mt-1">
-                  Focused on foundational computer science concepts, programming, and system design
+                <div className="relative pl-6 border-l border-zinc-800">
+                  <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 border-2 border-black" />
+                  <h4 className="font-medium text-lg text-zinc-100">Bachelor in Computer Science</h4>
+                  <p className="text-sm text-zinc-500 mb-2">2022-2025</p>
+                  <p className="text-zinc-400 text-sm leading-relaxed">
+                    Focused on foundational computer science concepts, programming, and system design
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-zinc-900/50 backdrop-blur-sm rounded-2xl p-8 border border-zinc-800">
+            <div className="bg-zinc-900/40 rounded-2xl p-8 border border-zinc-800 hover:border-zinc-700 transition-colors">
               <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 bg-purple-500/10 rounded-xl">
+                <div className="p-3 bg-zinc-800/50 rounded-xl text-zinc-300">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -220,25 +220,27 @@ export default function About() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="w-10 h-10 text-purple-400"
+                    className="w-6 h-6"
                   >
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold">Experience</h3>
+                <h3 className="text-xl font-bold flex-1">Experience</h3>
               </div>
-              <div className="space-y-6">
-                <div className="border-l-2 border-indigo-500 pl-4">
-                  <h4 className="font-semibold text-lg">SDE intern</h4>
-                  <p className="text-indigo-400">Jan 2025 - may 2025</p>
-                  <p className="text-zinc-400 mt-1">
+              <div className="space-y-8">
+                <div className="relative pl-6 border-l border-zinc-800">
+                  <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 border-2 border-black" />
+                  <h4 className="font-medium text-lg text-zinc-100">SDE Intern</h4>
+                  <p className="text-sm text-zinc-500 mb-2">Jan 2025 - May 2025</p>
+                  <p className="text-zinc-400 text-sm leading-relaxed">
                     Build scalable web applications with modern technologies
                   </p>
                 </div>
-                <div className="border-l-2 border-amber-500 pl-4">
-                  <h4 className="font-semibold text-lg">Freelance Developer</h4>
-                  <p className="text-amber-400">2024 - 2025</p>
-                  <p className="text-zinc-400 mt-1">
+                <div className="relative pl-6 border-l border-zinc-800">
+                  <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 border-2 border-black" />
+                  <h4 className="font-medium text-lg text-zinc-100">Freelance Developer</h4>
+                  <p className="text-sm text-zinc-500 mb-2">2024 - 2025</p>
+                  <p className="text-zinc-400 text-sm leading-relaxed">
                     Delivered custom solutions for various clients across different industries
                   </p>
                 </div>
@@ -268,10 +270,7 @@ export default function About() {
                 rel="noopener noreferrer"
                 whileHover={{ y: -5, scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-6 py-3 bg-zinc-900/50 hover:bg-zinc-800/50 backdrop-blur-sm border border-zinc-800 rounded-lg text-zinc-200 hover:text-white transition-all duration-300"
-                style={{
-                  background: `linear-gradient(135deg, rgba(39, 39, 42, 0.5) 0%, rgba(24, 24, 27, 0.5) 100%)`,
-                }}
+                className="flex items-center gap-2 px-6 py-3 bg-zinc-900/40 hover:bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-lg text-zinc-400 hover:text-white transition-all duration-300"
               >
                 <link.icon className="w-5 h-5" />
                 <span>{link.name}</span>

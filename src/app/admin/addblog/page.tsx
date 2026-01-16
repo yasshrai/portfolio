@@ -89,7 +89,7 @@ export default function AddBlogPage() {
 
   return (
     <main className="flex min-h-screen w-screen flex-col bg-black  px-4 text-white md:px-8">
-    
+
 
       <div className="z-10 mx-auto mt-16 w-full max-w-2xl rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-xl backdrop-blur">
         <div className="mb-6 flex items-center justify-between">
@@ -234,7 +234,7 @@ export default function AddBlogPage() {
           </div>
 
           {error && <div className="rounded-md bg-red-500/10 p-3 text-sm text-red-300">{error}</div>}
-          {success && <div className="rounded-md bg-emerald-500/10 p-3 text-sm text-emerald-300">{success}</div>}
+          {success && <div className="rounded-md bg-zinc-800 p-3 text-sm text-zinc-300">{success}</div>}
 
           <button
             type="submit"

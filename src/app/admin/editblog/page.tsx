@@ -382,7 +382,7 @@ export default function EditBlogPage() {
           </div>
 
           {error && <div className="rounded-md bg-red-500/10 p-3 text-sm text-red-300">{error}</div>}
-          {success && <div className="rounded-md bg-emerald-500/10 p-3 text-sm text-emerald-300">{success}</div>}
+          {success && <div className="rounded-md bg-zinc-800 p-3 text-sm text-zinc-300">{success}</div>}
 
           <button
             type="submit"

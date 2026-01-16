@@ -42,17 +42,17 @@ export default function AdminPage() {
       await signInWithEmailAndPassword(auth, email, password)
       setEmail("")
       setPassword("")
-      
+
     } catch (err: any) {
       const code = err?.code || "auth/error"
       const message =
         code === "auth/invalid-credential"
           ? "Invalid email or password"
           : code === "auth/user-disabled"
-          ? "This account has been disabled"
-          : code === "auth/too-many-requests"
-          ? "Too many attempts. Try again later"
-          : "Login failed. Please try again"
+            ? "This account has been disabled"
+            : code === "auth/too-many-requests"
+              ? "Too many attempts. Try again later"
+              : "Login failed. Please try again"
       setError(message)
     } finally {
       setLoading(false)
@@ -75,7 +75,7 @@ export default function AdminPage() {
 
   return (
     <main className="flex min-h-screen w-screen flex-col bg-black  px-4 text-white md:px-8">
-      
+
 
       <div className="z-10 mx-auto mt-24 w-full max-w-md rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-xl backdrop-blur">
         <h1 className={`mb-4 text-center text-3xl font-bold ${inter.className}`}>Admin</h1>
@@ -83,24 +83,24 @@ export default function AdminPage() {
 
         {user ? (
           <div className="space-y-4">
-            <div className="rounded-md bg-emerald-500/10 p-3 text-emerald-300">
+            <div className="rounded-md bg-zinc-800 p-3 text-zinc-300">
               Logged in as <span className="font-medium">{user.email}</span>
             </div>
             <Link
               href="/admin/addblog"
-              className="block w-full rounded-md  bg-gradient-to-r from-indigo-500 to-indigo-700 hover:opacity-90 px-4 py-2 text-center font-medium text-white transition "
+              className="block w-full rounded-md bg-zinc-100 hover:bg-white px-4 py-2 text-center font-medium text-zinc-900 transition"
             >
               Add Blog Post
             </Link>
             <Link
               href="/admin/editblog"
-              className="block w-full rounded-md  bg-gradient-to-r from-indigo-500 to-indigo-700 hover:opacity-90 px-4 py-2 text-center font-medium text-white transition "
+              className="block w-full rounded-md bg-zinc-100 hover:bg-white px-4 py-2 text-center font-medium text-zinc-900 transition"
             >
               Edit Blog Post
             </Link>
             <Link
               href="/admin/addurl"
-              className="block w-full rounded-md  bg-gradient-to-r from-indigo-500 to-indigo-700 hover:opacity-90 px-4 py-2 text-center font-medium text-white transition "
+              className="block w-full rounded-md bg-zinc-100 hover:bg-white px-4 py-2 text-center font-medium text-zinc-900 transition"
             >
               Add URL
             </Link>

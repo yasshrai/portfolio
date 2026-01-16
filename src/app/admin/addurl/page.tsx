@@ -194,7 +194,7 @@ export default function AddUrlPage() {
                 <p className="text-xs text-zinc-500">
                   Preview: /{customSlug}
                   {slugAvailable === true && (
-                    <span className="ml-2 text-emerald-400">✓ Available</span>
+                    <span className="ml-2 text-zinc-300">✓ Available</span>
                   )}
                   {slugAvailable === false && (
                     <span className="ml-2 text-red-400">✗ Not available</span>
@@ -205,7 +205,7 @@ export default function AddUrlPage() {
           </div>
 
           {error && <div className="rounded-md bg-red-500/10 p-3 text-sm text-red-300">{error}</div>}
-          {success && <div className="rounded-md bg-emerald-500/10 p-3 text-sm text-emerald-300">{success}</div>}
+          {success && <div className="rounded-md bg-zinc-800 p-3 text-sm text-zinc-300">{success}</div>}
 
           <button
             type="submit"

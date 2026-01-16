@@ -109,13 +109,13 @@ export default function UrlListPage() {
           >
             {/* Background effects */}
             <div className="absolute inset-0 bg-gradient-to-br from-zinc-800/30 via-zinc-700/20 to-zinc-900/40 rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-blue-400/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-r from-zinc-500/5 via-transparent to-zinc-400/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="absolute inset-[-1px] bg-gradient-to-br from-zinc-600/20 via-zinc-700/10 to-zinc-800/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
             <Card className="relative bg-gradient-to-br from-zinc-900/90 to-zinc-800/60 backdrop-blur-xl border border-zinc-700/50 rounded-3xl shadow-2xl shadow-zinc-900/50 hover:shadow-zinc-800/60 transition-all duration-500 overflow-hidden">
               <CardHeader className="border-b border-zinc-700/50">
                 <CardTitle className={`text-2xl text-white font-semibold ${inter.className} flex items-center gap-2`}>
-                  <Link2 className="text-blue-400" size={24} />
+                  <Link2 className="text-white" size={24} />
                   All URL Mappings
                   <span className="ml-auto text-sm font-normal text-zinc-400">
                     {urls.length} {urls.length === 1 ? "link" : "links"}
@@ -125,7 +125,7 @@ export default function UrlListPage() {
               <CardContent className="p-0">
                 {loading && (
                   <div className="p-8 text-center">
-                    <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-zinc-700 border-t-blue-400"></div>
+                    <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-zinc-700 border-t-white"></div>
                     <p className="mt-4 text-zinc-400">Loading URLs...</p>
                   </div>
                 )}
@@ -177,12 +177,12 @@ export default function UrlListPage() {
                           >
                             <td className="px-6 py-4">
                               <div className="flex items-center gap-2">
-                                <Link2 className="text-blue-400 flex-shrink-0" size={16} />
+                                <Link2 className="text-zinc-500 flex-shrink-0" size={16} />
                                 <a
                                   href={url.shortUrl}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-blue-400 hover:text-blue-300 transition-colors font-mono text-sm truncate max-w-xs"
+                                  className="text-zinc-400 hover:text-white transition-colors font-mono text-sm truncate max-w-xs"
                                   title={url.shortUrl}
                                 >
                                   /url/{url.customSlug}
