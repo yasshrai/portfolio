@@ -50,9 +50,6 @@ export default function EditBlogPage() {
     const unsub = onAuthStateChanged(auth, (u) => {
       setUser(u)
       setChecking(false)
-      if (!u) {
-        router.replace("/admin")
-      }
     })
     return () => unsub()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -148,16 +145,10 @@ export default function EditBlogPage() {
 
   if (selectingPost) {
     return (
-      <main className="flex min-h-screen w-screen flex-col bg-black px-4 text-white md:px-8">
-        <div className="z-10 mx-auto mt-16 w-full max-w-4xl rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-xl backdrop-blur">
-          <div className="mb-6 flex items-center justify-between">
+      <main className="w-full text-white">
+        <div className="mx-auto w-full max-w-4xl rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-xl backdrop-blur">
+          <div className="mb-6">
             <h1 className={`text-2xl font-bold ${inter.className}`}>Edit Blog Post</h1>
-            <button
-              onClick={() => router.push("/admin")}
-              className="rounded-md border border-zinc-700 px-3 py-1 text-sm text-zinc-300 hover:bg-zinc-800"
-            >
-              Back to Admin
-            </button>
           </div>
 
           {loadingPosts ? (
@@ -207,8 +198,8 @@ export default function EditBlogPage() {
   }
 
   return (
-    <main className="flex min-h-screen w-screen flex-col bg-black px-4 text-white md:px-8">
-      <div className="z-10 mx-auto mt-16 w-full max-w-2xl rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-xl backdrop-blur">
+    <main className="w-full text-white">
+      <div className="mx-auto w-full max-w-2xl rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-xl backdrop-blur">
         <div className="mb-6 flex items-center justify-between">
           <h1 className={`text-2xl font-bold ${inter.className}`}>Edit Blog Post</h1>
           <div className="flex gap-2">
@@ -221,12 +212,6 @@ export default function EditBlogPage() {
               className="rounded-md border border-zinc-700 px-3 py-1 text-sm text-zinc-300 hover:bg-zinc-800"
             >
               Select Different Post
-            </button>
-            <button
-              onClick={() => router.push("/admin")}
-              className="rounded-md border border-zinc-700 px-3 py-1 text-sm text-zinc-300 hover:bg-zinc-800"
-            >
-              Back to Admin
             </button>
           </div>
         </div>

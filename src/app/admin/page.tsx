@@ -12,7 +12,7 @@ import {
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { app } from "../firebase/config"
-import { Eye, EyeOff } from "lucide-react"
+import { Eye, EyeOff, User as UserIcon } from "lucide-react"
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] })
 
@@ -74,43 +74,34 @@ export default function AdminPage() {
   }
 
   return (
-    <main className="flex min-h-screen w-screen flex-col bg-black  px-4 text-white md:px-8">
-
-
-      <div className="z-10 mx-auto mt-24 w-full max-w-md rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-xl backdrop-blur">
+    <main className="flex min-h-screen  flex-col items-center justify-center bg-black px-4 text-white md:px-8">
+      <div className="z-10 mx-auto w-full max-w-md rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-xl backdrop-blur">
         <h1 className={`mb-4 text-center text-3xl font-bold ${inter.className}`}>Admin</h1>
         <p className="mb-6 text-center text-sm text-zinc-400">Sign in with email and password (existing accounts only)</p>
 
         {user ? (
-          <div className="space-y-4">
-            <div className="rounded-md bg-zinc-800 p-3 text-zinc-300">
-              Logged in as <span className="font-medium">{user.email}</span>
+          <div className="flex flex-col items-center justify-center space-y-6 py-8">
+            <div className="relative">
+              <div className="h-20 w-20 rounded-full bg-zinc-800 flex items-center justify-center border border-zinc-700 shadow-inner">
+                {/* Lucide User icon doesn't exist as UserWrapper, wait, standard is User. Let's fix import in next chunk or this one correctly. */}
+                {/* Checking previous file content, it was just Eye, EyeOff. */}
+                {/* I will use a generic SVG or standard FontAwesome if I am not sure, but lucide-react has User. */}
+                <UserIcon size={40} className="text-zinc-400" />
+              </div>
+              <div className="absolute bottom-0 right-0 h-5 w-5 rounded-full bg-emerald-500 border-4 border-zinc-900"></div>
             </div>
-            <Link
-              href="/admin/addblog"
-              className="block w-full rounded-md bg-zinc-100 hover:bg-white px-4 py-2 text-center font-medium text-zinc-900 transition"
-            >
-              Add Blog Post
-            </Link>
-            <Link
-              href="/admin/editblog"
-              className="block w-full rounded-md bg-zinc-100 hover:bg-white px-4 py-2 text-center font-medium text-zinc-900 transition"
-            >
-              Edit Blog Post
-            </Link>
-            <Link
-              href="/admin/addurl"
-              className="block w-full rounded-md bg-zinc-100 hover:bg-white px-4 py-2 text-center font-medium text-zinc-900 transition"
-            >
-              Add URL
-            </Link>
-            <button
-              onClick={handleLogout}
-              disabled={loading}
-              className="w-full rounded-md bg-zinc-200 px-4 py-2 font-medium text-zinc-900 transition hover:bg-white disabled:opacity-60"
-            >
-              {loading ? "Logging out..." : "Log out"}
-            </button>
+
+            <div className="text-center space-y-2">
+              <h2 className="text-xl font-semibold text-white">Welcome back!</h2>
+              <div className="inline-flex items-center rounded-full bg-zinc-800/50 px-4 py-1.5 text-sm text-zinc-400 border border-zinc-700/50">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
+                {user.email}
+              </div>
+            </div>
+
+            <p className="text-zinc-500 text-xs text-center max-w-[200px]">
+              You have full access to the admin dashboard.
+            </p>
           </div>
         ) : (
           <form onSubmit={handleLogin} className="space-y-4">

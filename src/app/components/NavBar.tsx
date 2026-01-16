@@ -13,7 +13,8 @@ export default function Navbar() {
 
   const pathname = usePathname()
   // Hide Navbar on blog slug pages like /blog/my-post (but keep it on /blog)
-  if (pathname?.startsWith("/blog/") && pathname !== "/blog") {
+  // Also hide Navbar on all admin pages
+  if ((pathname?.startsWith("/blog/") && pathname !== "/blog") || pathname?.startsWith("/admin")) {
     return null
   }
 
