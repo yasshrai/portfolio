@@ -10,7 +10,7 @@ export default function BlogSlugLayout({
   const router = useRouter()
 
   return (
-    <div className="min-h-screen w-screen bg-gradient-to-b from-black to-zinc-950">
+    <div className="min-h-screen w-screen ">
       {/* Back Button */}
       <div className="sticky top-4 z-50 mx-auto w-full max-w-3xl px-4 md:px-8">
         <Button
@@ -23,7 +23,7 @@ export default function BlogSlugLayout({
           Back to blog
         </Button>
       </div>
-      
+
       {/* Page Content */}
       {children}
     </div>

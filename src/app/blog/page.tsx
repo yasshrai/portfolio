@@ -15,12 +15,12 @@ export default function Blog() {
                 console.error('Failed to prefetch posts:', error);
             }
         };
-        
+
         prefetchData();
     }, []);
 
     return (
-        <main className="flex flex-col w-screen min-h-screen bg-black text-white overflow-hidden">
+        <main className="min-h-screen bg-background text-foreground">
             <MainSection />
         </main>
     );

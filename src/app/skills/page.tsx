@@ -41,7 +41,7 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <main className="flex flex-col w-screen min-h-screen bg-black text-white overflow-hidden px-6 pt-32 pb-12">
+    <main className="flex flex-col w-screen min-h-screen bg-background text-foreground overflow-hidden px-6 pt-32 pb-12">
       <div className="max-w-5xl mx-auto w-full">
         {/* Header */}
         <motion.div
@@ -50,10 +50,10 @@ export default function Skills() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-white">
-            Technical<br /><span className="text-zinc-500">Expertise</span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-foreground">
+            Technical<br /><span className="text-muted-foreground">Expertise</span>
           </h1>
-          <p className="text-lg text-zinc-400 max-w-lg leading-relaxed">
+          <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
             A curated list of technologies I use to build scalable, high-performance web applications.
           </p>
         </motion.div>
@@ -67,12 +67,12 @@ export default function Skills() {
         >
           {skillCategories.map((category, index) => (
             <motion.div key={index} variants={item} className="flex flex-col gap-6">
-              <h2 className="text-2xl font-medium text-white pb-2 border-b border-zinc-800">
+              <h2 className="text-2xl font-medium text-foreground pb-2 border-b border-border">
                 {category.title}
               </h2>
               <div className="flex flex-col gap-3">
                 {category.skills.map((skill, skillIndex) => (
-                  <p key={skillIndex} className="text-zinc-400 text-lg hover:text-white transition-colors duration-200 cursor-default">
+                  <p key={skillIndex} className="text-muted-foreground text-lg hover:text-foreground transition-colors duration-200 cursor-default">
                     {skill}
                   </p>
                 ))}
@@ -83,14 +83,14 @@ export default function Skills() {
 
         {/* Minimal Footer Note */}
         <motion.div
-          className="mt-32 pt-12 border-t border-zinc-900"
+          className="mt-32 pt-12 border-t border-border"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-zinc-500 text-sm">
-            Always exploring new technologies. Currently learning <span className="text-white">System Design</span>.
+          <p className="text-muted-foreground text-sm">
+            Always exploring new technologies. Currently learning <span className="text-foreground">System Design</span>.
           </p>
         </motion.div>
       </div>

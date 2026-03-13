@@ -56,7 +56,7 @@ const projects = [
 
 export default function Project() {
   return (
-    <main className="flex flex-col w-screen min-h-screen bg-black text-white overflow-hidden px-6 pt-32 pb-24">
+    <main className="flex flex-col w-screen min-h-screen bg-background text-foreground overflow-hidden px-6 pt-32 pb-24">
       <div className="max-w-7xl mx-auto w-full">
         {/* Header */}
         <motion.div
@@ -65,11 +65,11 @@ export default function Project() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-white hover:text-zinc-200 transition-colors cursor-default w-fit">
-            Selected<br /><span className="text-zinc-600">Works</span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-foreground hover:text-muted-foreground transition-colors cursor-default w-fit">
+            Selected<br /><span className="text-muted-foreground">Works</span>
           </h1>
-          <p className="text-lg text-zinc-400 max-w-lg leading-relaxed">
-            A collection of projects exploring web development, design systems, and user experience.
+          <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
+            A curated list of projects exploring web development, design systems, and user experience.
           </p>
         </motion.div>
 
@@ -96,14 +96,14 @@ export default function Project() {
 
         {/* Footer / More */}
         <motion.div
-          className="mt-32 pt-12 border-t border-zinc-900"
+          className="mt-32 pt-12 border-t border-border"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-zinc-500 text-sm">
-            More experiments on <a href="https://github.com/yasshrai" target="_blank" className="text-white hover:underline underline-offset-4 decoration-zinc-700">GitHub</a>.
+          <p className="text-muted-foreground text-sm">
+            More experiments on <a href="https://github.com/yasshrai" target="_blank" className="text-foreground hover:underline underline-offset-4 decoration-border">GitHub</a>.
           </p>
         </motion.div>
       </div>

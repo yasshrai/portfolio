@@ -42,7 +42,7 @@ export default function ProjectCard({
     >
       <Link href={link} target="_blank" rel="noopener noreferrer" className="block">
         {/* Image Container */}
-        <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-zinc-900 mb-6">
+        <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-muted mb-6">
           <Image
             src={image || "/placeholder.svg"}
             alt={title}
@@ -50,16 +50,16 @@ export default function ProjectCard({
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
           {/* Subtle overlay on hover */}
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+          <div className="absolute inset-0 bg-background/0 group-hover:bg-foreground/5 transition-colors duration-500" />
         </div>
 
         {/* Content */}
         <div className="flex justify-between items-start gap-4">
           <div className="flex-1">
-            <h3 className="text-xl font-medium text-white mb-2 group-hover:text-zinc-200 transition-colors">
+            <h3 className="text-xl font-medium text-foreground mb-2 group-hover:text-muted-foreground transition-colors">
               {title}
             </h3>
-            <p className="text-zinc-500 text-sm leading-relaxed line-clamp-2 mb-3">
+            <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2 mb-3">
               {description}
             </p>
 
@@ -67,7 +67,7 @@ export default function ProjectCard({
             {tech.length > 0 && (
               <div className="flex flex-wrap gap-2">
                 {tech.slice(0, 3).map((t, i) => (
-                  <span key={i} className="text-xs text-zinc-600">
+                  <span key={i} className="text-xs text-muted-foreground/60">
                     {t}
                   </span>
                 ))}
@@ -76,7 +76,7 @@ export default function ProjectCard({
           </div>
 
           <div className="pt-1">
-            <ArrowUpRight className="text-zinc-600 w-5 h-5 group-hover:text-white group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />
+            <ArrowUpRight className="text-muted-foreground/50 w-5 h-5 group-hover:text-foreground group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300" />
           </div>
         </div>
       </Link>

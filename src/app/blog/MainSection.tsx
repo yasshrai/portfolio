@@ -70,10 +70,10 @@ const MainSection = () => {
     >
       {/* Header */}
       <div className="mb-20">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-white">
-          Thoughts &<br /><span className="text-zinc-600">Writings</span>
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-foreground">
+          Thoughts &<br /><span className="text-muted-foreground/50">Writings</span>
         </h1>
-        <p className="text-lg text-zinc-400 max-w-lg leading-relaxed">
+        <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
           Exploring software engineering, design patterns, and the future of web technology.
         </p>
       </div>
@@ -83,9 +83,9 @@ const MainSection = () => {
         {loading && (
           <div className="space-y-8 animate-pulse">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="border-b border-zinc-900 pb-8">
-                <div className="h-6 w-2/3 bg-zinc-900 rounded mb-4" />
-                <div className="h-4 w-1/3 bg-zinc-900 rounded" />
+              <div key={i} className="border-b border-border pb-8">
+                <div className="h-6 w-2/3 bg-muted rounded mb-4" />
+                <div className="h-4 w-1/3 bg-muted rounded" />
               </div>
             ))}
           </div>
@@ -96,7 +96,7 @@ const MainSection = () => {
         )}
 
         {!loading && !error && posts.length === 0 && (
-          <p className="text-zinc-500 font-light">No articles published yet.</p>
+          <p className="text-muted-foreground font-light">No articles published yet.</p>
         )}
 
         {!loading && !error && posts.length > 0 && (
@@ -106,25 +106,25 @@ const MainSection = () => {
                 key={p._id}
                 href={`/blog/${p.slug}`}
                 onMouseEnter={() => handleHoverStart(p.slug)}
-                className="group py-8 border-b border-zinc-900 transition-colors hover:border-zinc-800"
+                className="group py-8 border-b border-border transition-colors hover:border-muted"
               >
                 <article className="grid md:grid-cols-[1fr_auto] gap-4 items-start">
                   <div className="space-y-3">
-                    <h2 className="text-2xl font-medium text-zinc-100 group-hover:text-white transition-colors">
+                    <h2 className="text-2xl font-medium text-foreground/80 group-hover:text-foreground transition-colors">
                       {p.title}
                     </h2>
-                    <p className="text-zinc-500 line-clamp-2 leading-relaxed max-w-2xl group-hover:text-zinc-400 transition-colors">
+                    <p className="text-muted-foreground/60 line-clamp-2 leading-relaxed max-w-2xl group-hover:text-muted-foreground transition-colors">
                       {p.summary}
                     </p>
                     <div className="pt-2">
-                      <span className="text-xs text-zinc-600 font-mono">
+                      <span className="text-xs text-muted-foreground/40 font-mono">
                         {new Date(p.createdAt).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
                       </span>
                     </div>
                   </div>
 
                   <div className="hidden md:block pt-2 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                    <ArrowUpRight className="text-zinc-400" />
+                    <ArrowUpRight className="text-muted-foreground" />
                   </div>
                 </article>
               </Link>

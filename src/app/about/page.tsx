@@ -14,7 +14,7 @@ const socialLinks = [
 
 export default function About() {
   return (
-    <main className="min-h-screen bg-black text-zinc-300 px-6 pt-32 pb-24 font-light">
+    <main className="min-h-screen bg-background text-muted-foreground px-6 pt-32 pb-24 font-light">
       <div className="max-w-3xl mx-auto space-y-24">
 
         {/* Header / Intro */}
@@ -22,7 +22,7 @@ export default function About() {
           <motion.h1
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight"
+            className="text-4xl md:text-5xl font-bold text-foreground mb-8 tracking-tight"
           >
             About Me
           </motion.h1>
@@ -30,7 +30,7 @@ export default function About() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="space-y-6 text-lg leading-relaxed text-zinc-400"
+            className="space-y-6 text-lg leading-relaxed text-muted-foreground"
           >
             <p>
               I&apos;m Yash Rai, a software engineer with a passion for building digital experiences that matter.
@@ -55,7 +55,7 @@ export default function About() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-xl font-medium text-white mb-8 border-b border-zinc-800 pb-2"
+            className="text-xl font-medium text-foreground mb-8 border-b border-border pb-2"
           >
             Timeline
           </motion.h2>
@@ -69,17 +69,17 @@ export default function About() {
             {/* Experience */}
             <div className="space-y-8">
               <div className="grid md:grid-cols-[120px_1fr] gap-4 md:gap-8">
-                <span className="text-zinc-500 text-sm">Jan 2025 — Present</span>
+                <span className="text-muted-foreground/60 text-sm">Jan 2025 — Present</span>
                 <div>
-                  <h3 className="text-white font-medium">SDE Intern</h3>
-                  <p className="text-zinc-500 mt-1">Building scalable web applications.</p>
+                  <h3 className="text-foreground font-medium">SDE Intern</h3>
+                  <p className="text-muted-foreground mt-1">Building scalable web applications.</p>
                 </div>
               </div>
               <div className="grid md:grid-cols-[120px_1fr] gap-4 md:gap-8">
-                <span className="text-zinc-500 text-sm">2024 — 2025</span>
+                <span className="text-muted-foreground/60 text-sm">2024 — 2025</span>
                 <div>
-                  <h3 className="text-white font-medium">Freelance Developer</h3>
-                  <p className="text-zinc-500 mt-1">Delivering custom solutions for various clients.</p>
+                  <h3 className="text-foreground font-medium">Freelance Developer</h3>
+                  <p className="text-muted-foreground mt-1">Delivering custom solutions for various clients.</p>
                 </div>
               </div>
             </div>
@@ -87,17 +87,17 @@ export default function About() {
             {/* Education */}
             <div className="space-y-8">
               <div className="grid md:grid-cols-[120px_1fr] gap-4 md:gap-8">
-                <span className="text-zinc-500 text-sm">2025 — 2027</span>
+                <span className="text-muted-foreground/60 text-sm">2025 — 2027</span>
                 <div>
-                  <h3 className="text-white font-medium">Masters in Computer Science</h3>
-                  <p className="text-zinc-500 mt-1">Algorithms, Data Structures, Software Engineering.</p>
+                  <h3 className="text-foreground font-medium">Masters in Computer Science</h3>
+                  <p className="text-muted-foreground mt-1">Algorithms, Data Structures, Software Engineering.</p>
                 </div>
               </div>
               <div className="grid md:grid-cols-[120px_1fr] gap-4 md:gap-8">
-                <span className="text-zinc-500 text-sm">2022 — 2025</span>
+                <span className="text-muted-foreground/60 text-sm">2022 — 2025</span>
                 <div>
-                  <h3 className="text-white font-medium">Bachelor in Computer Science</h3>
-                  <p className="text-zinc-500 mt-1">Foundational CS concepts and system design.</p>
+                  <h3 className="text-foreground font-medium">Bachelor in Computer Science</h3>
+                  <p className="text-muted-foreground mt-1">Foundational CS concepts and system design.</p>
                 </div>
               </div>
             </div>
@@ -110,7 +110,7 @@ export default function About() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-xl font-medium text-white mb-8 border-b border-zinc-800 pb-2"
+            className="text-xl font-medium text-foreground mb-8 border-b border-border pb-2"
           >
             Connect
           </motion.h2>
@@ -126,7 +126,7 @@ export default function About() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-500 hover:text-white transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label={link.name}
               >
                 <link.icon size={20} />

@@ -55,18 +55,27 @@ export const metadata: Metadata = {
 }
 
 
+import { ThemeProvider } from "./components/ThemeProvider"
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="  bg-black">
-      <body className={`${inter.className} bg-black w-full h-full`}>
-        <Navbar></Navbar>
-        {children}
-        <SpeedInsights />
-        <Toaster />
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} bg-background text-foreground w-full h-full`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+          <SpeedInsights />
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   )

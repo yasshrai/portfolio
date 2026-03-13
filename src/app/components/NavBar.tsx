@@ -5,6 +5,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "./ThemeToggle"
 import { usePathname } from "next/navigation"
 
 export default function Navbar() {
@@ -26,7 +27,7 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100 }}
         className="h-20 sticky top-0 w-full z-50 flex items-center justify-between px-6 md:px-12 
-        bg-black/50 backdrop-blur-md border-b border-white/5"
+        bg-background/50 backdrop-blur-md border-b border-border/40"
       >
         {/* ===== Logo ===== */}
         <motion.div
@@ -35,7 +36,7 @@ export default function Navbar() {
           transition={{ delay: 0.2 }}
           className="flex items-center gap-2"
         >
-          <h1 className="font-bold tracking-tight text-2xl text-white">
+          <h1 className="font-bold tracking-tight text-2xl text-foreground">
             Yash Rai
           </h1>
         </motion.div>
@@ -57,7 +58,7 @@ export default function Navbar() {
             <Link
               key={name}
               href={`/${route}`}
-              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
             >
               {name}
             </Link>
@@ -71,9 +72,10 @@ export default function Navbar() {
           transition={{ delay: 0.5 }}
           className="hidden lg:flex items-center gap-6"
         >
-          <Link href="/contact" className="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200">
+          <Link href="/contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200">
             Contact
           </Link>
+          <ThemeToggle />
           <Button
             asChild
             variant="outline"
@@ -99,9 +101,9 @@ export default function Navbar() {
             className="hover:bg-zinc-800/50 h-10 w-10 p-0 rounded-full flex items-center justify-center transition duration-200"
           >
             {mobileMenu ? (
-              <X size={24} className="text-zinc-100" />
+              <X size={24} className="text-foreground" />
             ) : (
-              <Menu size={24} className="text-zinc-100" />
+              <Menu size={24} className="text-foreground" />
             )}
           </Button>
 
@@ -116,9 +118,9 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}
             transition={{ type: "spring", stiffness: 100 }}
-            className="lg:hidden flex flex-col text-white w-full fixed left-0 top-20 bottom-0
-            bg-black/95 backdrop-blur-2xl
-            z-40 pt-8 px-8 border-t border-zinc-800"
+            className="lg:hidden flex flex-col text-foreground w-full fixed left-0 top-20 bottom-0
+            bg-background/95 backdrop-blur-2xl
+            z-40 pt-8 px-8 border-t border-border"
           >
             {[
               { name: "Home", route: "" },
@@ -132,7 +134,7 @@ export default function Navbar() {
                 key={name}
                 href={`/${route}`}
                 onClick={handleChange}
-                className="py-4 text-2xl font-bold text-zinc-400 hover:text-white border-b border-zinc-900 transition-colors"
+                className="py-4 text-2xl font-bold text-muted-foreground hover:text-foreground border-b border-border/50 transition-colors"
               >
                 {name}
               </Link>
