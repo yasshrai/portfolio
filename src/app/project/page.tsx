@@ -8,6 +8,7 @@ import portfoliobg from "@/app/assets/portfolioproject.jpg"
 import adminpanelbg from "@/app/assets/adminpanel.jpg"
 import dating from "@/app/assets/dating.jpg"
 import devorabg from "@/app/assets/devora.png"
+import scriptlybg from "@/app/assets/scriptly.png"
 
 const projects = [
   {
@@ -32,6 +33,13 @@ const projects = [
     tech: ["Next.js", "Firebase", "MongoDB"],
   },
   {
+    image: scriptlybg,
+    title: "Scriptly",
+    description: "Lightweight Linux utility for installing applications using structured shell scripts. No bloat, just official sources.",
+    link: "https://scriptlly.vercel.app",
+    tech: ["Shell", "Linux", "Next.js"],
+  },
+  {
     image: adminpanelbg,
     title: "College Admin",
     description: "Dynamic interface for managing student and faculty data.",
@@ -52,6 +60,7 @@ const projects = [
     link: "https://devoralinux.vercel.app",
     tech: ["Linux", "Fedora", "Shell"],
   },
+
 ]
 
 export default function Project() {
