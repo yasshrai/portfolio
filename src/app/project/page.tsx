@@ -1,14 +1,15 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import ProjectCard from "./ProjectCard"
-import chatappimage from "@/app/assets/chatappbg.jpg"
-import bookstorebg from "@/app/assets/bookstorebg.png"
-import portfoliobg from "@/app/assets/portfolioproject.jpg"
-import adminpanelbg from "@/app/assets/adminpanel.jpg"
-import dating from "@/app/assets/dating.jpg"
-import devorabg from "@/app/assets/devora.png"
-import scriptlybg from "@/app/assets/scriptly.png"
+import { motion } from "framer-motion";
+import ProjectCard from "./ProjectCard";
+import chatappimage from "@/app/assets/chatappbg.jpg";
+import bookstorebg from "@/app/assets/bookstorebg.png";
+import portfoliobg from "@/app/assets/portfolioproject.jpg";
+import adminpanelbg from "@/app/assets/adminpanel.jpg";
+import dating from "@/app/assets/dating.jpg";
+import devorabg from "@/app/assets/devora.png";
+import scriptlybg from "@/app/assets/scriptly.png";
+import nvimbg from "@/app/assets/nvimdemo.png";
 
 const projects = [
   {
@@ -35,7 +36,8 @@ const projects = [
   {
     image: scriptlybg,
     title: "Scriptly",
-    description: "Lightweight Linux utility for installing applications using structured shell scripts. No bloat, just official sources.",
+    description:
+      "Lightweight Linux utility for installing applications using structured shell scripts. No bloat, just official sources.",
     link: "https://scriptlly.vercel.app",
     tech: ["Shell", "Linux", "Next.js"],
   },
@@ -60,8 +62,15 @@ const projects = [
     link: "https://devoralinux.vercel.app",
     tech: ["Linux", "Fedora", "Shell"],
   },
-
-]
+  {
+    image: nvimbg,
+    title: "Neovim Config",
+    description:
+      "Custom Neovim setup with LSP, DAP, Telescope, and full multi-language support.",
+    link: "https://github.com/yasshrai/nvim",
+    tech: ["Neovim", "Lua", "LSP"],
+  },
+];
 
 export default function Project() {
   return (
@@ -75,10 +84,13 @@ export default function Project() {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-foreground hover:text-muted-foreground transition-colors cursor-default w-fit">
-            Selected<br /><span className="text-muted-foreground">Works</span>
+            Selected
+            <br />
+            <span className="text-muted-foreground">Works</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
-            A curated list of projects exploring web development, design systems, and user experience.
+            A curated list of projects exploring web development, design
+            systems, and user experience.
           </p>
         </motion.div>
 
@@ -90,16 +102,13 @@ export default function Project() {
           variants={{
             visible: {
               transition: {
-                staggerChildren: 0.1
-              }
-            }
+                staggerChildren: 0.1,
+              },
+            },
           }}
         >
           {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              {...project}
-            />
+            <ProjectCard key={index} {...project} />
           ))}
         </motion.div>
 
@@ -112,10 +121,18 @@ export default function Project() {
           transition={{ duration: 0.8 }}
         >
           <p className="text-muted-foreground text-sm">
-            More experiments on <a href="https://github.com/yasshrai" target="_blank" className="text-foreground hover:underline underline-offset-4 decoration-border">GitHub</a>.
+            More experiments on{" "}
+            <a
+              href="https://github.com/yasshrai"
+              target="_blank"
+              className="text-foreground hover:underline underline-offset-4 decoration-border"
+            >
+              GitHub
+            </a>
+            .
           </p>
         </motion.div>
       </div>
     </main>
-  )
+  );
 }
