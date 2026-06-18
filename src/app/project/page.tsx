@@ -46,7 +46,7 @@ const projects = [
     title: "Scriptly",
     description:
       "Lightweight Linux utility for installing applications using structured shell scripts. No bloat, just official sources.",
-    link: "https://scriptlly.vercel.app",
+    link: "https://scriptly-linux-x86.vercel.app/",
     tech: ["Shell", "Linux", "Next.js"],
   },
   {
