@@ -10,7 +10,7 @@ import dating from "@/app/assets/dating.jpg";
 import devorabg from "@/app/assets/devora.png";
 import scriptlybg from "@/app/assets/scriptly.png";
 import nvimbg from "@/app/assets/nvimdemo.png";
-
+import taskflowImage from "@/app/assets/taskflowimage.jpeg";
 const projects = [
   {
     image: chatappimage,
@@ -25,6 +25,14 @@ const projects = [
     description: "Inventory management system for efficient stock tracking.",
     link: "https://bookstore-frontend-76df.onrender.com/",
     tech: ["MERN Stack", "Redux"],
+  },
+  {
+    image: taskflowImage,
+    title: "TaskFlow",
+    description:
+      "Task management API with role-based access, JWT auth, and Redis token blacklisting.",
+    link: "https://github.com/yasshrai/taskflow",
+    tech: ["FastAPI", "PostgreSQL", "Redis", "Docker"],
   },
   {
     image: dating,
