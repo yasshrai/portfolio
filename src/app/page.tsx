@@ -3,7 +3,8 @@
 import { Inter } from "next/font/google"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { ArrowRight, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react"
+import { ArrowRight, ArrowUpRight, Mail } from "lucide-react"
+import { FaGithub, FaLinkedin } from "react-icons/fa6"
 import { Button } from "@/components/ui/button"
 import { useState, useEffect } from "react"
 
@@ -165,8 +166,8 @@ export default function Home() {
           <div>
             <h2 className="text-foreground font-bold text-lg mb-6 tracking-tight">Yash Rai</h2>
             <div className="flex gap-6">
-              <a href="https://github.com/yasshrai" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors"><Github size={20} /></a>
-              <a href="https://www.linkedin.com/in/yasshrai/" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors"><Linkedin size={20} /></a>
+              <a href="https://github.com/yasshrai" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors"><FaGithub size={20} /></a>
+              <a href="https://www.linkedin.com/in/yasshrai/" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors"><FaLinkedin size={20} /></a>
               <a href="mailto:yash2154rai@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors"><Mail size={20} /></a>
             </div>
           </div>

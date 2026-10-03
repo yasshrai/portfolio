@@ -22,7 +22,7 @@ const cardVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.22, 1, 0.36, 1], // Custom easing for smooth reveal
+      ease: [0.22, 1, 0.36, 1] as const, // Custom easing for smooth reveal
     },
   },
 }

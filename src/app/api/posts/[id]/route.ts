@@ -4,11 +4,12 @@ import { Post } from "@/models/Post"
 
 export async function GET(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     await dbConnect()
-    const post = await Post.findById(params.id).lean()
+    const post = await Post.findById(id).lean()
     
     if (!post) {
       return NextResponse.json({ error: "Post not found" }, { status: 404 })
@@ -23,9 +24,10 @@ export async function GET(
 
 export async function PUT(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const body = await req.json()
     const { title, summary, content, imageKey, imageUrl, slug: rawSlug, author } = body || {}
 
@@ -51,13 +53,13 @@ export async function PUT(
     }
 
     // Check if slug is already taken by another post
-    const existingPost = await Post.findOne({ slug, _id: { $ne: params.id } })
+    const existingPost = await Post.findOne({ slug, _id: { $ne: id } })
     if (existingPost) {
       return NextResponse.json({ error: "A post with the same slug already exists" }, { status: 409 })
     }
 
     const updatedPost = await Post.findByIdAndUpdate(
-      params.id,
+      id,
       { title, summary, content, imageKey, imageUrl, author, slug },
       { new: true, runValidators: true }
     )

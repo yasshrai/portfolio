@@ -5,9 +5,9 @@ import { Url } from "@/models/Url"
 export default async function UrlRedirectPage({
   params,
 }: {
-  params: { customcur: string }
+  params: Promise<{ customcur: string }>
 }) {
-  const { customcur } = params
+  const { customcur } = await params
 
   
     await dbConnect()

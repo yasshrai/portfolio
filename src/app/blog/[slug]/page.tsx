@@ -5,12 +5,13 @@ import { Post } from "@/models/Post"
 import MainSection from "../MainSection"
 
 interface PageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params
   await dbConnect()
-  const post = await Post.findOne({ slug: params.slug }, { title: 1, summary: 1, imageUrl: 1 }).lean()
+  const post = await Post.findOne({ slug }, { title: 1, summary: 1, imageUrl: 1 }).lean()
   if (!post) return { title: "Post not found" }
   return {
     title: post.title,
@@ -24,9 +25,10 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
+  const { slug } = await params
   await dbConnect()
   const post = await Post.findOne(
-    { slug: params.slug },
+    { slug },
     { title: 1, summary: 1, content: 1, imageUrl: 1, createdAt: 1, author: 1 }
   ).lean()
 
